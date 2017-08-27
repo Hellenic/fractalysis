@@ -17,6 +17,7 @@ class Sidebar extends Component {
     return (
       <aside className="sidebar" style={{ backgroundColor: Colors.DARK_GRAY3 }}>
         <img src={logo} className="App-logo" alt="logo" />
+        <hr />
         <div>
           <TextIcon iconName="folder-open" title="Scenes" />
           <TextIcon iconName="media" title="Renders" />

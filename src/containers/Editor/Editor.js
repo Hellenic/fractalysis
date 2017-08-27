@@ -12,7 +12,11 @@ const HEIGHT = 966;
 
 class Editor extends Component {
   state = {
-    shaders: {}
+    shaders: {},
+    uniforms: Object.assign({}, presets['default3d'], {
+      size: [ WIDTH, HEIGHT ],
+      outputSize: [ WIDTH, HEIGHT ]
+    })
   }
   async componentDidMount() {
     const res = await superagent.get(fragmentShader);
@@ -23,12 +27,13 @@ class Editor extends Component {
     });
     this.setState({ shaders });
   }
-  render() {
-    const { shaders } = this.state;
-    const uniforms = Object.assign({}, presets['default3d'], {
-      size: [ WIDTH, HEIGHT ],
-      outputSize: [ WIDTH, HEIGHT ]
+  onConfigChange(config) {
+    this.setState({
+      uniforms: Object.assign({}, this.state.uniforms, config)
     });
+  }
+  render() {
+    const { shaders, uniforms } = this.state;
     if (!shaders.default) {
       return (<h3>Loading...</h3>);
     }
@@ -37,7 +42,7 @@ class Editor extends Component {
         <Surface width={WIDTH} height={HEIGHT}>
           <Fractal shader={shaders.default} uniforms={uniforms} />
         </Surface>
-        <ConfigurationPanel />
+        <ConfigurationPanel onChange={c => this.onConfigChange(c)} />
       </section>
     );
   }

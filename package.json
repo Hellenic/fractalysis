@@ -11,6 +11,7 @@
     "@blueprintjs/core": "^1.26.0",
     "gl-react": "^2.2.10",
     "gl-react-dom": "^2.2.8",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-addons-css-transition-group": "^15.6.0",
     "react-dom": "^15.6.1",

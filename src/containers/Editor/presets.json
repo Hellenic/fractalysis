@@ -25,7 +25,7 @@
     "cameraPosition": [0.396367, -0.133508, 0.01]
   },
   "default3d": {
-    "scale": 2,
+    "scale": 2.0,
     "surfaceDetail": 1.0,
     "surfaceSmoothness": 0.6,
     "boundingRadius": 5,
@@ -63,7 +63,7 @@
 
     "aoIntensity": 0.11,
     "aoSpread": 4.8,
-    
+
     "objectRotation": [1, 0, 0, 0, 1, 0, 0, 0, 1],
     "fractalRotation1": [1, 0, 0, 0, 1, 0, 0, 0, 1],
     "fractalRotation2": [1, 0, 0, 0, 1, 0, 0, 0, 1]
