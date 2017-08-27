@@ -1,0 +1,28 @@
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.sidebar {
+  display: inline-block;
+  background-color: #222;
+  color: white;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  text-align: center;
+  width: 120px;
+  min-height: 700px;
+  height: 100%;
+}
+
+.icon {
+  margin-top: 25px;
+}
