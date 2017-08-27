@@ -3,7 +3,7 @@ import GL from 'gl-react';
 import { Surface } from "gl-react-dom";
 import superagent from 'superagent';
 import Fractal from '../../components/Fractal/Fractal';
-import fragmentShader from '../../shaders/2d-fs.glsl';
+import fragmentShader from '../../shaders/3d-fs.glsl';
 import presets from './presets.json';
 
 const WIDTH = 1920;
@@ -24,7 +24,7 @@ class Editor extends Component {
   }
   render() {
     const { shaders } = this.state;
-    const uniforms = Object.assign({}, presets['default'], {
+    const uniforms = Object.assign({}, presets['default3d'], {
       size: [ WIDTH, HEIGHT ],
       outputSize: [ WIDTH, HEIGHT ]
     });
