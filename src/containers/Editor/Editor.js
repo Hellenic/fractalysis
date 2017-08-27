@@ -25,9 +25,9 @@ class Editor extends Component {
   render() {
     const { shaders } = this.state;
     const uniforms = Object.assign({}, presets['default'], {
-      resolution: [ WIDTH, HEIGHT ]
+      size: [ WIDTH, HEIGHT ],
+      outputSize: [ WIDTH, HEIGHT ]
     });
-
     if (!shaders.default) {
       return (<h3>Loading...</h3>);
     }

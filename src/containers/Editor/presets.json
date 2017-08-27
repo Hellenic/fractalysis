@@ -1,6 +1,27 @@
 {
   "default": {
-    "blue": 0.5,
-    "zoom": 2.0
+    "power": 2,
+    "bailout": 11.1,
+    "minIterations": 1,
+
+    "juliaMode": false,
+    "offset": [0.36, 0.06],
+
+    "colorMode": 1,
+    "bailoutStyle": 0,
+    "colorScale": 1.4,
+    "colorCycle": 8.6,
+    "colorCycleOffset": 0,
+    "colorCycleMirror": true,
+    "hsv": true,
+    "iterationColorBlend": 1,
+
+    "color1": [0.8588235294117647, 0.21568627450980393, 0.0196078431372549],
+    "color2": [0.8941176470588236, 0.9607843137254902, 0.8470588235294118],
+    "color3": [0.01578125, 0.01578125, 0.11578125],
+    "gamma": 1.2,
+
+    "rotation": 0,
+    "cameraPosition": [0.396367, -0.133508, 0.01]
   }
 }
