@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Icon } from "@blueprintjs/core";
+import { Colors, Icon } from "@blueprintjs/core";
 import logo from './logo.svg';
 import './Sidebar.css';
 
@@ -15,9 +15,8 @@ const TextIcon = props => {
 class Sidebar extends Component {
   render() {
     return (
-      <aside className="sidebar">
+      <aside className="sidebar" style={{ backgroundColor: Colors.DARK_GRAY3 }}>
         <img src={logo} className="App-logo" alt="logo" />
-        <hr />
         <div>
           <TextIcon iconName="folder-open" title="Scenes" />
           <TextIcon iconName="media" title="Renders" />

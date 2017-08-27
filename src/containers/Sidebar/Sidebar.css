@@ -9,7 +9,6 @@
 }
 
 .sidebar {
-  display: inline-block;
   background-color: #222;
   color: white;
   z-index: 10;
@@ -19,10 +18,10 @@
 
   text-align: center;
   width: 120px;
-  min-height: 700px;
-  height: 100%;
+  border-radius: 5px;
 }
 
 .icon {
   margin-top: 25px;
+  margin-bottom: 25px;
 }

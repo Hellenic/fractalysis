@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import GL from 'gl-react';
 import { Surface } from "gl-react-dom";
 import superagent from 'superagent';
+import ConfigurationPanel from '../../components/ConfigurationPanel/ConfigurationPanel';
 import Fractal from '../../components/Fractal/Fractal';
 import fragmentShader from '../../shaders/3d-fs.glsl';
 import presets from './presets.json';
@@ -32,9 +33,12 @@ class Editor extends Component {
       return (<h3>Loading...</h3>);
     }
     return (
-      <Surface width={WIDTH} height={HEIGHT}>
-        <Fractal shader={shaders.default} uniforms={uniforms} />
-      </Surface>
+      <section>
+        <Surface width={WIDTH} height={HEIGHT}>
+          <Fractal shader={shaders.default} uniforms={uniforms} />
+        </Surface>
+        <ConfigurationPanel />
+      </section>
     );
   }
 }

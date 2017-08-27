@@ -1,0 +1,12 @@
+.panel {
+  padding: 1em;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  text-align: center;
+  width: 240px;
+  min-height: 500px;
+  border-radius: 5px;
+}
