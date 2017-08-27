@@ -1,7 +1,12 @@
 {
   "name": "fractalysis",
   "version": "0.1.0",
-  "private": true,
+  "description": "Fractal flame editor",
+  "author": "Hannu Kärkkäinen <hannu.karkkainen@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
   "dependencies": {
     "gl-react": "^2.2.10",
     "gl-react-dom": "^2.2.8",
