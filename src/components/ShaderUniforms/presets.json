@@ -1,5 +1,5 @@
 {
-  "default": {
+  "default2d": {
     "power": 2,
     "bailout": 11.1,
     "minIterations": 1,

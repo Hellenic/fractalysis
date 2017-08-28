@@ -9,13 +9,18 @@ const HEIGHT = 966;
 class ShaderUniforms extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
-    shader: PropTypes.number
+    shader: PropTypes.object
   }
   state = {
-    uniforms: Object.assign({}, presets['default'], {
-      size: [ WIDTH, HEIGHT ],
-      outputSize: [ WIDTH, HEIGHT ]
-    })
+    uniforms: {}
+  }
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      uniforms: Object.assign({}, presets[nextProps.shader.name], {
+        size: [ WIDTH, HEIGHT ],
+        outputSize: [ WIDTH, HEIGHT ]
+      })
+    });
   }
   onConfigChange(config) {
     this.setState({
@@ -28,7 +33,7 @@ class ShaderUniforms extends Component {
     const childProps = {
       width: WIDTH,
       height: HEIGHT,
-      shader,
+      shader: shader.id,
       uniforms
     };
     const childrenWithProps = React.Children.map(children, child => React.cloneElement(child, childProps));
