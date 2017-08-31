@@ -8,25 +8,43 @@ class ConfigurationPanel extends Component {
     bailout: 11.1
   }
   static propTypes = {
+    uniforms: PropTypes.object,
     onChange: PropTypes.func.isRequired
   }
+  // TODO Uniform type handling (int, float, bool, ...)
   handleChange(e, name) {
     this.setState({
       [name]: parseFloat(e.target.value)
     });
     this.props.onChange(this.state);
   }
+  renderSettings() {
+    const { uniforms } = this.props;
+    return Object.keys(uniforms).map(key => {
+      const config = uniforms[key];
+      return (
+        <div key={`uniform-${key}`}>
+          <h5>{config.label}</h5>
+          <input
+            type="range"
+            value={this.state[key]}
+            min={config.min || 0}
+            max={config.max || 5}
+            step={config.step || 0.1}
+            onChange={e => this.handleChange(e, key)}
+          />
+        </div>
+      )
+    })
+  }
   render() {
-    const { power, bailout } = this.state;
+    const { uniforms } = this.props;
     return (
       <aside className="panel" style={{ backgroundColor: '#293742' }}>
         <h2>Settings</h2>
         <hr />
         <section>
-          <h5>Power</h5>
-          <input type="range" value={power} min={1} max={3} step={0.01}  onChange={e => this.handleChange(e, 'power')} />
-          <h5>Bailout</h5>
-          <input type="range" value={bailout} min={0} max={20} step={0.1} onChange={e => this.handleChange(e, 'bailout')} />
+          { uniforms ? this.renderSettings() : 'Waiting for configurations...' }
         </section>
       </aside>
     );

@@ -31,14 +31,14 @@ class ShaderUniforms extends Component {
       })
     });
   }
-  onConfigChange(config) {
+  onUniformsChange(uniforms) {
     this.setState({
-      uniforms: Object.assign({}, this.state.uniforms, config)
+      uniforms: Object.assign({}, this.state.uniforms, uniforms)
     });
   }
   render() {
     const { uniforms } = this.state;
-    const { children, shaderId } = this.props;
+    const { children, config = {}, shaderId } = this.props;
     const childProps = {
       width: WIDTH,
       height: HEIGHT,
@@ -48,7 +48,7 @@ class ShaderUniforms extends Component {
     const childrenWithProps = React.Children.map(children, child => React.cloneElement(child, childProps));
     return (
       <div>
-        <ConfigurationPanel onChange={c => this.onConfigChange(c)} />
+        <ConfigurationPanel uniforms={config.uniforms} onChange={c => this.onUniformsChange(c)} />
         {childrenWithProps}
       </div>
     )
