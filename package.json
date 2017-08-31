@@ -8,7 +8,6 @@
     "url": "https://github.com/Hellenic/fractalysis"
   },
   "dependencies": {
-    "@blueprintjs/core": "^1.26.0",
     "gl-react": "^2.2.10",
     "gl-react-dom": "^2.2.8",
     "prop-types": "^15.5.10",

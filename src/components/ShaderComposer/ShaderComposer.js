@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Button, Colors } from "@blueprintjs/core";
 import './ShaderComposer.css';
 
 class ShaderComposer extends Component {
@@ -10,12 +9,12 @@ class ShaderComposer extends Component {
   }
   render() {
     return (
-      <aside className="shader-panel" style={{ backgroundColor: Colors.DARK_GRAY3 }}>
+      <aside className="shader-panel" style={{ backgroundColor: '#293742' }}>
         <h2>Choose shaders</h2>
         <hr />
         <section>
-          <Button onClick={() => this.props.onChange('default2D')}>2D</Button>
-          <Button onClick={() => this.props.onChange('default3D')}>3D</Button>
+          <button onClick={() => this.props.onChange('default2D')}>2D</button>
+          <button onClick={() => this.props.onChange('default3D')}>3D</button>
         </section>
       </aside>
     );

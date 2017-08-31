@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Colors, Slider } from "@blueprintjs/core";
 import './ConfigurationPanel.css';
 
 class ConfigurationPanel extends Component {
@@ -11,23 +10,23 @@ class ConfigurationPanel extends Component {
   static propTypes = {
     onChange: PropTypes.func.isRequired
   }
-  handleChange(value, name) {
+  handleChange(e, name) {
     this.setState({
-      [name]: value
+      [name]: parseFloat(e.target.value)
     });
     this.props.onChange(this.state);
   }
   render() {
     const { power, bailout } = this.state;
     return (
-      <aside className="panel" style={{ backgroundColor: Colors.DARK_GRAY3 }}>
+      <aside className="panel" style={{ backgroundColor: '#293742' }}>
         <h2>Settings</h2>
         <hr />
         <section>
-          <small>Power</small>
-          <Slider min={1} max={3} stepSize={0.01} labelStepSize={0.5} value={power} onChange={v => this.handleChange(v, 'power')} />
-          <small>Bailout</small>
-          <Slider min={0} max={20} stepSize={0.1} labelStepSize={5} value={bailout} onChange={v => this.handleChange(v, 'bailout')} />
+          <h5>Power</h5>
+          <input type="range" value={power} min={1} max={3} step={0.01}  onChange={e => this.handleChange(e, 'power')} />
+          <h5>Bailout</h5>
+          <input type="range" value={bailout} min={0} max={20} step={0.1} onChange={e => this.handleChange(e, 'bailout')} />
         </section>
       </aside>
     );
