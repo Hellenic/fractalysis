@@ -1,0 +1,76 @@
+{
+  "default2D": {
+    "shader": "shaders/2d-fs.glsl",
+    "uniforms": {
+      "power": { "label": "Power", "defaultValue": 2.0, "min": 1, "max": 3, "step": 0.01 },
+      "bailout": { "label": "Bailout", "defaultValue": 11.1, "min": 0, "max": 20, "step": 0.1 },
+      "minIterations": { "label": "Min. iterations", "defaultValue": 1, "min": 0, "max": 5, "step": 1 },
+
+      "juliaMode": { "label": "Julia mode", "defaultValue": false },
+      "offset": { "label": "Offset", "defaultValue": [0.36, 0.06] },
+
+      "colorMode": { "label": "Color mode", "defaultValue": 1 },
+      "bailoutStyle": { "label": "Bailout style", "defaultValue": 0 },
+      "colorScale": { "label": "Color scale", "defaultValue": 1.4 },
+      "colorCycle": { "label": "Color cycle", "defaultValue": 8.6 },
+      "colorCycleOffset": { "label": "Color cycle offset", "defaultValue": 0.0 },
+      "colorCycleMirror": { "label": "Color cycle mirror", "defaultValue": true },
+      "hsv": { "label": "HSV", "defaultValue": true },
+      "iterationColorBlend": { "label": "Iteration color blend", "defaultValue": 1.0 },
+
+      "color1": { "label": "Color #1", "defaultValue": [0.8588235294117647, 0.21568627450980393, 0.0196078431372549] },
+      "color2": { "label": "Color #2", "defaultValue": [0.8941176470588236, 0.9607843137254902, 0.8470588235294118] },
+      "color3": { "label": "Color #3", "defaultValue": [0.01578125, 0.01578125, 0.11578125] },
+      "gamma": { "label": "Gamma", "defaultValue": 1.2 },
+      "rotation": { "label": "Rotation", "defaultValue": 0.0 },
+      "cameraPosition": { "label": "Camera position", "defaultValue": [0.396367, -0.133508, 0.01] }
+    }
+  },
+  "default3D": {
+    "shader": "shaders/3d-fs.glsl",
+    "uniforms": {
+      "scale": { "label": "Scale", "defaultValue": 2.0 },
+      "surfaceDetail": { "label": "Surface detail", "defaultValue": 1.0 },
+      "surfaceSmoothness": { "label": "Surface smoothness", "defaultValue": 0.6 },
+      "boundingRadius": { "label": "Bounding radius", "defaultValue": 5 },
+      "offset": { "defaultValue": [1, 0, 0] },
+      "shift": { "defaultValue": [0, 0, 0] },
+
+      "cameraRoll": { "defaultValue": 0 },
+      "cameraPitch": { "defaultValue": -10 },
+      "cameraYaw": { "defaultValue": -11.5 },
+      "cameraFocalLength": { "defaultValue": 0.9 },
+      "cameraPosition": { "defaultValue": [0.452288, 0.41647, -1.896852] },
+
+      "colorIterations": { "defaultValue": 4 },
+      "color1": { "defaultValue": [1, 1, 1] },
+      "color1Intensity": { "defaultValue": 0.45 },
+      "color2": { "defaultValue": [0, 0.53, 0.8] },
+      "color2Intensity": { "defaultValue": 0.3 },
+      "color3": { "defaultValue": [1, 0.53, 0] },
+      "color3Intensity": { "defaultValue": 0 },
+      "transparent": { "defaultValue": false },
+      "gamma": { "defaultValue": 1 },
+
+      "light": { "defaultValue": [-16, 100, -60] },
+      "ambientColor": { "defaultValue": [0.5, 0.3] },
+      "background1Color": { "defaultValue": [0, 0.46, 0.8] },
+      "background2Color": { "defaultValue": [0, 0, 0] },
+      "innerGlowColor": { "defaultValue": [0, 0.6, 0.8] },
+      "innerGlowIntensity": { "defaultValue": 0.1 },
+      "outerGlowColor": { "defaultValue": [1, 1, 1] },
+      "outerGlowIntensity": { "defaultValue": 0 },
+      "fog": { "defaultValue": 0 },
+      "fogFalloff": { "defaultValue": 0 },
+      "specularity": { "defaultValue": 0.8 },
+      "specularExponent": { "defaultValue": 4 },
+
+      "aoIntensity": { "defaultValue": 0.11 },
+      "aoSpread": { "defaultValue": 4.8 },
+
+      "objectRotation": { "defaultValue": [1, 0, 0, 0, 1, 0, 0, 0, 1] },
+      "fractalRotation1": { "defaultValue": [1, 0, 0, 0, 1, 0, 0, 0, 1] },
+      "fractalRotation2": { "defaultValue": [1, 0, 0, 0, 1, 0, 0, 0, 1] }
+    }
+  }
+}

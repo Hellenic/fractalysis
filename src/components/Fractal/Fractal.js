@@ -7,12 +7,12 @@ const Draw = GL.createComponent(props =>
 );
 
 const Fractal = props => {
-  if (!props.shader) {
+  if (!props.shaderId) {
     return (<h3>Loading...</h3>);
   }
   return (
     <Surface width={props.width} height={props.height}>
-       <Draw shader={props.shader} uniforms={props.uniforms} />
+       <Draw shader={props.shaderId} uniforms={props.uniforms} />
     </Surface>
   );
 };

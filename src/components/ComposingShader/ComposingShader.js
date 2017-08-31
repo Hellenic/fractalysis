@@ -3,49 +3,50 @@ import React, { Component } from 'react';
 import superagent from 'superagent';
 import GL from 'gl-react';
 import ShaderComposer from '../ShaderComposer/ShaderComposer';
-import fragmentShader2d from '../../shaders/2d-fs.glsl';
-import fragmentShader3d from '../../shaders/3d-fs.glsl';
+import configurations from './configurations.json';
+
+const DEFAULT_SHADER = 'default2D';
 
 class ComposingShader extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired
   }
   state = {
-    shaders: {}
+    shader: {}
   }
-  async componentDidMount() {
-    const res2d = await superagent.get(fragmentShader2d);
-    const res3d = await superagent.get(fragmentShader3d);
-    const shaders = GL.Shaders.create({
-      default2d: {
-        frag: res2d.text
-      },
-      default3d: {
-        frag: res3d.text
+  async getShader(shaderName) {
+    const config = configurations[shaderName];
+    // TODO This should be cached. I think we can check it with GL.Shaders, if it's already there
+    const shaderResponse = await superagent.get(config.shader);
+    const shaderId = GL.Shaders.create({
+      [shaderName]: {
+        frag: shaderResponse.text
       }
-    });
+    })[shaderName];
+    return {
+      shaderId,
+      config
+    }
+  }
+  // Load default shader on initial load
+  async componentWillMount() {
     this.setState({
-      currentShader: 'default2d',
-      shaders
+      shader: await this.getShader(DEFAULT_SHADER)
     });
   }
-  handleShaderChange(shaderName) {
+  async handleShaderChange(shaderName) {
     this.setState({
-      currentShader: shaderName
+      shader: await this.getShader(shaderName)
     });
   }
   render() {
-    const { currentShader, shaders } = this.state;
+    const { shaderId, config } = this.state.shader;
     const { children } = this.props;
-    const shader = {
-      name: currentShader,
-      id: shaders[currentShader]
-    };
 
-    const childrenWithProps = React.Children.map(children, child => React.cloneElement(child, { shader }));
+    const childrenWithProps = React.Children.map(children, child => React.cloneElement(child, { shaderId, config }));
     return (
       <div>
-        <ShaderComposer shaders={shaders} onChange={s => this.handleShaderChange(s)}/>
+        <ShaderComposer configurations={configurations} onChange={s => this.handleShaderChange(s)}/>
         {childrenWithProps}
       </div>
     )

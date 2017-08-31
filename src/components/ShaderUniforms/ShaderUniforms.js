@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import ConfigurationPanel from '../ConfigurationPanel/ConfigurationPanel';
-import presets from './presets.json';
 
 const WIDTH = 1920;
 const HEIGHT = 966;
@@ -9,14 +8,24 @@ const HEIGHT = 966;
 class ShaderUniforms extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
-    shader: PropTypes.object
+    shaderId: PropTypes.number,
+    config: PropTypes.object
   }
   state = {
     uniforms: {}
   }
   componentWillReceiveProps(nextProps) {
+    const { uniforms } = nextProps.config;
+    // Collect the default values from the uniforms configs
+    const values = Object.keys(uniforms).reduce((acc, key) => {
+      const config = uniforms[key];
+      acc[key] = config.defaultValue;
+      return acc;
+    }, {});
+
+    // Control the uniforms via state, so config can modify them too
     this.setState({
-      uniforms: Object.assign({}, presets[nextProps.shader.name], {
+      uniforms: Object.assign({}, values, {
         size: [ WIDTH, HEIGHT ],
         outputSize: [ WIDTH, HEIGHT ]
       })
@@ -29,11 +38,11 @@ class ShaderUniforms extends Component {
   }
   render() {
     const { uniforms } = this.state;
-    const { children, shader } = this.props;
+    const { children, shaderId } = this.props;
     const childProps = {
       width: WIDTH,
       height: HEIGHT,
-      shader: shader.id,
+      shaderId,
       uniforms
     };
     const childrenWithProps = React.Children.map(children, child => React.cloneElement(child, childProps));

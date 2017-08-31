@@ -5,7 +5,7 @@ import './ShaderComposer.css';
 
 class ShaderComposer extends Component {
   static propTypes = {
-    shaders: PropTypes.object,
+    configurations: PropTypes.object,
     onChange: PropTypes.func.isRequired
   }
   render() {
@@ -14,8 +14,8 @@ class ShaderComposer extends Component {
         <h2>Choose shaders</h2>
         <hr />
         <section>
-          <Button onClick={() => this.props.onChange('default2d')}>2D</Button>
-          <Button onClick={() => this.props.onChange('default3d')}>3D</Button>
+          <Button onClick={() => this.props.onChange('default2D')}>2D</Button>
+          <Button onClick={() => this.props.onChange('default3D')}>3D</Button>
         </section>
       </aside>
     );
