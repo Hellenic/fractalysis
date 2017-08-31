@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import superagent from 'superagent';
 import GL from 'gl-react';
-import ShaderComposer from '../ShaderComposer/ShaderComposer';
+import ShaderPanel from '../ShaderPanel/ShaderPanel';
 import configurations from './configurations.json';
 
 const DEFAULT_SHADER = 'default2D';
@@ -46,7 +46,7 @@ class ComposingShader extends Component {
     const childrenWithProps = React.Children.map(children, child => React.cloneElement(child, { shaderId, config }));
     return (
       <div>
-        <ShaderComposer configurations={configurations} onChange={s => this.handleShaderChange(s)}/>
+        <ShaderPanel configurations={configurations} onChange={s => this.handleShaderChange(s)}/>
         {childrenWithProps}
       </div>
     )

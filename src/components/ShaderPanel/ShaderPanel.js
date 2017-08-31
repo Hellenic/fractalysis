@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import './ShaderComposer.css';
+import './ShaderPanel.css';
 
-class ShaderComposer extends Component {
+class ShaderPanel extends Component {
   static propTypes = {
     configurations: PropTypes.object,
     onChange: PropTypes.func.isRequired
@@ -21,4 +21,4 @@ class ShaderComposer extends Component {
   }
 }
 
-export default ShaderComposer;
+export default ShaderPanel;
