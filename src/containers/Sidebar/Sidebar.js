@@ -23,6 +23,9 @@ class Sidebar extends Component {
           <TextIcon icon="📷" title="Renders" to="/renders" />
           <TextIcon icon="📝" title="Editor" to="/" />
         </div>
+        <br />
+        <small>Work in progress!</small><br />
+        <small>2nd September 2017</small>
       </aside>
     );
   }
