@@ -1,15 +1,16 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { getUniformType, getInputTypeForUniform } from '../../utils/uniforms';
 
-class InputControl extends Component {
+class UniformControl extends Component {
   static propTypes = {
-    type: PropTypes.string,
     defaultValue: PropTypes.any,
     onChange: PropTypes.func.isRequired
   }
   handleChange(event, type) {
     let value = event.target.value;
     const isInt = v => /^-?[0-9]+$/.test(`${v}`);
+
     if (type === 'range') {
       value = isInt(value) ? parseInt(value, 10) : parseFloat(value);
     }
@@ -20,24 +21,26 @@ class InputControl extends Component {
     this.props.onChange(value);
   }
   render() {
-    const { type, defaultValue, onChange, ...rest } = this.props;
+    const { defaultValue, onChange, ...rest } = this.props;
+    const uniformType = getUniformType(defaultValue);
+    const inputType = getInputTypeForUniform(uniformType);
 
     // Default input types
-    if (['checkbox', 'range'].includes(type)) {
+    if (['checkbox', 'range'].includes(inputType)) {
       return (
         <input
-          type={type}
+          type={inputType}
           defaultValue={defaultValue}
           {...rest}
-          onChange={e => this.handleChange(e, type)}
+          onChange={e => this.handleChange(e, inputType)}
         />
       );
     }
 
-    // TODO Vector for arrays
+    // TODO Support for rest of uniform types
 
-    return <span>Unsupported input type: {type}</span>;
+    return <span>Unsupported uniform type: {uniformType}</span>;
   }
 }
 
-export default InputControl;
+export default UniformControl;

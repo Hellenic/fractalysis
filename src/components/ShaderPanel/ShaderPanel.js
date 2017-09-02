@@ -17,7 +17,7 @@ class ShaderPanel extends Component {
           {
             Object.keys(configurations).map(key => {
               const conf = configurations[key];
-              return (<button onClick={() => onChange(key)}>{conf.name}</button>);
+              return (<button key={`shader-${key}`} onClick={() => onChange(key)}>{conf.name}</button>);
             })
           }
         </section>
