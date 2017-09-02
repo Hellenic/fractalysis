@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import ConfigurationInput from './ConfigurationInput';
+import ConfigurationPane from './ConfigurationPane';
 import './ConfigurationPanel.css';
 
 class ConfigurationPanel extends Component {
@@ -24,7 +24,11 @@ class ConfigurationPanel extends Component {
         <section>
           {
             uniforms && Object.keys(uniforms).map(key => (
-              <ConfigurationInput key={`uniform-${key}`} config={uniforms[key]} onChange={v => this.handleChange(v, key)} />
+              <ConfigurationPane
+                key={`uniform-${key}`}
+                config={uniforms[key]}
+                onChange={v => this.handleChange(v, key)}
+              />
             ))
           }
         </section>

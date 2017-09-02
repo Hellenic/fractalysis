@@ -9,20 +9,20 @@
       "juliaMode": { "label": "Julia mode", "defaultValue": false },
       "offset": { "label": "Offset", "defaultValue": [0.36, 0.06] },
 
-      "colorMode": { "label": "Color mode", "defaultValue": 1 },
-      "bailoutStyle": { "label": "Bailout style", "defaultValue": 0 },
-      "colorScale": { "label": "Color scale", "defaultValue": 1.4 },
-      "colorCycle": { "label": "Color cycle", "defaultValue": 8.6 },
-      "colorCycleOffset": { "label": "Color cycle offset", "defaultValue": 0.0 },
+      "colorMode": { "label": "Color mode", "defaultValue": 1, "min": 0, "max": 2, "step": 1 },
+      "bailoutStyle": { "label": "Bailout style", "defaultValue": 0, "min": 0, "max": 5, "step": 1 },
+      "colorScale": { "label": "Color scale", "defaultValue": 1.4, "min": 0, "max": 5, "step": 0.1 },
+      "colorCycle": { "label": "Color cycle", "defaultValue": 8.6, "min": 0, "max": 10, "step": 0.1 },
+      "colorCycleOffset": { "label": "Color cycle offset", "defaultValue": 0.0, "min": 0, "max": 5, "step": 0.1 },
       "colorCycleMirror": { "label": "Color cycle mirror", "defaultValue": true },
       "hsv": { "label": "HSV", "defaultValue": true },
-      "iterationColorBlend": { "label": "Iteration color blend", "defaultValue": 1.0 },
+      "iterationColorBlend": { "label": "Iteration color blend", "defaultValue": 1.0, "min": 0, "max": 5, "step": 0.1 },
 
       "color1": { "label": "Color #1", "defaultValue": [0.8588235294117647, 0.21568627450980393, 0.0196078431372549] },
       "color2": { "label": "Color #2", "defaultValue": [0.8941176470588236, 0.9607843137254902, 0.8470588235294118] },
       "color3": { "label": "Color #3", "defaultValue": [0.01578125, 0.01578125, 0.11578125] },
-      "gamma": { "label": "Gamma", "defaultValue": 1.2 },
-      "rotation": { "label": "Rotation", "defaultValue": 0.0 },
+      "gamma": { "label": "Gamma", "defaultValue": 1.2, "min": 0, "max": 3, "step": 0.1 },
+      "rotation": { "label": "Rotation", "defaultValue": 0.0, "min": 0, "max": 3, "step": 0.1 },
       "cameraPosition": { "label": "Camera position", "defaultValue": [0.396367, -0.133508, 0.01] }
     }
   },
