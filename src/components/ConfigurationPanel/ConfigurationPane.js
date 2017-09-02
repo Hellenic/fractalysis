@@ -10,6 +10,8 @@ class ConfigurationPane extends Component {
   static defaultProps = {
     config: {}
   }
+  // Supported uniforms: int, float, bool
+  // Not supported yet: vec2, vec3, mat
   getType(value) {
     switch (typeof value) {
       case "boolean":
