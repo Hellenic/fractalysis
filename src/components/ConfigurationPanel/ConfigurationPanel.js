@@ -1,41 +1,19 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import ConfigurationInput from './ConfigurationInput';
 import './ConfigurationPanel.css';
 
 class ConfigurationPanel extends Component {
-  state = {
-    power: 2.0,
-    bailout: 11.1
-  }
+  state = {}
   static propTypes = {
     uniforms: PropTypes.object,
     onChange: PropTypes.func.isRequired
   }
-  // TODO Uniform type handling (int, float, bool, ...)
-  handleChange(e, name) {
+  handleChange(value, name) {
     this.setState({
-      [name]: parseFloat(e.target.value)
+      [name]: value
     });
     this.props.onChange(this.state);
-  }
-  renderSettings() {
-    const { uniforms } = this.props;
-    return Object.keys(uniforms).map(key => {
-      const config = uniforms[key];
-      return (
-        <div key={`uniform-${key}`}>
-          <h5>{config.label}</h5>
-          <input
-            type="range"
-            value={this.state[key]}
-            min={config.min || 0}
-            max={config.max || 5}
-            step={config.step || 0.1}
-            onChange={e => this.handleChange(e, key)}
-          />
-        </div>
-      )
-    })
   }
   render() {
     const { uniforms } = this.props;
@@ -44,7 +22,11 @@ class ConfigurationPanel extends Component {
         <h2>Settings</h2>
         <hr />
         <section>
-          { uniforms ? this.renderSettings() : 'Waiting for configurations...' }
+          {
+            uniforms && Object.keys(uniforms).map(key => (
+              <ConfigurationInput key={`uniform-${key}`} config={uniforms[key]} onChange={v => this.handleChange(v, key)} />
+            ))
+          }
         </section>
       </aside>
     );
