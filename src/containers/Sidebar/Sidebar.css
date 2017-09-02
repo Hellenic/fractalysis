@@ -21,6 +21,11 @@
   border-radius: 5px;
 }
 
+.sidebar a {
+  color: white;
+  text-decoration: none;
+}
+
 .icon {
   margin-top: 25px;
   margin-bottom: 25px;

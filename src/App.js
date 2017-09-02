@@ -4,12 +4,13 @@ import Editor from './containers/Editor/Editor';
 import Scenes from './containers/Scenes/Scenes';
 import Renders from './containers/Renders/Renders';
 import Sidebar from './containers/Sidebar/Sidebar';
+import './App.css';
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <div className="pt-dark">
+        <div className="app">
           <Sidebar />
 
           <Route exact path="/" component={Editor}/>
