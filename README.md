@@ -3,7 +3,10 @@
 An interactive fractal flame editor.
 
 This is an attempt to create a easy-to-use, online editor to create fancy looking images –
-more accurately, fractal flames.
+more accurately, [fractal flames](https://en.wikipedia.org/wiki/Fractal_flame).
+
+Goal of this project is to achieve same, and more, as with old Apophysis. Here's some example
+of what I want this project to be capable of: [Apophysis on Google Photos @hkarkk](https://photos.google.com/share/AF1QipMnab4yKkrYEMaI1AaY3SGvRa6WHXy-vz3nwIhHF3DHdu8pgJTBJWZ30GpnW7nwbg?key=VUNnOHUzQmxoR1N4Sk9NTGlRSVFKcS0wUTN1RmJR)
 
 > This project is work in progress!
 > While the basic structure is already there, majority of features are still not there.
@@ -19,7 +22,7 @@ This platform will provide a set of (composable) shaders, that the user can choo
 and how to combine them together. Each shader will have it's own specific set of features and how it
 affects the outcome.
 
-Each shader has a set of parameters (uniforms) that can affect the outcome. For all those parameters,
+Each shader has a set of parameters (uniforms), which as well, can affect the outcome. For all those parameters,
 a configuration panel will be generated so the user can easily change any setting, to adjust the final render.
 
 User may also save their shader selections and configurations to a preset, to come back to them later.
