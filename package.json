@@ -4,6 +4,7 @@
   "description": "Fractal flame editor",
   "author": "Hannu Kärkkäinen <hannu.karkkainen@gmail.com>",
   "homepage" : "http://fractalys.is",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/Hellenic/fractalysis"

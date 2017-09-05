@@ -26,8 +26,7 @@ class Sidebar extends Component {
           <TextIcon icon="📝" title="Editor" to="/" />
         </div>
         <br />
-        <small>Work in progress!</small><br />
-        <small>2nd September 2017</small>
+        <small>Early development version</small><br />
       </aside>
     );
   }
