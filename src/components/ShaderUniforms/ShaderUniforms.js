@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import ConfigurationPanel from '../ConfigurationPanel/ConfigurationPanel';
 
-const WIDTH = 1920;
-const HEIGHT = 966;
+const WIDTH = window.innerWidth;
+const HEIGHT = window.innerHeight;
 
 class ShaderUniforms extends Component {
   static propTypes = {

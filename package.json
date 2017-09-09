@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Fractal flame editor",
   "author": "Hannu Kärkkäinen <hannu.karkkainen@gmail.com>",
-  "homepage" : "http://fractalys.is",
+  "homepage": "http://fractalys.is",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -16,6 +16,7 @@
     "react": "^15.6.1",
     "react-addons-css-transition-group": "^15.6.0",
     "react-dom": "^15.6.1",
+    "react-precision-slider": "^0.1.1",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.11",
     "superagent": "^3.6.0"
