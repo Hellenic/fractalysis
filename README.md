@@ -11,8 +11,6 @@ of what I want this project to be capable of: [Apophysis on Google Photos @hkark
 > This project is work in progress!
 > While the basic structure is already there, majority of features are still not there.
 
-Temporary preview: http://karkk.ai/nen/fractalysis/
-
 ## How it works / [will work]
 
 Basically, there's the shaders that do the heavy lifting. Those shaders can take in
