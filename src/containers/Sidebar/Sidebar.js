@@ -27,6 +27,7 @@ class Sidebar extends Component {
         </div>
         <br />
         <small>Early development version</small><br />
+        <small><a href="https://github.com/Hellenic/fractalysis">Github</a></small>
       </aside>
     );
   }
