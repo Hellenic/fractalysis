@@ -5,18 +5,19 @@ import { getUniformType, getInputTypeForUniform } from '../../utils/uniforms';
 
 class UniformControl extends Component {
   static propTypes = {
+    label: PropTypes.string,
     defaultValue: PropTypes.any,
     onChange: PropTypes.func.isRequired
   }
   render() {
-    const { defaultValue, onChange, ...rest } = this.props;
+    const { label, defaultValue, onChange, ...rest } = this.props;
     const uniformType = getUniformType(defaultValue);
     const inputType = getInputTypeForUniform(uniformType);
 
     if (inputType === 'range') {
       return (
         <Slider
-          type={inputType}
+          label={label}
           defaultValue={defaultValue}
           onChange={v => onChange(v)}
           {...rest}
@@ -26,12 +27,15 @@ class UniformControl extends Component {
     // Default input types
     else if (['checkbox'].includes(inputType)) {
       return (
-        <input
-          type={inputType}
-          defaultValue={defaultValue}
-          {...rest}
-          onChange={e => onChange((e.target.value === 'true'))}
-        />
+        <div>
+          <strong>{label}</strong>
+          <input
+            type={inputType}
+            defaultValue={defaultValue}
+            {...rest}
+            onChange={e => onChange((e.target.value === 'true'))}
+          />
+        </div>
       );
     }
 
