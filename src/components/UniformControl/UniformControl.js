@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Slider from 'react-precision-slider';
 import { getUniformType, getInputTypeForUniform } from '../../utils/uniforms';
+import { floatToHex, hexToFloat } from '../../utils/colors';
 
 class UniformControl extends Component {
   static propTypes = {
@@ -10,11 +11,14 @@ class UniformControl extends Component {
     onChange: PropTypes.func.isRequired
   }
   render() {
-    const { label, defaultValue, onChange, ...rest } = this.props;
+    const { label, defaultValue, onChange, inputType, ...rest } = this.props;
     const uniformType = getUniformType(defaultValue);
-    const inputType = getInputTypeForUniform(uniformType);
+    let type = inputType;
+    if (!type) {
+      type = getInputTypeForUniform(uniformType);
+    }
 
-    if (inputType === 'range') {
+    if (type === 'range') {
       return (
         <Slider
           label={label}
@@ -25,15 +29,28 @@ class UniformControl extends Component {
       );
     }
     // Default input types
-    else if (['checkbox'].includes(inputType)) {
+    else if (['checkbox'].includes(type)) {
       return (
         <div>
           <strong>{label}</strong>
           <input
-            type={inputType}
-            defaultValue={defaultValue}
+            type={type}
+            defaultChecked={defaultValue}
             {...rest}
             onChange={e => onChange((e.target.value === 'true'))}
+          />
+        </div>
+      );
+    }
+    else if (['color'].includes(type)) {
+      return (
+        <div>
+          <strong>{label}</strong>
+          <input
+            type={type}
+            defaultValue={floatToHex(defaultValue)}
+            {...rest}
+            onChange={e => onChange(hexToFloat(e.target.value))}
           />
         </div>
       );
