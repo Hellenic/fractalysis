@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Editor from './containers/Editor/Editor';
-import Scenes from './containers/Scenes/Scenes';
-import Renders from './containers/Renders/Renders';
 import Sidebar from './containers/Sidebar/Sidebar';
+import routes from './routes';
 import './App.css';
 
 class App extends Component {
@@ -12,10 +10,11 @@ class App extends Component {
       <Router>
         <div className="app">
           <Sidebar />
-
-          <Route exact path="/" component={Editor}/>
-          <Route path="/scenes" component={Scenes}/>
-          <Route path="/renders" component={Renders}/>
+          {
+            routes.map((route, index) => (
+              <Route key={index} exact={route.exact} path={route.path} component={route.main} />
+            ))
+          }
         </div>
       </Router>
     );
