@@ -1,4 +1,4 @@
-.sidebar {
+.navbar {
   z-index: 10;
   position: absolute;
   top: 0;
@@ -9,7 +9,7 @@
   border-radius: 5px;
 }
 
-.sidebar a {
+.navbar a {
   text-decoration: none;
 }
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Dropdown, Icon } from 'semantic-ui-react';
-import './Sidebar.css';
 
 const TextIcon = props => {
   return (

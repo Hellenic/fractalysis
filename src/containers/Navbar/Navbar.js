@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import PageSelector from './PageSelector';
 import routes from '../../routes';
-import './Sidebar.css';
+import './Navbar.css';
 
-class Sidebar extends Component {
+class Navbar extends Component {
   render() {
     return (
-      <aside className="sidebar" style={{ backgroundColor: '#293742' }}>
+      <nav className="navbar" style={{ backgroundColor: '#293742' }}>
         {
           routes.map((route, index) => (
             <Route key={index} exact={route.exact} path={route.path} render={() => (
@@ -20,9 +20,9 @@ class Sidebar extends Component {
         }
         <small>Early development version</small><br />
         <small><a href="https://github.com/Hellenic/fractalysis">Github</a></small>
-      </aside>
+      </nav>
     );
   }
 }
 
-export default Sidebar;
+export default Navbar;
