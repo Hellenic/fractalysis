@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
+import { Grid, Icon } from 'semantic-ui-react';
 import PageSelector from './PageSelector';
 import routes from '../../routes';
 import './Navbar.css';
@@ -7,19 +8,26 @@ import './Navbar.css';
 class Navbar extends Component {
   render() {
     return (
-      <nav className="navbar" style={{ backgroundColor: '#293742' }}>
-        {
-          routes.map((route, index) => (
-            <Route key={index} exact={route.exact} path={route.path} render={() => (
-              <div>
-                <PageSelector index={index} />
-                {route.sidebar}
-              </div>
-            )} />
-          ))
-        }
-        <small>Early development version</small><br />
-        <small><a href="https://github.com/Hellenic/fractalysis">Github</a></small>
+      <nav className="navbar">
+        <Grid columns={8} divided>
+          <Grid.Column>
+            <PageSelector />
+          </Grid.Column>
+          <Grid.Column width={12}>
+          {
+            routes.map((route, index) => (
+              <Route key={index} exact={route.exact} path={route.path} component={route.navbar} />
+            ))
+          }
+          </Grid.Column>
+          <Grid.Column>
+            <small>Early development version</small><br />
+            <span>
+              <Icon name="github" />
+              <a href="https://github.com/Hellenic/fractalysis">Github</a>
+            </span>
+          </Grid.Column>
+        </Grid>
       </nav>
     );
   }

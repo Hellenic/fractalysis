@@ -1,20 +1,26 @@
 import React from 'react';
 import Editor from './containers/Editor/Editor';
+import EditorNav from './containers/Editor/EditorNav';
 import Scenes from './containers/Scenes/Scenes';
+import ScenesNav from './containers/Scenes/ScenesNav';
 import Renders from './containers/Renders/Renders';
+import RendersNav from './containers/Renders/RendersNav';
 
 const routes = [
-  { path: '/',
+  {
+    path: '/',
     exact: true,
-    sidebar: <h3>Editor!</h3>,
+    navbar: () => <EditorNav />,
     main: () => <Editor />
   },
-  { path: '/scenes',
-    sidebar: <h3>Scenes!</h3>,
+  {
+    path: '/scenes',
+    navbar: () => <ScenesNav />,
     main: () => <Scenes />
   },
-  { path: '/renders',
-    sidebar: <h3>Renders!</h3>,
+  {
+    path: '/renders',
+    navbar: () => <RendersNav />,
     main: () => <Renders />
   }
 ]
