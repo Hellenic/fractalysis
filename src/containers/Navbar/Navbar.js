@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import { Grid, Icon } from 'semantic-ui-react';
+import { Icon, Menu } from 'semantic-ui-react';
 import PageSelector from './PageSelector';
 import routes from '../../routes';
 import './Navbar.css';
@@ -9,25 +9,29 @@ class Navbar extends Component {
   render() {
     return (
       <nav className="navbar">
-        <Grid columns={8} divided>
-          <Grid.Column>
+        <Menu>
+          <Menu.Item name="gamepad">
             <PageSelector />
-          </Grid.Column>
-          <Grid.Column width={12}>
-          {
-            routes.map((route, index) => (
-              <Route key={index} exact={route.exact} path={route.path} component={route.navbar} />
-            ))
-          }
-          </Grid.Column>
-          <Grid.Column>
+          </Menu.Item>
+          <Menu.Item name="video camera">
+            {
+              routes.map((route, index) => (
+                <Route key={index} exact={route.exact} path={route.path} component={route.navbar} />
+              ))
+            }
+          </Menu.Item>
+          <Menu.Item name="video play">
+            <Icon name="video play" />
+            Randomize
+          </Menu.Item>
+          <Menu.Item>
             <small>Early development version</small><br />
             <span>
               <Icon name="github" />
               <a href="https://github.com/Hellenic/fractalysis">Github</a>
             </span>
-          </Grid.Column>
-        </Grid>
+          </Menu.Item>
+        </Menu>
       </nav>
     );
   }

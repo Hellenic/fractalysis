@@ -13,12 +13,7 @@ const options = [
 const PageSelector = ({ location }) => {
   const currentIndex = routes.findIndex(r => r.path === location.pathname);
   return (
-    <Dropdown
-      trigger={options[currentIndex].content}
-      icon="dropdown"
-      options={options}
-      defaultValue={0}
-    />
+    <Dropdown labeled trigger={options[currentIndex].content} icon="dropdown" options={options} />
   );
 };
 

@@ -4,16 +4,24 @@ import { Link } from 'react-router-dom';
 import { Icon } from 'semantic-ui-react';
 
 const TextIcon = props => {
+  if (!props.to) {
+    return (
+      <span>
+        <Icon name={props.icon} size="huge" />
+        <span>{props.title}</span>
+      </span>
+    );
+  }
   return (
     <Link to={props.to}>
       <Icon name={props.icon} size="huge" />
-      <div>{props.title}</div>
+      <span>{props.title}</span>
     </Link>
   );
 };
 
 TextIcon.propTypes = {
-  to: PropTypes.string.isRequired,
+  to: PropTypes.string,
   icon: PropTypes.string,
   title: PropTypes.string
 };
