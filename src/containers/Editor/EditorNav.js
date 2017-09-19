@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Icon, Menu } from 'semantic-ui-react';
-import ShaderSelector from './ShaderSelector';
+import ComposingShader from '../../components/ComposingShader/ComposingShader';
 
 class EditorNavbar extends Component {
   render() {
     return (
       <Menu secondary>
         <Menu.Item>
-          <ShaderSelector />
+          <ComposingShader />
         </Menu.Item>
         <Menu.Item>
           <Icon name="zoom" />

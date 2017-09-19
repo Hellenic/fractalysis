@@ -1,16 +1,13 @@
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import superagent from 'superagent';
 import GL from 'gl-react';
-import ShaderPanel from '../ShaderPanel/ShaderPanel';
+import { Dropdown } from 'semantic-ui-react';
+import TextIcon from '../../components/TextIcon/TextIcon';
 import configurations from './configurations.json';
 
 const DEFAULT_SHADER = 'default2D';
 
 class ComposingShader extends Component {
-  static propTypes = {
-    children: PropTypes.node.isRequired
-  }
   state = {
     shader: {}
   }
@@ -39,16 +36,30 @@ class ComposingShader extends Component {
       shader: await this.getShader(shaderName)
     });
   }
-  render() {
-    const { shaderId, config } = this.state.shader;
-    const { children } = this.props;
 
-    const childrenWithProps = React.Children.map(children, child => React.cloneElement(child, { shaderId, config }));
+  render() {
+    // TODO Instead of state, use the URL, context or other storage
+    // const { shaderId, config } = this.state.shader;
+
     return (
-      <div>
-        <ShaderPanel configurations={configurations} onChange={s => this.handleShaderChange(s)}/>
-        {childrenWithProps}
-      </div>
+      <Dropdown trigger={<TextIcon icon="eye" title="Shader" />} icon="dropdown">
+        <Dropdown.Menu>
+          {
+            Object.keys(configurations).map(key => {
+              const conf = configurations[key];
+              return (
+                <Dropdown.Item
+                  key={`shader-${key}`}
+                  icon={conf.icon}
+                  text={conf.name}
+                  value={key}
+                  onClick={(e, { value }) => this.handleShaderChange(value)}
+                />
+              );
+            })
+          }
+        </Dropdown.Menu>
+      </Dropdown>
     )
   }
 }
