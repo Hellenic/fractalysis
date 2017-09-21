@@ -21,14 +21,15 @@ class ComposingShader extends Component {
       }
     })[shaderName];
 
-    // Store shader information into the URL
-    const queryString = stringify({ shader: shaderName });
-    push(`/?${queryString}`);
-
     // Push the whole config into sessionStorage
     // Experimental; Normally one would use redux or similar for this...
     sessionStorage.setItem('shader', JSON.stringify({ shader: shaderName, shaderId, config }));
+
+    // Store shader information into the URL
+    const queryString = stringify({ shader: shaderName });
+    push(`/?${queryString}`);
   }
+
   // Load either URL defined or default shader on initial load
   async componentWillMount() {
     const { location } = this.props;
