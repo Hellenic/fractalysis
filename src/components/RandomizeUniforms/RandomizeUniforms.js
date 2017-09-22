@@ -3,12 +3,13 @@ import { withRouter } from 'react-router';
 import { parse, stringify } from 'qs';
 import TextIcon from '../TextIcon/TextIcon';
 import { getUniformType } from '../../utils/uniforms';
+import configurations from '../configurations.json';
 
 class RandomizeUniforms extends Component {
   randomizeUniforms() {
-    // Pull the config from sessionStorage
-    const shaderConfiguration = JSON.parse(sessionStorage.getItem('shader'));
-    const { config: { uniforms } } = shaderConfiguration;
+    const { history, location } = this.props;
+    const { shader, shaderId } = parse(location.search.substring(1));
+    const { uniforms } = configurations[shader];
     const randomUniforms = {};
 
     // Randomize a value for each uniforms based on it's type and given min/max
@@ -37,10 +38,8 @@ class RandomizeUniforms extends Component {
     });
 
     // Push the new randomized uniforms into the URL
-    const { history, location } = this.props;
-    const currentQuery = parse(location.search.substring(1));
-    const fullQuery = Object.assign({}, { shader: currentQuery.shader }, randomUniforms);
-    history.push(`?${stringify(fullQuery)}`);
+    const queryString = stringify(Object.assign({}, { shader, shaderId }, randomUniforms));
+    history.push(`?${queryString}`);
   }
   render() {
     return (

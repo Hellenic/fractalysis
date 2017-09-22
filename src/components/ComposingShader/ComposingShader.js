@@ -5,7 +5,7 @@ import { withRouter } from 'react-router';
 import { Dropdown } from 'semantic-ui-react';
 import { parse, stringify } from 'qs';
 import TextIcon from '../../components/TextIcon/TextIcon';
-import configurations from './configurations.json';
+import configurations from '../configurations.json';
 
 const DEFAULT_SHADER = 'default2D';
 
@@ -15,19 +15,16 @@ class ComposingShader extends Component {
     const config = configurations[shaderName];
     // TODO This should be cached. I think we can check it with GL.Shaders, if it's already there
     const shaderResponse = await superagent.get(config.shader);
-    const shaderId = GL.Shaders.create({
+    // TODO This is async and ID is returned before the promise is resolved
+    const shaderId = await GL.Shaders.create({
       [shaderName]: {
         frag: shaderResponse.text
       }
     })[shaderName];
 
-    // Push the whole config into sessionStorage
-    // Experimental; Normally one would use redux or similar for this...
-    sessionStorage.setItem('shader', JSON.stringify({ shader: shaderName, shaderId, config }));
-
     // Store shader information into the URL
-    const queryString = stringify({ shader: shaderName });
-    push(`/?${queryString}`);
+    const queryString = stringify({ shader: shaderName, shaderId });
+    push(`?${queryString}`);
   }
 
   // Load either URL defined or default shader on initial load

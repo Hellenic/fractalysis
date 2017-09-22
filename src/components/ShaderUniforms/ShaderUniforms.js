@@ -2,7 +2,8 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { parse } from 'qs';
-import ConfigurationPanel from '../ConfigurationPanel/ConfigurationPanel';
+import decoder from '../../utils/query-decoder';
+import configurations from '../configurations.json';
 
 const WIDTH = window.innerWidth;
 const HEIGHT = window.innerHeight;
@@ -11,58 +12,55 @@ class ShaderUniforms extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired
   }
-  state = {
-    shaderConfiguration: {},
-    uniforms: {}
-  }
-  componentWillReceiveProps(nextProps) {
-    const query = parse(this.props.location.search.substring(1));
-    const nextQuery = parse(nextProps.location.search.substring(1));
-    // Only handle if the shader has changed or when nothing has been loaded yet
-    if (query.shader === nextQuery.shader) {
-      return;
-    }
-
-
-    // When shader did change, let's pull the config from sessionStorage
-    const shaderConfiguration = JSON.parse(sessionStorage.getItem('shader'));
-    const { config: { uniforms } } = shaderConfiguration;
+  getUniformValues(shaderName) {
+    // Pull default uniform values from the configurations
+    const { uniforms } = configurations[shaderName];
 
     // Collect the default values from the uniforms configs
-    const values = Object.keys(uniforms).reduce((acc, key) => {
+    return Object.keys(uniforms).reduce((acc, key) => {
       const config = uniforms[key];
       acc[key] = config.defaultValue;
       return acc;
     }, {});
+  }
 
-    // Control the uniforms via state, so config can modify them too
-    this.setState({
-      shaderConfiguration,
-      uniforms: Object.assign({}, values, {
-        size: [ WIDTH, HEIGHT ],
-        outputSize: [ WIDTH, HEIGHT ]
-      })
-    });
+  renderLoading() {
+    return (<h1>Loading...</h1>);
   }
-  onUniformsChange(uniforms) {
-    this.setState({
-      uniforms: Object.assign({}, this.state.uniforms, uniforms)
-    });
-  }
+
   render() {
-    const { shaderConfiguration, uniforms } = this.state;
-    const { shaderId, config } = shaderConfiguration;
+    const query = parse(this.props.location.search.substring(1), { decoder });
+    const { shader, shaderId,...rest } = query;
+    if (!shaderId) {
+      return this.renderLoading();
+    }
+
+    // Use the values from the URL or pull the defaults from storage
+    let uniformValues = Object.assign({}, rest);
+    if (Object.keys(uniformValues).length === 0) {
+      uniformValues = this.getUniformValues(shader);
+    }
+    // If there are no uniform values, we're still loading
+    if (Object.keys(uniformValues).length === 0) {
+      return this.renderLoading();
+    }
+    // Append some constants to the uniforms
+    uniformValues = Object.assign({}, uniformValues, {
+      size: [ WIDTH, HEIGHT ],
+      outputSize: [ WIDTH, HEIGHT ]
+    });
+
+    // Pass the props to children and render
     const { children } = this.props;
     const childProps = {
       width: WIDTH,
       height: HEIGHT,
-      shaderId,
-      uniforms
+      shaderId: parseInt(shaderId, 10),
+      uniforms: uniformValues
     };
     const childrenWithProps = React.Children.map(children, child => React.cloneElement(child, childProps));
     return (
       <div>
-        <ConfigurationPanel uniforms={config ? config.uniforms : {}} onChange={c => this.onUniformsChange(c)} />
         {childrenWithProps}
       </div>
     )
