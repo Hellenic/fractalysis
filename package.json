@@ -14,6 +14,7 @@
     "gl-react-dom": "^2.2.8",
     "prop-types": "^15.5.10",
     "qs": "^6.5.1",
+    "query-types": "^0.1.4",
     "react": "^15.6.1",
     "react-addons-css-transition-group": "^15.6.0",
     "react-dom": "^15.6.1",

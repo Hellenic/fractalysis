@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
-import { parse } from 'qs';
-import decoder from '../../utils/query-decoder';
+import parse from '../../utils/query-parser';
 import configurations from '../configurations.json';
 
 const WIDTH = window.innerWidth;
@@ -29,7 +28,7 @@ class ShaderUniforms extends Component {
   }
 
   render() {
-    const query = parse(this.props.location.search.substring(1), { decoder });
+    const query = parse(this.props.location.search.substring(1));
     const { shader, shaderId,...rest } = query;
     if (!shaderId) {
       return this.renderLoading();

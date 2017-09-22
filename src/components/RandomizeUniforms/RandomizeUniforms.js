@@ -23,7 +23,7 @@ class RandomizeUniforms extends Component {
         case 'float':
           randomUniforms[key] = (Math.random() * (conf.max - conf.min - 1)) + conf.min;
           return;
-        case 'boolean':
+        case 'bool':
           randomUniforms[key] = (Math.random() >= 0.5);
           return;
         case 'vec2':

@@ -15,7 +15,8 @@ class ComposingShader extends Component {
     const config = configurations[shaderName];
     // TODO This should be cached. I think we can check it with GL.Shaders, if it's already there
     const shaderResponse = await superagent.get(config.shader);
-    // TODO This is async and ID is returned before the promise is resolved
+    // TODO This method is async, but the callback does not return the ID...
+    // Setup some state for this
     const shaderId = await GL.Shaders.create({
       [shaderName]: {
         frag: shaderResponse.text
