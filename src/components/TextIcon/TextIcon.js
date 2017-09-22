@@ -5,8 +5,9 @@ import { Icon } from 'semantic-ui-react';
 
 const TextIcon = props => {
   if (!props.to) {
+    // TODO This should be a button
     return (
-      <span>
+      <span onClick={props.onClick}>
         <Icon name={props.icon} size="huge" />
         <span>{props.title}</span>
       </span>
