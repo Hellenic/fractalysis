@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { Icon, Menu, List } from 'semantic-ui-react';
 import PageSelector from './PageSelector';
-import RandomizeUniforms from '../../components/RandomizeUniforms/RandomizeUniforms';
 import routes from '../../routes';
 import './Navbar.css';
 
@@ -20,9 +19,6 @@ class Navbar extends Component {
                 <Route key={index} exact={route.exact} path={route.path} component={route.navbar} />
               ))
             }
-          </Menu.Item>
-          <Menu.Item>
-            <RandomizeUniforms />
           </Menu.Item>
           <Menu.Item>
             <List>
