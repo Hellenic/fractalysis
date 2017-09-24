@@ -12,16 +12,17 @@ const DEFAULT_SHADER = 'default2D';
 class ComposingShader extends Component {
   state = {
     shaderName: null,
-    shaderId: null
+    shaderId: null,
+    resetUniforms: false
   }
   handleShadersCompiled(err, result) {
     if (err) {
       // TODO Handle errors
       return;
     }
-    const { shaderName, shaderId } = this.state;
+    const { shaderName, shaderId, resetUniforms } = this.state;
     const { history: { push }, location } = this.props;
-    const search = parse(location.search.substring(1));
+    const search = resetUniforms ? {} : parse(location.search.substring(1));
     // Store shader information into the URL
     const query = Object.assign({}, search, { shader: shaderName, shaderId });
     const queryString = stringify(query);
@@ -39,8 +40,9 @@ class ComposingShader extends Component {
         frag: shaderResponse.text
       }
     }, (err, res) => this.handleShadersCompiled(err, res))[shaderName];
-
-    this.setState({ shaderName, shaderId });
+    // If whole shader changed, we should reset the URL uniforms
+    const resetUniforms = (this.state.shaderName !== shaderName);
+    this.setState({ shaderName, shaderId, resetUniforms });
   }
 
   // Load either URL defined or default shader on initial load
