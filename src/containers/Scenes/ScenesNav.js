@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
+import { Icon, Menu } from 'semantic-ui-react';
 
 class ScenesNavbar extends Component {
   render() {
     return (
-      <h3>ScenesNavbar!</h3>
+      <Menu secondary>
+        <Menu.Item>
+          <Icon name="image" />
+          TODO
+        </Menu.Item>
+      </Menu>
     );
   }
 }

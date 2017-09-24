@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Renders extends Component {
   render() {
     return (
-      <section style={{ backgroundColor: '#202B33' }}>
+      <section>
         <h1>Renders will be here</h1>
       </section>
     );
