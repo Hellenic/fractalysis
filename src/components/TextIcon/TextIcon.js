@@ -8,14 +8,14 @@ const TextIcon = props => {
     // TODO This should be a button
     return (
       <span onClick={props.onClick}>
-        <Icon name={props.icon} size="huge" />
+        <Icon name={props.icon} size={props.size} />
         <span>{props.title}</span>
       </span>
     );
   }
   return (
     <Link to={props.to}>
-      <Icon name={props.icon} size="huge" />
+      <Icon name={props.icon} size={props.size} />
       <span>{props.title}</span>
     </Link>
   );
@@ -24,12 +24,14 @@ const TextIcon = props => {
 TextIcon.propTypes = {
   to: PropTypes.string,
   icon: PropTypes.string,
-  title: PropTypes.string
+  title: PropTypes.string,
+  size: PropTypes.string
 };
 
 TextIcon.defaultProps = {
   icon: 'sticky note outline',
-  title: ''
+  title: '',
+  size: 'huge'
 };
 
 export default TextIcon;

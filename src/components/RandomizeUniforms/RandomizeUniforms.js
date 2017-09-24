@@ -9,17 +9,16 @@ class RandomizeUniforms extends Component {
   randomizeUniforms() {
     const { history, location } = this.props;
     const { shader, shaderId } = parse(location.search.substring(1));
-    const { uniforms } = configurations[shader];
+    const { randomizable, uniforms } = configurations[shader];
     const randomUniforms = {};
-    // const WHITELIST = ['power'];
 
     // Randomize a value for each whitelisted uniforms based on it's type and given min/max
     Object.keys(uniforms).forEach(key => {
       const conf = uniforms[key];
-      // if (!WHITELIST.includes(key)) {
-      //   randomUniforms[key] = conf.defaultValue;
-      //   return;
-      // }
+      if (!Array.isArray(randomizable) || !randomizable.includes(key)) {
+        randomUniforms[key] = conf.defaultValue;
+        return;
+      }
       const uniformType = getUniformType(conf.defaultValue);
       switch (uniformType) {
         case 'int':
@@ -46,9 +45,26 @@ class RandomizeUniforms extends Component {
     const queryString = stringify(Object.assign({}, { shader, shaderId }, randomUniforms));
     history.push(`?${queryString}`);
   }
+  resetUniforms() {
+    const { history, location } = this.props;
+    const { shader, shaderId } = parse(location.search.substring(1));
+    const { uniforms } = configurations[shader];
+    const uniformDefaults = {};
+    Object.keys(uniforms).forEach(key => {
+      const conf = uniforms[key];
+      uniformDefaults[key] = conf.defaultValue;
+    });
+
+    // Push the new randomized uniforms into the URL
+    const queryString = stringify(Object.assign({}, { shader, shaderId }, uniformDefaults));
+    history.push(`?${queryString}`);
+  }
   render() {
     return (
-      <TextIcon icon="video play" title="Randomize" onClick={() => this.randomizeUniforms()} />
+      <div>
+        <TextIcon icon="video play" title="Randomize" onClick={() => this.randomizeUniforms()} /><br />
+        <TextIcon icon="refresh" title="Reset" size="small" onClick={() => this.resetUniforms()} />
+      </div>
     )
   }
 }
