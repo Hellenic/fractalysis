@@ -10,8 +10,25 @@ import configurations from '../configurations.json';
 const DEFAULT_SHADER = 'default2D';
 
 class ComposingShader extends Component {
+  state = {
+    shaderName: null,
+    shaderId: null
+  }
+  handleShadersCompiled(err, result) {
+    if (err) {
+      // TODO Handle errors
+      return;
+    }
+    const { shaderName, shaderId } = this.state;
+    const { history: { push }, location } = this.props;
+    const search = parse(location.search.substring(1));
+    // Store shader information into the URL
+    const query = Object.assign({}, search, { shader: shaderName, shaderId });
+    const queryString = stringify(query);
+    push(`?${queryString}`);
+  }
+
   async loadShader(shaderName) {
-    const { history: { push } } = this.props;
     const config = configurations[shaderName];
     // TODO This should be cached. I think we can check it with GL.Shaders, if it's already there
     const shaderResponse = await superagent.get(config.shader);
@@ -21,11 +38,9 @@ class ComposingShader extends Component {
       [shaderName]: {
         frag: shaderResponse.text
       }
-    })[shaderName];
+    }, (err, res) => this.handleShadersCompiled(err, res))[shaderName];
 
-    // Store shader information into the URL
-    const queryString = stringify({ shader: shaderName, shaderId });
-    push(`?${queryString}`);
+    this.setState({ shaderName, shaderId });
   }
 
   // Load either URL defined or default shader on initial load

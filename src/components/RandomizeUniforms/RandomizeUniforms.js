@@ -11,10 +11,15 @@ class RandomizeUniforms extends Component {
     const { shader, shaderId } = parse(location.search.substring(1));
     const { uniforms } = configurations[shader];
     const randomUniforms = {};
+    // const WHITELIST = ['power'];
 
-    // Randomize a value for each uniforms based on it's type and given min/max
+    // Randomize a value for each whitelisted uniforms based on it's type and given min/max
     Object.keys(uniforms).forEach(key => {
       const conf = uniforms[key];
+      // if (!WHITELIST.includes(key)) {
+      //   randomUniforms[key] = conf.defaultValue;
+      //   return;
+      // }
       const uniformType = getUniformType(conf.defaultValue);
       switch (uniformType) {
         case 'int':

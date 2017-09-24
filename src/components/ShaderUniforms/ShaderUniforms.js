@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
+import GL from 'gl-react';
 import parse from '../../utils/query-parser';
 import configurations from '../configurations.json';
 
@@ -30,7 +31,9 @@ class ShaderUniforms extends Component {
   render() {
     const query = parse(this.props.location.search.substring(1));
     const { shader, shaderId,...rest } = query;
-    if (!shaderId) {
+    // If shaderID is not present yet, shader might still be compiling
+    // or if page was refreshed, ID is there but it anyway might not be compiled yet
+    if (!shaderId || !GL.Shaders.exists(shaderId)) {
       return this.renderLoading();
     }
 
