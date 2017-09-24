@@ -3,11 +3,9 @@
   padding-bottom: 1em;
   z-index: 10;
   position: absolute;
-  top: 20px;
+  top: 140px;
   right: 20px;
 
   text-align: center;
   width: 250px;
-  min-height: 500px;
-  border-radius: 5px;
 }
