@@ -41,7 +41,7 @@ class ComposingShader extends Component {
       }
     }, (err, res) => this.handleShadersCompiled(err, res))[shaderName];
     // If whole shader changed, we should reset the URL uniforms
-    const resetUniforms = (this.state.shaderName !== shaderName);
+    const resetUniforms = (this.state.shaderName !== null && this.state.shaderName !== shaderName);
     this.setState({ shaderName, shaderId, resetUniforms });
   }
 
