@@ -1,34 +1,43 @@
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import { Segment } from 'semantic-ui-react';
+import { stringify } from 'qs';
+import parse from '../../utils/query-parser';
 import UniformControl from '../UniformControl/UniformControl';
+import configurations from '../configurations.json';
 import './UniformPanel.css';
 
 class UniformPanel extends Component {
-  state = {}
-  static propTypes = {
-    uniforms: PropTypes.object,
-    onChange: PropTypes.func.isRequired
-  }
-  handleChange(value, name) {
-    this.setState({
-      [name]: value
-    });
-    this.props.onChange(this.state);
+  handleChange(value, name, currentQuery) {
+    // Push the uniform key-value into the URL
+    const queryString = stringify(Object.assign({}, currentQuery, { [name]: value }));
+    this.props.history.push(`?${queryString}`);
   }
   render() {
-    const { uniforms } = this.props;
+    const { location } = this.props;
+    const { shader, shaderId, ...urlUniforms } = parse(location.search.substring(1));
+    const { uniforms } = configurations[shader];
+    const opts = { shader, shaderId, ...urlUniforms };
+    // Read uniforms values from the URL or default from configurations
+    const uniformValues = {};
+    Object.keys(uniforms).forEach(key => {
+      const defaultValue = uniforms[key].defaultValue;
+      const uniformValue = (key in urlUniforms) ? urlUniforms[key] : defaultValue;
+      uniformValues[key] = uniformValue;
+    });
+
     return (
       <aside className="panel" >
         <Segment>
           <h2>Settings</h2>
           <section>
             {
-              uniforms && Object.keys(uniforms).map(key => (
+              Object.keys(uniforms).map(key => (
                 <UniformControl
                   key={`uniform-${key}`}
-                  {...uniforms[key]}
-                  onChange={v => this.handleChange(v, key)}
+                  label={uniforms[key].label}
+                  value={uniformValues[key]}
+                  onChange={v => this.handleChange(v, key, opts)}
                 />
               ))
             }
@@ -39,4 +48,4 @@ class UniformPanel extends Component {
   }
 }
 
-export default UniformPanel;
+export default withRouter(UniformPanel);

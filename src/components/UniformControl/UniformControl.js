@@ -7,12 +7,12 @@ import { floatToHex, hexToFloat } from '../../utils/colors';
 class UniformControl extends Component {
   static propTypes = {
     label: PropTypes.string,
-    defaultValue: PropTypes.any,
+    value: PropTypes.any,
     onChange: PropTypes.func.isRequired
   }
   render() {
-    const { label, defaultValue, onChange, inputType, ...rest } = this.props;
-    const uniformType = getUniformType(defaultValue);
+    const { label, value, onChange, inputType, ...rest } = this.props;
+    const uniformType = getUniformType(value);
     let type = inputType;
     if (!type) {
       type = getInputTypeForUniform(uniformType);
@@ -22,7 +22,7 @@ class UniformControl extends Component {
       return (
         <Slider
           label={label}
-          defaultValue={defaultValue}
+          value={value}
           onChange={v => onChange(v)}
           {...rest}
         />
@@ -35,7 +35,7 @@ class UniformControl extends Component {
           <strong>{label}</strong>
           <input
             type={type}
-            defaultChecked={defaultValue}
+            checked={value}
             {...rest}
             onChange={e => onChange((e.target.value === 'true'))}
           />
@@ -48,7 +48,7 @@ class UniformControl extends Component {
           <strong>{label}</strong>
           <input
             type={type}
-            defaultValue={floatToHex(defaultValue)}
+            value={floatToHex(value)}
             {...rest}
             onChange={e => onChange(hexToFloat(e.target.value))}
           />
