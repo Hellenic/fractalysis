@@ -16,6 +16,10 @@ class UniformPanel extends Component {
   render() {
     const { location } = this.props;
     const { shader, shaderId, ...urlUniforms } = parse(location.search.substring(1));
+    if (!shader || !configurations[shader]) {
+      return null;
+    }
+
     const { uniforms } = configurations[shader];
     const opts = { shader, shaderId, ...urlUniforms };
     // Read uniforms values from the URL or default from configurations
