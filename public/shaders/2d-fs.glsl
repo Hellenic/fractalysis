@@ -363,8 +363,10 @@ void main()
     color = render(gl_FragCoord.xy);
 #endif
 
-    if (color.a < 0.00392) discard; // Less than 1/255
+    // Less than 1/255
+    if (color.a < 0.00392)
+      discard;
 
-    gl_FragColor = vec4(pow(color.rgb, vec3(1.0 / gamma)), 1.0);
+    gl_FragColor = vec4(pow(color.rgb, vec3(1.0 / gamma)), color.a);
 
 }

@@ -345,11 +345,6 @@ vec4 render(vec2 pixel)
     return color;
 }
 
-
-// ============================================================================================ //
-
-
-// The main loop
 void main()
 {
     vec4 color = vec4(0.0);
@@ -370,7 +365,9 @@ void main()
     color = render(gl_FragCoord.xy);
 #endif
 
-    if (color.a < 0.00392) discard; // Less than 1/255
+    // Less than 1/255
+    if (color.a < 0.00392)
+      discard;
 
     gl_FragColor = vec4(pow(color.rgb, vec3(1.0 / gamma)), color.a);
 }
