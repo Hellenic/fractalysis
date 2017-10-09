@@ -13,6 +13,7 @@ app.use((req, res, next) => {
 app.get('/compile/:shader', (req, res) => {
   // const { shader } = req.params;
   const shaderSrc = glsl.file(`./shaders/master.glsl`);
+  res.set('Content-Type', 'text/plain');
   res.send(shaderSrc);
 });
 

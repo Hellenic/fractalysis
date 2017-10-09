@@ -1,16 +1,16 @@
-vec3 hsv2rgb(vec3 hsv)
+vec3 hsv2rgb(vec3 _hsv)
 {
     float h, s, v, r, g, b, j, p, q, t;
     int i;
     vec3 color;
 
-    h = hsv.x;
-    s = hsv.y;
-    v = hsv.z;
+    h = _hsv.x;
+    s = _hsv.y;
+    v = _hsv.z;
 
     if (h == 1.0) {
-		h = 0.0;
-	}
+  		h = 0.0;
+  	}
 
     if (v == 0.0) {
         // No brightness so return black

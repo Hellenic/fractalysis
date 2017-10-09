@@ -1,8 +1,7 @@
 {
   "default2D": {
-    "name": "2D",
+    "name": "Mandelbrot",
     "icon": "cubes",
-    "shader": "2d-fs.glsl",
     "randomizable": ["bailout", "bailoutStyle", "colorMode", "colorScale", "colorCycle", "hsv", "color1", "color2", "color3"],
     "uniforms": {
       "power": { "label": "Power", "defaultValue": 2.0, "min": -20, "max": 20, "step": 0.01 },
@@ -30,9 +29,8 @@
     }
   },
   "default3D": {
-    "name": "3D",
+    "name": "Mandelbox",
     "icon": "linode",
-    "shader": "3d-fs.glsl",
     "randomizable": ["color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
     "uniforms": {
       "scale": { "label": "Scale", "defaultValue": 2.0, "min": -10, "max": 10, "step": 0.1 },

@@ -32,7 +32,7 @@ class ComposingShader extends Component {
   async loadShader(shaderName) {
     const config = configurations[shaderName];
     // TODO This should be cached. I think we can check it with GL.Shaders, if it's already there
-    const shaderResponse = await superagent.get(`http://localhost:3001/compile/${config.shader}`);
+    const shaderResponse = await superagent.get(`http://localhost:3001/compile/${config.name}`);
     const shaderId = await GL.Shaders.create({
       [shaderName]: {
         frag: shaderResponse.text
