@@ -10,9 +10,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/compile/:shaderFile', (req, res) => {
-  const { shaderFile } = req.params;
-  const shaderSrc = glsl.file(`./shaders/${shaderFile}`);
+app.get('/compile/:shader', (req, res) => {
+  // const { shader } = req.params;
+  const shaderSrc = glsl.file(`./shaders/master.glsl`);
   res.send(shaderSrc);
 });
 
