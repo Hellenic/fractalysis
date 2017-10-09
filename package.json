@@ -10,8 +10,10 @@
     "url": "https://github.com/Hellenic/fractalysis"
   },
   "dependencies": {
+    "express": "^4.16.1",
     "gl-react": "^2.2.10",
     "gl-react-dom": "^2.2.8",
+    "glslify": "^6.1.0",
     "prop-types": "^15.5.10",
     "qs": "^6.5.1",
     "query-types": "^0.1.4",
