@@ -10,9 +10,14 @@ app.use((req, res, next) => {
   next();
 });
 
+// Simple transformer to replace a variable with the shader name
+const dynamicShaderTransformer = shader => (filename, src, opts) => {
+  return src.replace('{{FractalShader}}', shader);
+};
+
 app.get('/compile/:shader', (req, res) => {
-  // const { shader } = req.params;
-  const shaderSrc = glsl.file(`./shaders/master.glsl`);
+  const { shader } = req.params;
+  const shaderSrc = glsl.file('./shaders/master.glsl', { transform: [ dynamicShaderTransformer(shader) ] });
   res.set('Content-Type', 'text/plain');
   res.send(shaderSrc);
 });

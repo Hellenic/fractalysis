@@ -47,14 +47,13 @@ float aspectRatio = outputSize.x / outputSize.y;
 // Shared variables
 mat2  rotationMatrix;
 
-// TODO Fractals: These should be dynamic
-#pragma glslify: Mandelbrot = require('./fractals/Mandelbrot.glsl');
+#pragma glslify: Fractal = require('./{{FractalShader}}/fractal.glsl');
 
 vec4 render(vec2 pixel) {
     vec2 z = ((pixel - (size * 0.5)) / size) * vec2(aspectRatio, 1.0) * cameraPosition.z + cameraPosition.xy;
     z *= rotationMatrix;
 
-    return Mandelbrot(z);
+    return Fractal(z);
 }
 
 void main() {
