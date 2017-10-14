@@ -28,6 +28,32 @@
       "cameraPosition": { "label": "Camera position", "defaultValue": [0.396367, -0.133508, 0.01] }
     }
   },
+  "OrbitTrap": {
+    "name": "OrbitTrap",
+    "icon": "cubes",
+    "randomizable": ["power", "color1", "transparent", "iterationColorBlend"],
+    "uniforms": {
+      "power": { "label": "Power", "defaultValue": 2.0, "min": -20, "max": 20, "step": 0.01 },
+      "minIterations": { "label": "Min. iterations", "defaultValue": 1, "min": 1, "max": 400, "step": 1 },
+      "juliaMode": { "label": "Julia mode", "defaultValue": true },
+      "offset": { "label": "Offset", "defaultValue": [-0.603, 0.453] },
+
+      "color1": { "label": "Color #1", "inputType": "color", "defaultValue": [0.01, 0.01, 0.01] },
+      "transparent": { "label": "Transparent", "defaultValue": false },
+      "iterationColorBlend": { "label": "Iteration color blend", "defaultValue": 0.0, "min": 0.0, "max": 2.0, "step": 0.1 },
+
+      "orbitTrapOffset": { "label": "OrbitTrap offset", "defaultValue": [0.24, -0.24] },
+      "orbitTrapScale": { "label": "OrbitTrap scale", "defaultValue": 1.0, "min": 0, "max": 2, "step": 0.1 },
+      "orbitTrapEdgeDetail": { "label": "OrbitTrap edge detail", "defaultValue": 0.5, "min": 0, "max": 1, "step": 0.01 },
+      "orbitTrapRotation": { "label": "OrbitTrap rotation", "defaultValue": 0.0, "min": -2, "max": 2, "step": 0.1 },
+      "orbitTrapSpin": { "label": "OrbitTrap spin", "defaultValue": 0.0, "min": -2, "max": 2, "step": 0.1  },
+      "texture": { "label": "Texture", "defaultValue": "/images/flower.png" },
+
+      "gamma": { "label": "Gamma", "defaultValue": 1.0, "min": 0, "max": 2, "step": 0.1 },
+      "rotation": { "label": "Rotation", "defaultValue": 43.0, "min": -180, "max": 180, "step": 0.5 },
+      "cameraPosition": { "label": "Camera position", "defaultValue": [-0.038698, -0.042873, 2.095347] }
+    }
+  },
   "Ducks": {
     "name": "Ducks",
     "icon": "cubes",

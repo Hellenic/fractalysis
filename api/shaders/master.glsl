@@ -46,10 +46,10 @@ uniform float gamma;
 // Pre-calculations
 float aspectRatio = outputSize.x / outputSize.y;
 
+#pragma glslify: Fractal = require('./{{FractalShader}}/fractal.glsl');
+
 // Shared variables
 mat2  rotationMatrix;
-
-#pragma glslify: Fractal = require('./{{FractalShader}}/fractal.glsl');
 
 vec4 render(vec2 pixel) {
     vec2 z = ((pixel - (size * 0.5)) / size) * vec2(aspectRatio, 1.0) * cameraPosition.z + cameraPosition.xy;
