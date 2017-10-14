@@ -8,10 +8,11 @@ class UniformControl extends Component {
   static propTypes = {
     label: PropTypes.string,
     value: PropTypes.any,
+    inputType: PropTypes.string,
     onChange: PropTypes.func.isRequired
   }
   render() {
-    const { label, value, onChange, inputType, ...rest } = this.props;
+    const { label, value, defaultValue, onChange, inputType, ...rest } = this.props;
     const uniformType = getUniformType(value);
     let type = inputType;
     if (!type) {
@@ -42,7 +43,7 @@ class UniformControl extends Component {
         </div>
       );
     }
-    else if (['color'].includes(type)) {
+    else if (['color'].includes(inputType)) {
       return (
         <div>
           <strong>{label}</strong>

@@ -39,8 +39,8 @@ class UniformPanel extends Component {
               Object.keys(uniforms).map(key => (
                 <UniformControl
                   key={`uniform-${key}`}
-                  label={uniforms[key].label}
                   value={uniformValues[key]}
+                  {...uniforms[key]}
                   onChange={v => this.handleChange(v, key, opts)}
                 />
               ))
