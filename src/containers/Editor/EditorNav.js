@@ -10,15 +10,15 @@ class EditorNavbar extends Component {
         <Menu.Item>
           <ComposingShader />
         </Menu.Item>
-        <Menu.Item>
+        <Menu.Item disabled>
           <Icon name="zoom" />
           Zoom
         </Menu.Item>
-        <Menu.Item>
+        <Menu.Item disabled>
           <Icon name="refresh" />
           Rotate
         </Menu.Item>
-        <Menu.Item>
+        <Menu.Item disabled>
           <Icon name="expand" />
           Scale
         </Menu.Item>

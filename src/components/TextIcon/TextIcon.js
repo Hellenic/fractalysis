@@ -5,12 +5,11 @@ import { Icon } from 'semantic-ui-react';
 
 const TextIcon = props => {
   if (!props.to) {
-    // TODO This should be a button
     return (
-      <span onClick={props.onClick}>
+      <button style={{ cursor: 'pointer', border: 'none', backgroundColor: 'white' }} onClick={props.onClick}>
         <Icon name={props.icon} size={props.size} />
         <span>{props.title}</span>
-      </span>
+      </button>
     );
   }
   return (
