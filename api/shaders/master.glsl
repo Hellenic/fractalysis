@@ -3,6 +3,8 @@
  *
  * This shader composes multiple other shaders together to create
  * a fragment shader that can render complex fractal flames.
+ *
+ * This work is heavily based on Fractal Lab's shaders by Tom Beddard, licensed under GPL v3. Mad props to him!
 */
 #ifdef GL_FRAGMENT_PRECISION_HIGH
    precision highp float;

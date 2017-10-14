@@ -28,6 +28,28 @@
       "cameraPosition": { "label": "Camera position", "defaultValue": [0.396367, -0.133508, 0.01] }
     }
   },
+  "Ducks": {
+    "name": "Ducks",
+    "icon": "cubes",
+    "randomizable": ["colorScale", "colorCycle", "color1", "color2"],
+    "uniforms": {
+      "minIterations": { "label": "Min. iterations", "defaultValue": 1, "min": 1, "max": 400, "step": 1 },
+      "juliaMode": { "label": "Julia mode", "defaultValue": true },
+      "offset": { "label": "Offset", "defaultValue": [-0.521, -1.438] },
+
+      "colorScale": { "label": "Color scale", "defaultValue": 1.79, "min": 0, "max": 10, "step": 0.1 },
+      "colorCycle": { "label": "Color cycle", "defaultValue": 1, "min": 0, "max": 10, "step": 0.1 },
+      "colorCycleOffset": { "label": "Color cycle offset", "defaultValue": 0.24, "min": -10, "max": 10, "step": 0.01 },
+      "colorCycleMirror": { "label": "Color cycle mirror", "defaultValue": true },
+      "hsv": { "label": "HSV", "defaultValue": false },
+
+      "color1": { "label": "Color #1", "inputType": "color", "defaultValue": [1.0, 1.0, 1.0] },
+      "color2": { "label": "Color #2", "inputType": "color", "defaultValue": [0.0, 0.53, 0.8] },
+      "gamma": { "label": "Gamma", "defaultValue": 1.0, "min": 0, "max": 2, "step": 0.1 },
+      "rotation": { "label": "Rotation", "defaultValue": 0.0, "min": -180, "max": 180, "step": 0.5 },
+      "cameraPosition": { "label": "Camera position", "defaultValue": [-0.570263, -0.320191, 10.264668] }
+    }
+  },
   "OctahedralIFS": {
     "name": "OctahedralIFS",
     "icon": "linode",
