@@ -21,7 +21,6 @@ class UniformPanel extends Component {
     }
 
     const { uniforms } = configurations[shader];
-    const opts = { shader, shaderId, ...urlUniforms };
     // Read uniforms values from the URL or default from configurations
     const uniformValues = {};
     Object.keys(uniforms).forEach(key => {
@@ -29,6 +28,8 @@ class UniformPanel extends Component {
       const uniformValue = (key in urlUniforms) ? urlUniforms[key] : defaultValue;
       uniformValues[key] = uniformValue;
     });
+    // Create uniform object to be used when a value changes
+    const opts = { shader, shaderId, ...uniformValues };
 
     return (
       <aside className="panel" >
