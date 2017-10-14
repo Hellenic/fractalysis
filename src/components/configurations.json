@@ -1,5 +1,5 @@
 {
-  "default2D": {
+  "Mandelbrot": {
     "name": "Mandelbrot",
     "icon": "cubes",
     "randomizable": ["bailout", "bailoutStyle", "colorMode", "colorScale", "colorCycle", "hsv", "color1", "color2", "color3"],
@@ -28,8 +28,8 @@
       "cameraPosition": { "label": "Camera position", "defaultValue": [0.396367, -0.133508, 0.01] }
     }
   },
-  "default3D": {
-    "name": "Mandelbox",
+  "OctahedralIFS": {
+    "name": "OctahedralIFS",
     "icon": "linode",
     "randomizable": ["color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
     "uniforms": {

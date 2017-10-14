@@ -7,7 +7,8 @@ import { parse, stringify } from 'qs';
 import TextIcon from '../../components/TextIcon/TextIcon';
 import configurations from '../configurations.json';
 
-const DEFAULT_SHADER = 'default2D';
+const DEFAULT_SHADER = 'Mandelbrot';
+// const DEFAULT_SHADER = 'OctahedralIFS';
 
 class ComposingShader extends Component {
   state = {
