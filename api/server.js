@@ -21,13 +21,8 @@ app.get('/compile/:shader', (req, res) => {
 
   // TODO Eventually make all the shaders modular enough so 2D, 3D or whatever can be used though master and combined with other shaders
   // For now, for shaders that are not yet modular, load them directly
-  let shaderSrc = null;
-  if (WIP_SHADERS.includes(shader)) {
-    shaderSrc = glsl.file(`./shaders/${shader}/fractal.glsl`);
-  }
-  else {
-    shaderSrc = glsl.file('./shaders/master.glsl', { transform: [ dynamicShaderTransformer(shader) ] });
-  }
+  const masterShader = WIP_SHADERS.includes(shader) ? 'master3d' : 'master';
+  const shaderSrc = glsl.file(`./shaders/${masterShader}.glsl`, { transform: [ dynamicShaderTransformer(shader) ] });
   res.set('Content-Type', 'text/plain');
   res.send(shaderSrc);
 });
