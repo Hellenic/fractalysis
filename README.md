@@ -32,12 +32,16 @@ This project draws inspiration from [Apophysis](http://www.apophysis.org/) and [
 
 > This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-## Credits
+## Credits & references
 
 Parts of this application (like shaders, or algorithms) are based on work other people have done. Here's a few:
 
  * http://www.algorithmic-worlds.net/blog/blog.php?Post=20110227
  * Fractal Lab, Tom Beddard http://sub.blue/fractal-lab
+ * http://www.fractalforums.com/3d-fractal-generation/a-mandelbox-distance-estimate-formula/
+ * http://www.fractalforums.com/3d-fractal-generation/revenge-of-the-half-eaten-menger-sponge/msg21700/
+ * http://www.fractalforums.com/sierpinski-gasket/kaleidoscopic-(escape-time-ifs)/msg16982/#msg16982
+ * http://www.fractalforums.com/3d-fractal-generation/
  * And of course all the open source libraries used
 
 # License
