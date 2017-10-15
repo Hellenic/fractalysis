@@ -172,5 +172,52 @@
       "sphereHoles": { "label": "Sphere holes", "defaultValue": 4, "min": 3, "max": 6, "step": 0.01 },
       "sphereScale": { "label": "Sphere scale", "defaultValue": 2.05, "min": 0.01, "max": 3, "step": 0.01 }
     }
+  },
+  "MengerSponge": {
+    "name": "MengerSponge",
+    "icon": "linode",
+    "randomizable": ["color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
+    "uniforms": {
+      "scale": { "label": "Scale", "defaultValue": 2.0, "min": -10, "max": 10, "step": 0.1 },
+      "surfaceDetail": { "label": "Surface detail", "defaultValue": 1.0, "min": 0.1, "max": 2, "step": 0.1 },
+      "surfaceSmoothness": { "label": "Surface smoothness", "defaultValue": 0.6, "min": 0.01, "max": 1, "step": 0.1 },
+      "boundingRadius": { "label": "Bounding radius", "defaultValue": 5, "min": 0.1, "max": 150, "step": 0.1 },
+      "offset": { "label": "Offset", "defaultValue": [1, 0, 0] },
+
+      "cameraRoll": { "label": "Camera roll", "defaultValue": 0, "min": -180, "max": 180, "step": 0.5 },
+      "cameraPitch": { "label": "Camera pitch", "defaultValue": -10, "min": -180, "max": 180, "step": 0.5 },
+      "cameraYaw": { "label": "Camera yaw", "defaultValue": -11.5,"min": -180, "max": 180, "step": 0.5 },
+      "cameraFocalLength": { "label": "Camera focal length", "defaultValue": 0.9, "min": 0.1, "max": 3, "step": 0.1 },
+      "cameraPosition": { "label": "Camera position", "defaultValue": [0.452288, 0.41647, -1.896852] },
+
+      "colorIterations": { "label": "Color iterations", "defaultValue": 4, "min": 0, "max": 30, "step": 1 },
+      "color1": { "label": "Color #1", "inputType": "color", "defaultValue": [1, 1, 1] },
+      "color1Intensity": { "label": "Color #1 intensity", "defaultValue": 0.45, "min": 0, "max": 3, "step": 0.1 },
+      "color2": { "label": "Color #2", "inputType": "color", "defaultValue": [0, 0.53, 0.8] },
+      "color2Intensity": { "label": "Color #2 intensity", "defaultValue": 0.3, "min": 0, "max": 3, "step": 0.1 },
+      "color3": { "label": "Color #3", "inputType": "color", "defaultValue": [1, 0.53, 0] },
+      "color3Intensity": { "label": "Color #3 intensity", "defaultValue": 0, "min": 0, "max": 3, "step": 0.1 },
+      "transparent": { "label": "Transparent", "defaultValue": false },
+      "gamma": { "label": "Gamma", "defaultValue": 1, "min": 0.1, "max": 2, "step": 0.1 },
+
+      "light": { "label": "Light", "inputType": "color", "defaultValue": [-16, 100, -60] },
+      "ambientColor": { "label": "Ambient color", "defaultValue": [0.5, 0.3] },
+      "background1Color": { "label": "Background color #1", "inputType": "color", "defaultValue": [0, 0.46, 0.8] },
+      "background2Color": { "label": "Background color #2", "inputType": "color", "defaultValue": [0, 0, 0] },
+      "innerGlowColor": { "label": "Inner glow color", "inputType": "color", "defaultValue": [0, 0.6, 0.8] },
+      "innerGlowIntensity": { "label": "Inner glow intensity", "defaultValue": 0.1, "min": 0, "max": 1, "step": 0.01 },
+      "outerGlowColor": { "label": "Outer glow color", "inputType": "color", "defaultValue": [1, 1, 1] },
+      "outerGlowIntensity": { "label": "Outer glow intensity", "defaultValue": 0, "min": 0, "max": 1, "step": 0.01 },
+      "fog": { "label": "Fog intensity", "defaultValue": 0, "min": 0, "max": 1, "step": 0.01 },
+      "fogFalloff": { "label": "Fog fallout", "defaultValue": 0, "min": 0, "max": 10, "step": 0.1 },
+      "specularity": { "label": "Specularity", "defaultValue": 0.8, "min": 0, "max": 3, "step": 0.1 },
+      "specularExponent": { "label": "Specular exponent", "defaultValue": 4, "min": 0, "max": 50, "step": 0.1 },
+
+      "aoIntensity": { "label": "AO intensity", "defaultValue": 0.11, "min": 0, "max": 1, "step": 0.01 },
+      "aoSpread": { "label": "AO spread", "defaultValue": 4.8, "min": 0, "max": 20, "step": 0.1 },
+
+      "objectRotation": { "label": "Object rotation", "defaultValue": [1, 0, 0, 0, 1, 0, 0, 0, 1] },
+      "fractalRotation1": { "label": "Fractal rotation #1", "defaultValue": [1, 0, 0, 0, 1, 0, 0, 0, 1] }
+    }
   }
 }
