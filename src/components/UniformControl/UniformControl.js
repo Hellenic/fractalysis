@@ -38,7 +38,7 @@ class UniformControl extends Component {
             type={type}
             checked={value}
             {...rest}
-            onChange={e => onChange((e.target.value === 'true'))}
+            onChange={e => onChange(!value)}
           />
         </div>
       );
