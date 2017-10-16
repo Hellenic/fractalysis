@@ -8,7 +8,6 @@ import TextIcon from '../../components/TextIcon/TextIcon';
 import configurations from '../configurations.json';
 
 const DEFAULT_SHADER = 'Mandelbrot';
-// const DEFAULT_SHADER = 'OctahedralIFS';
 
 class ComposingShader extends Component {
   state = {
@@ -33,7 +32,8 @@ class ComposingShader extends Component {
   async loadShader(shaderName) {
     const config = configurations[shaderName];
     // TODO This should be cached. I think we can check it with GL.Shaders, if it's already there
-    const shaderResponse = await superagent.get(`http://localhost:3001/compile/${config.name}`);
+    const hostname = window.location.hostname;
+    const shaderResponse = await superagent.get(`http://${hostname}:3001/compile/${config.name}`);
     const shaderId = await GL.Shaders.create({
       [shaderName]: {
         frag: shaderResponse.text
