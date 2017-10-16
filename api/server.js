@@ -17,7 +17,7 @@ const dynamicShaderTransformer = shader => (filename, src, opts) => {
 
 app.get('/compile/:shader', (req, res) => {
   const { shader } = req.params;
-  const WIP_SHADERS = ['OctahedralIFS', 'SphereSponge', 'MengerSponge', 'DodecahedronIFS'];
+  const WIP_SHADERS = ['DodecahedronIFS', 'Mandelbox', 'MengerSponge', 'OctahedralIFS', 'SphereSponge'];
 
   // TODO Eventually make all the shaders modular enough so 2D, 3D or whatever can be used though master and combined with other shaders
   // For now, for shaders that are not yet modular, load them directly
