@@ -1,6 +1,7 @@
 {
   "Mandelbrot": {
     "name": "Mandelbrot",
+    "shader": "Mandelbrot",
     "icon": "cubes",
     "randomizable": ["bailout", "bailoutStyle", "colorMode", "colorScale", "colorCycle", "hsv", "color1", "color2", "color3"],
     "uniforms": {
@@ -30,6 +31,7 @@
   },
   "OrbitTrap": {
     "name": "OrbitTrap",
+    "shader": "OrbitTrap",
     "icon": "cubes",
     "randomizable": ["power", "color1", "transparent", "iterationColorBlend"],
     "uniforms": {
@@ -56,6 +58,7 @@
   },
   "Ducks": {
     "name": "Ducks",
+    "shader": "Ducks",
     "icon": "cubes",
     "randomizable": ["colorScale", "colorCycle", "color1", "color2"],
     "uniforms": {
@@ -78,6 +81,7 @@
   },
   "OctahedralIFS": {
     "name": "OctahedralIFS",
+    "shader": "OctahedralIFS",
     "icon": "linode",
     "randomizable": ["color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
     "uniforms": {
@@ -127,6 +131,7 @@
   },
   "SphereSponge": {
     "name": "SphereSponge",
+    "shader": "SphereSponge",
     "icon": "linode",
     "randomizable": ["color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
     "uniforms": {
@@ -175,6 +180,7 @@
   },
   "MengerSponge": {
     "name": "MengerSponge",
+    "shader": "MengerSponge",
     "icon": "linode",
     "randomizable": ["color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
     "uniforms": {
@@ -222,6 +228,7 @@
   },
   "DodecahedronIFS": {
     "name": "DodecahedronIFS",
+    "shader": "DodecahedronIFS",
     "icon": "linode",
     "randomizable": ["color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
     "uniforms": {
@@ -270,8 +277,60 @@
       "fractalRotation2": { "label": "Fractal rotation #2", "defaultValue": [0.9937680178757644, -0.08694343573875718, 0.0697564737441253, 0.08715574274765817, 0.9961946980917455, 0, -0.06949102930147368, 0.006079677280626756, 0.9975640502598242] }
     }
   },
+  "DodecahedronIFS2": {
+    "name": "Organism",
+    "shader": "DodecahedronIFS",
+    "icon": "linode",
+    "randomizable": ["color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
+    "uniforms": {
+      "scale": { "label": "Scale", "defaultValue": 2.3, "min": -10, "max": 10, "step": 0.1 },
+      "surfaceDetail": { "label": "Surface detail", "defaultValue": 0.87, "min": 0.1, "max": 2, "step": 0.1 },
+      "surfaceSmoothness": { "label": "Surface smoothness", "defaultValue": 1.0, "min": 0.01, "max": 1, "step": 0.1 },
+      "boundingRadius": { "label": "Bounding radius", "defaultValue": 16.58, "min": 0.1, "max": 150, "step": 0.1 },
+      "offset": { "label": "Offset", "defaultValue": [0.66, 1.13, 1.13] },
+      "shift": { "label": "Shift", "defaultValue": [0, 0, 0] },
+
+      "cameraRoll": { "label": "Camera roll", "defaultValue": 0, "min": -180, "max": 180, "step": 0.5 },
+      "cameraPitch": { "label": "Camera pitch", "defaultValue": 7, "min": -180, "max": 180, "step": 0.5 },
+      "cameraYaw": { "label": "Camera yaw", "defaultValue": -4.5,"min": -180, "max": 180, "step": 0.5 },
+      "cameraFocalLength": { "label": "Camera focal length", "defaultValue": 0.9, "min": 0.1, "max": 3, "step": 0.1 },
+      "cameraPosition": { "label": "Camera position", "defaultValue": [0.290288, -0.457287, -3.662257] },
+
+      "colorIterations": { "label": "Color iterations", "defaultValue": 4, "min": 0, "max": 30, "step": 1 },
+      "color1": { "label": "Color #1", "inputType": "color", "defaultValue": [1, 1, 1] },
+      "color1Intensity": { "label": "Color #1 intensity", "defaultValue": 1.92, "min": 0, "max": 3, "step": 0.1 },
+      "color2": { "label": "Color #2", "inputType": "color", "defaultValue": [0, 0.53, 0.8] },
+      "color2Intensity": { "label": "Color #2 intensity", "defaultValue": 0.3, "min": 0, "max": 3, "step": 0.1 },
+      "color3": { "label": "Color #3", "inputType": "color", "defaultValue": [1, 0.53, 0] },
+      "color3Intensity": { "label": "Color #3 intensity", "defaultValue": 0.72, "min": 0, "max": 3, "step": 0.1 },
+      "transparent": { "label": "Transparent", "defaultValue": false },
+      "gamma": { "label": "Gamma", "defaultValue": 0.89, "min": 0.1, "max": 2, "step": 0.1 },
+
+      "light": { "label": "Light", "inputType": "color", "defaultValue": [24, 48, -84] },
+      "ambientColor": { "label": "Ambient color", "defaultValue": [0.2, 0.41] },
+      "background1Color": { "label": "Background color #1", "inputType": "color", "defaultValue": [0.49411764705882355, 0.7137254901960784, 0.8823529411764706] },
+      "background2Color": { "label": "Background color #2", "inputType": "color", "defaultValue": [0.43529411764705883, 0.3803921568627451, 0.07450980392156863] },
+      "innerGlowColor": { "label": "Inner glow color", "inputType": "color", "defaultValue": [0, 0.6, 0.8] },
+      "innerGlowIntensity": { "label": "Inner glow intensity", "defaultValue": 0.14, "min": 0, "max": 1, "step": 0.01 },
+      "outerGlowColor": { "label": "Outer glow color", "inputType": "color", "defaultValue": [1, 1, 1] },
+      "outerGlowIntensity": { "label": "Outer glow intensity", "defaultValue": 0.13, "min": 0, "max": 1, "step": 0.01 },
+      "fog": { "label": "Fog intensity", "defaultValue": 0.05, "min": 0, "max": 1, "step": 0.01 },
+      "fogFalloff": { "label": "Fog fallout", "defaultValue": 0.0, "min": 0, "max": 10, "step": 0.1 },
+      "specularity": { "label": "Specularity", "defaultValue": 1.08, "min": 0, "max": 3, "step": 0.1 },
+      "specularExponent": { "label": "Specular exponent", "defaultValue": 19, "min": 0, "max": 50, "step": 0.1 },
+
+      "aoIntensity": { "label": "AO intensity", "defaultValue": 0.17, "min": 0, "max": 1, "step": 0.01 },
+      "aoSpread": { "label": "AO spread", "defaultValue": 7.8, "min": 0, "max": 20, "step": 0.1 },
+
+      "phi": { "label": "Phi", "defaultValue": 1.618, "min": 0.1, "max": 3, "step": 0.01 },
+      "objectRotation": { "label": "Object rotation", "defaultValue": [0.41667455535239106, 0.30273178480123586, 0.8571673007021123, 0.09052552805133457, 0.9244156130259893, -0.37048738597260156, -0.9045371433462058, 0.23196818933819924, 0.35777550984135725] },
+      "fractalRotation1": { "label": "Fractal rotation #1", "defaultValue": [0.33682408883346526, 0.05939117461388472, -0.9396926207859083, 0.16952510190908002, 0.9778742587748251, 0.12256905746680966, 0.9261807453214635, -0.20058569840237642, 0.319303311276612] },
+      "fractalRotation2": { "label": "Fractal rotation #2", "defaultValue": [0.9937680178757644, -0.08694343573875718, 0.0697564737441253, 0.08715574274765817, 0.9961946980917455, 0, -0.06949102930147368, 0.006079677280626756, 0.9975640502598242] }
+    }
+  },
   "Mandelbox": {
     "name": "Mandelbox",
+    "shader": "Mandelbox",
     "icon": "linode",
     "randomizable": ["color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
     "uniforms": {
@@ -323,8 +382,117 @@
       "fudgeFactor": { "label": "Box size fudge factor", "defaultValue": 0.0, "min": 0.0, "max": 100, "step": 0.01 }
     }
   },
+  "Mandelbox2": {
+    "name": "Ornate box",
+    "shader": "Mandelbox",
+    "icon": "linode",
+    "randomizable": ["color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
+    "uniforms": {
+      "scale": { "label": "Scale", "defaultValue": -2.81, "min": -10, "max": 10, "step": 0.1 },
+      "surfaceDetail": { "label": "Surface detail", "defaultValue": 0.66, "min": 0.1, "max": 2, "step": 0.1 },
+      "surfaceSmoothness": { "label": "Surface smoothness", "defaultValue": 0.79, "min": 0.01, "max": 1, "step": 0.1 },
+      "boundingRadius": { "label": "Bounding radius", "defaultValue": 114.02, "min": 0.1, "max": 150, "step": 0.1 },
+      "offset": { "label": "Offset", "defaultValue": [0, 0, 0] },
+
+      "cameraRoll": { "label": "Camera roll", "defaultValue": 0, "min": -180, "max": 180, "step": 0.5 },
+      "cameraPitch": { "label": "Camera pitch", "defaultValue": -7, "min": -180, "max": 180, "step": 0.5 },
+      "cameraYaw": { "label": "Camera yaw", "defaultValue": -31.5,"min": -180, "max": 180, "step": 0.5 },
+      "cameraFocalLength": { "label": "Camera focal length", "defaultValue": 0.9, "min": 0.1, "max": 3, "step": 0.1 },
+      "cameraPosition": { "label": "Camera position", "defaultValue": [0.153118, 0.013437, -2.180578] },
+
+      "colorIterations": { "label": "Color iterations", "defaultValue": 3, "min": 0, "max": 30, "step": 1 },
+      "color1": { "label": "Color #1", "inputType": "color", "defaultValue": [0.0315625, 0.0315625, 0.0315625] },
+      "color1Intensity": { "label": "Color #1 intensity", "defaultValue": 0.96, "min": 0, "max": 3, "step": 0.1 },
+      "color2": { "label": "Color #2", "inputType": "color", "defaultValue": [0.9803921568627451, 0.7843137254901961, 0.0196078431372549] },
+      "color2Intensity": { "label": "Color #2 intensity", "defaultValue": 1.26, "min": 0, "max": 3, "step": 0.1 },
+      "color3": { "label": "Color #3", "inputType": "color", "defaultValue": [1, 1, 1] },
+      "color3Intensity": { "label": "Color #3 intensity", "defaultValue": 0.51, "min": 0, "max": 3, "step": 0.1 },
+      "transparent": { "label": "Transparent", "defaultValue": false },
+      "gamma": { "label": "Gamma", "defaultValue": 0.99, "min": 0.1, "max": 2, "step": 0.1 },
+
+      "light": { "label": "Light", "inputType": "color", "defaultValue": [48, 191, -198] },
+      "ambientColor": { "label": "Ambient color", "defaultValue": [0.41, 0] },
+      "background1Color": { "label": "Background color #1", "inputType": "color", "defaultValue": [0.7450980392156863, 0.9450980392156862, 0.9372549019607843] },
+      "background2Color": { "label": "Background color #2", "inputType": "color", "defaultValue": [0, 0, 0] },
+      "innerGlowColor": { "label": "Inner glow color", "inputType": "color", "defaultValue": [0, 0.6, 0.8] },
+      "innerGlowIntensity": { "label": "Inner glow intensity", "defaultValue": 0.13, "min": 0, "max": 1, "step": 0.01 },
+      "outerGlowColor": { "label": "Outer glow color", "inputType": "color", "defaultValue": [1, 1, 1] },
+      "outerGlowIntensity": { "label": "Outer glow intensity", "defaultValue": 0.0, "min": 0, "max": 1, "step": 0.01 },
+      "fog": { "label": "Fog intensity", "defaultValue": 0.0, "min": 0, "max": 1, "step": 0.01 },
+      "fogFalloff": { "label": "Fog fallout", "defaultValue": 0.0, "min": 0, "max": 10, "step": 0.1 },
+      "specularity": { "label": "Specularity", "defaultValue": 0.86, "min": 0, "max": 3, "step": 0.1 },
+      "specularExponent": { "label": "Specular exponent", "defaultValue": 7.5, "min": 0, "max": 50, "step": 0.1 },
+
+      "aoIntensity": { "label": "AO intensity", "defaultValue": 0.21, "min": 0, "max": 1, "step": 0.01 },
+      "aoSpread": { "label": "AO spread", "defaultValue": 11.79, "min": 0, "max": 20, "step": 0.1 },
+
+      "objectRotation": { "label": "Object rotation", "defaultValue": [1, 0, 0, 0, 1, 0, 0, 0, 1] },
+      "fractalRotation1": { "label": "Fractal rotation #1", "defaultValue": [1, 0, 0, 0, 1, 0, 0, 0, 1] },
+      "fractalRotation2": { "label": "Fractal rotation #2", "defaultValue": [1, 0, 0, 0, 1, 0, 0, 0, 1] },
+
+      "sphereScale": { "label": "Sphere scale", "defaultValue": 1.0, "min": 0.01, "max": 3, "step": 0.01 },
+      "boxScale": { "label": "Box scale", "defaultValue": 0.5, "min": 0.01, "max": 3, "step": 0.01 },
+      "boxFold": { "label": "Box fold", "defaultValue": 1.0, "min": 0.01, "max": 3, "step": 0.01 },
+      "fudgeFactor": { "label": "Box size fudge factor", "defaultValue": 0.0, "min": 0.0, "max": 100, "step": 0.01 }
+    }
+  },
+  "Mandelbox3": {
+    "name": "Into the Core",
+    "shader": "Mandelbox",
+    "icon": "linode",
+    "randomizable": ["color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
+    "uniforms": {
+      "scale": { "label": "Scale", "defaultValue": -2.81, "min": -10, "max": 10, "step": 0.1 },
+      "surfaceDetail": { "label": "Surface detail", "defaultValue": 0.66, "min": 0.1, "max": 2, "step": 0.1 },
+      "surfaceSmoothness": { "label": "Surface smoothness", "defaultValue": 0.79, "min": 0.01, "max": 1, "step": 0.1 },
+      "boundingRadius": { "label": "Bounding radius", "defaultValue": 114.02, "min": 0.1, "max": 150, "step": 0.1 },
+      "offset": { "label": "Offset", "defaultValue": [0, 0, 0] },
+
+      "cameraRoll": { "label": "Camera roll", "defaultValue": 0, "min": -180, "max": 180, "step": 0.5 },
+      "cameraPitch": { "label": "Camera pitch", "defaultValue": 0, "min": -180, "max": 180, "step": 0.5 },
+      "cameraYaw": { "label": "Camera yaw", "defaultValue": 42,"min": -180, "max": 180, "step": 0.5 },
+      "cameraFocalLength": { "label": "Camera focal length", "defaultValue": 0.9, "min": 0.1, "max": 3, "step": 0.1 },
+      "cameraPosition": { "label": "Camera position", "defaultValue": [-0.064575, 0.089261, -1.361713] },
+
+      "colorIterations": { "label": "Color iterations", "defaultValue": 3, "min": 0, "max": 30, "step": 1 },
+      "color1": { "label": "Color #1", "inputType": "color", "defaultValue": [0.0315625, 0.0315625, 0.0315625] },
+      "color1Intensity": { "label": "Color #1 intensity", "defaultValue": 0.96, "min": 0, "max": 3, "step": 0.1 },
+      "color2": { "label": "Color #2", "inputType": "color", "defaultValue": [0.9803921568627451, 0.7843137254901961, 0.0196078431372549] },
+      "color2Intensity": { "label": "Color #2 intensity", "defaultValue": 1.26, "min": 0, "max": 3, "step": 0.1 },
+      "color3": { "label": "Color #3", "inputType": "color", "defaultValue": [1, 1, 1] },
+      "color3Intensity": { "label": "Color #3 intensity", "defaultValue": 0.51, "min": 0, "max": 3, "step": 0.1 },
+      "transparent": { "label": "Transparent", "defaultValue": false },
+      "gamma": { "label": "Gamma", "defaultValue": 0.99, "min": 0.1, "max": 2, "step": 0.1 },
+
+      "light": { "label": "Light", "inputType": "color", "defaultValue": [48, 191, -198] },
+      "ambientColor": { "label": "Ambient color", "defaultValue": [0.41, 0] },
+      "background1Color": { "label": "Background color #1", "inputType": "color", "defaultValue": [0.7450980392156863, 0.9450980392156862, 0.9372549019607843] },
+      "background2Color": { "label": "Background color #2", "inputType": "color", "defaultValue": [0, 0, 0] },
+      "innerGlowColor": { "label": "Inner glow color", "inputType": "color", "defaultValue": [0, 0.6, 0.8] },
+      "innerGlowIntensity": { "label": "Inner glow intensity", "defaultValue": 0.24, "min": 0, "max": 1, "step": 0.01 },
+      "outerGlowColor": { "label": "Outer glow color", "inputType": "color", "defaultValue": [1, 1, 1] },
+      "outerGlowIntensity": { "label": "Outer glow intensity", "defaultValue": 0.0, "min": 0, "max": 1, "step": 0.01 },
+      "fog": { "label": "Fog intensity", "defaultValue": 0.14, "min": 0, "max": 1, "step": 0.01 },
+      "fogFalloff": { "label": "Fog fallout", "defaultValue": 2.8, "min": 0, "max": 10, "step": 0.1 },
+      "specularity": { "label": "Specularity", "defaultValue": 0.86, "min": 0, "max": 3, "step": 0.1 },
+      "specularExponent": { "label": "Specular exponent", "defaultValue": 7.0, "min": 0, "max": 50, "step": 0.1 },
+
+      "aoIntensity": { "label": "AO intensity", "defaultValue": 0.21, "min": 0, "max": 1, "step": 0.01 },
+      "aoSpread": { "label": "AO spread", "defaultValue": 11.79, "min": 0, "max": 20, "step": 0.1 },
+
+      "objectRotation": { "label": "Object rotation", "defaultValue": [1, 0, 0, 0, 1, 0, 0, 0, 1] },
+      "fractalRotation1": { "label": "Fractal rotation #1", "defaultValue": [1, 0, 0, 0, 1, 0, 0, 0, 1] },
+      "fractalRotation2": { "label": "Fractal rotation #2", "defaultValue": [1, 0, 0, 0, 1, 0, 0, 0, 1] },
+
+      "sphereScale": { "label": "Sphere scale", "defaultValue": 1.0, "min": 0.01, "max": 3, "step": 0.01 },
+      "boxScale": { "label": "Box scale", "defaultValue": 0.5, "min": 0.01, "max": 3, "step": 0.01 },
+      "boxFold": { "label": "Box fold", "defaultValue": 1.0, "min": 0.01, "max": 3, "step": 0.01 },
+      "fudgeFactor": { "label": "Box size fudge factor", "defaultValue": 0.0, "min": 0.0, "max": 100, "step": 0.01 }
+    }
+  },
   "Mandelbulb": {
     "name": "Mandelbulb",
+    "shader": "Mandelbulb",
     "icon": "linode",
     "randomizable": ["color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
     "uniforms": {
@@ -372,6 +540,59 @@
 
       "juliaFactor": { "label": "Juliabulb factor", "defaultValue": 1.0, "min": 0.0, "max": 1.0, "step": 0.01 },
       "radiolariaFactor": { "label": "Radiolaria factor", "defaultValue": 0.8, "min": -2.0, "max": 2.0, "step": 0.1 },
+      "radiolaria": { "label": "Radiolaria", "defaultValue": 1.0, "min": 0.0, "max": 1.0, "step": 0.01 }
+    }
+  },
+  "Mandelbulb2": {
+    "name": "Mandelbulb2",
+    "shader": "Mandelbulb",
+    "icon": "linode",
+    "randomizable": ["color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
+    "uniforms": {
+      "power": { "label": "Power", "defaultValue": 8.0, "min": -20, "max": 20, "step": 0.01 },
+      "bailout": { "label": "Bailout", "defaultValue": 11.1, "min": 0.1, "max": 50, "step": 0.01 },
+
+      "surfaceDetail": { "label": "Surface detail", "defaultValue": 0.6, "min": 0.1, "max": 2, "step": 0.1 },
+      "surfaceSmoothness": { "label": "Surface smoothness", "defaultValue": 1.0, "min": 0.01, "max": 1, "step": 0.1 },
+      "boundingRadius": { "label": "Bounding radius", "defaultValue": 5.09, "min": 0.1, "max": 150, "step": 0.1 },
+      "offset": { "label": "Offset", "defaultValue": [0.0, 0.0, 0.0] },
+
+      "cameraRoll": { "label": "Camera roll", "defaultValue": 0.0, "min": -180, "max": 180, "step": 0.5 },
+      "cameraPitch": { "label": "Camera pitch", "defaultValue": -22, "min": -180, "max": 180, "step": 0.5 },
+      "cameraYaw": { "label": "Camera yaw", "defaultValue": -1.0,"min": -180, "max": 180, "step": 0.5 },
+      "cameraFocalLength": { "label": "Camera focal length", "defaultValue": 0.9, "min": 0.1, "max": 3, "step": 0.1 },
+      "cameraPosition": { "label": "Camera position", "defaultValue": [-0.113937, 0.913814, -2.31178] },
+
+      "colorIterations": { "label": "Color iterations", "defaultValue": 6, "min": 0, "max": 30, "step": 1 },
+      "color1": { "label": "Color #1", "inputType": "color", "defaultValue": [1, 1, 1] },
+      "color1Intensity": { "label": "Color #1 intensity", "defaultValue": 0.66, "min": 0, "max": 3, "step": 0.1 },
+      "color2": { "label": "Color #2", "inputType": "color", "defaultValue": [0.6666666666666666, 0.792156862745098, 0.8117647058823529] },
+      "color2Intensity": { "label": "Color #2 intensity", "defaultValue": 0.3, "min": 0, "max": 3, "step": 0.1 },
+      "color3": { "label": "Color #3", "inputType": "color", "defaultValue": [1, 0.53, 0] },
+      "color3Intensity": { "label": "Color #3 intensity", "defaultValue": 0.6, "min": 0, "max": 3, "step": 0.1 },
+      "transparent": { "label": "Transparent", "defaultValue": false },
+      "gamma": { "label": "Gamma", "defaultValue": 1.0, "min": 0.1, "max": 2, "step": 0.1 },
+
+      "light": { "label": "Light", "inputType": "color", "defaultValue": [174, 210, -66] },
+      "ambientColor": { "label": "Ambient color", "defaultValue": [0.44, 0.5] },
+      "background1Color": { "label": "Background color #1", "inputType": "color", "defaultValue":  [0.8509803921568627, 0.803921568627451, 0.611764705882353] },
+      "background2Color": { "label": "Background color #2", "inputType": "color", "defaultValue": [0.09411764705882353, 0.15294117647058825, 0.1568627450980392] },
+      "innerGlowColor": { "label": "Inner glow color", "inputType": "color", "defaultValue": [0, 0.6, 0.8] },
+      "innerGlowIntensity": { "label": "Inner glow intensity", "defaultValue": 0.12, "min": 0, "max": 1, "step": 0.01 },
+      "outerGlowColor": { "label": "Outer glow color", "inputType": "color", "defaultValue": [1, 1, 1] },
+      "outerGlowIntensity": { "label": "Outer glow intensity", "defaultValue": 0.0, "min": 0, "max": 1, "step": 0.01 },
+      "fog": { "label": "Fog intensity", "defaultValue": 0.06, "min": 0, "max": 1, "step": 0.01 },
+      "fogFalloff": { "label": "Fog fallout", "defaultValue": 0.0, "min": 0, "max": 10, "step": 0.1 },
+      "specularity": { "label": "Specularity", "defaultValue": 0.81, "min": 0, "max": 3, "step": 0.1 },
+      "specularExponent": { "label": "Specular exponent", "defaultValue": 4.5, "min": 0, "max": 50, "step": 0.1 },
+
+      "aoIntensity": { "label": "AO intensity", "defaultValue": 0.1, "min": 0, "max": 1, "step": 0.01 },
+      "aoSpread": { "label": "AO spread", "defaultValue": 3.4, "min": 0, "max": 20, "step": 0.1 },
+
+      "objectRotation": { "label": "Object rotation", "defaultValue": [1, 0, 0, 0, -0.19936793441719708, -0.9799247046208296, 0, 0.9799247046208296, -0.19936793441719708] },
+
+      "juliaFactor": { "label": "Juliabulb factor", "defaultValue": 0.0, "min": 0.0, "max": 1.0, "step": 0.01 },
+      "radiolariaFactor": { "label": "Radiolaria factor", "defaultValue": 0.0, "min": -2.0, "max": 2.0, "step": 0.1 },
       "radiolaria": { "label": "Radiolaria", "defaultValue": 1.0, "min": 0.0, "max": 1.0, "step": 0.01 }
     }
   }

@@ -11,7 +11,7 @@ const DEFAULT_SHADER = 'Mandelbrot';
 
 class ComposingShader extends Component {
   state = {
-    shaderName: null,
+    shaderKey: null,
     shaderId: null,
     resetUniforms: false
   }
@@ -20,29 +20,31 @@ class ComposingShader extends Component {
       // TODO Handle errors
       return;
     }
-    const { shaderName, shaderId, resetUniforms } = this.state;
+    const { shaderKey, shaderId, resetUniforms } = this.state;
     const { history: { push }, location } = this.props;
     const search = resetUniforms ? {} : parse(location.search.substring(1));
     // Store shader information into the URL
-    const query = Object.assign({}, search, { shader: shaderName, shaderId });
+    const query = Object.assign({}, search, { shader: shaderKey, shaderId });
     const queryString = stringify(query);
     push(`?${queryString}`);
   }
 
-  async loadShader(shaderName) {
-    const config = configurations[shaderName];
+  async loadShader(shaderKey) {
+    const config = configurations[shaderKey];
+
     // TODO This should be cached. I think we can check it with GL.Shaders, if it's already there
     const hostname = window.location.hostname;
-    const shaderResponse = await superagent.get(`http://${hostname}:3001/compile/${config.name}`);
-    const shaderId = await GL.Shaders.create({
-      [shaderName]: {
+    const shaderResponse = await superagent.get(`http://${hostname}:3001/compile/${config.shader}`);
+    const shaders = await GL.Shaders.create({
+      [config.shader]: {
         frag: shaderResponse.text
       }
-    }, (err, res) => this.handleShadersCompiled(err, res))[shaderName];
+    }, (err, res) => this.handleShadersCompiled(err, res));
+    const shaderId = shaders[config.shader];
     // If whole shader changed, we should reset the URL uniforms
-    const resetUniforms = (this.state.shaderName !== null && this.state.shaderName !== shaderName);
-    this.setState({ shaderName, shaderId, resetUniforms });
-  }
+    const resetUniforms = (this.state.shaderKey !== null && this.state.shaderKey !== shaderKey);
+    this.setState({ shaderKey, shaderId, resetUniforms });
+  }shaderKey
 
   // Load either URL defined or default shader on initial load
   async componentWillMount() {
@@ -63,8 +65,8 @@ class ComposingShader extends Component {
                   key={`shader-${key}`}
                   icon={conf.icon}
                   text={conf.name}
-                  value={key}
-                  onClick={(e, { value }) => this.loadShader(value)}
+                  value={conf.shader}
+                  onClick={(e, { value }) => this.loadShader(key)}
                 />
               );
             })

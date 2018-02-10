@@ -49,5 +49,5 @@ Parts of this application (like shaders, or algorithms) are based on work other 
 Majority of this project is licensed under MIT. If file does not otherwise mention,
 it's MIT.
 
-Some of the files (`/public/shaders`) are 3rd party and licensed under GPL v3. Files that
+Some of the files, or part of them, are 3rd party and licensed under GPL v3. Files that
 have this licensing, mention it in the comment on top of the file.
