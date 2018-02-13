@@ -1,0 +1,339 @@
+[
+  {
+    "name": "Checker",
+    "shader": "Mandelbrot",
+    "uniforms": {
+      "power": 2.0,
+      "bailout": 4.0,
+      "bailoutStyle": 0,
+      "minIterations": 1,
+
+      "juliaMode": false,
+      "offset": [0.36, 0.06],
+
+      "colorMode": 3,
+      "colorScale": 2.8,
+      "colorCycle": 1.0,
+      "colorCycleOffset": 0.0,
+      "colorCycleMirror": false,
+      "hsv": false,
+      "iterationColorBlend": 2.47,
+
+      "color1": [1, 1, 1],
+      "color2": [0, 0.53, 0.8],
+      "color3": [0, 0, 0],
+      "gamma": 1.0,
+      "rotation": -90.0,
+      "cameraPosition": [-0.101591, 0.648791, 3.39984]
+    }
+  },
+  {
+    "name": "Contour Valley",
+    "shader": "Mandelbrot",
+    "uniforms": {
+      "power": 2.0,
+      "bailout": 11.1,
+      "bailoutStyle": 3.0,
+      "minIterations": 1,
+
+      "juliaMode": false,
+      "offset": [0.36, 0.06],
+
+      "colorMode": 4,
+      "colorScale": 0.0,
+      "colorCycle": 8.6,
+      "colorCycleOffset": 0.0,
+      "colorCycleMirror": false,
+      "hsv": false,
+      "iterationColorBlend": 1.62,
+
+      "color1": [0.8588235294117647, 0.21568627450980393, 0.0196078431372549],
+      "color2": [0.8941176470588236, 0.9607843137254902, 0.8470588235294118],
+      "color3": [0.00784313725490196, 0.00392156862745098, 0.00392156862745098],
+      "gamma": 1.03,
+      "rotation": 0.0,
+      "cameraPosition": [-0.722524, 0.344711, 0.00982]
+    }
+  },
+  {
+    "name": "Julia set",
+    "shader": "Mandelbrot",
+    "uniforms": {
+      "power": 3.0,
+      "bailout": 9.1,
+      "bailoutStyle": 0.0,
+      "minIterations": 1,
+
+      "juliaMode": true,
+      "offset": [0.36, 0.06],
+
+      "colorMode": 0,
+      "colorScale": 10.0,
+      "colorCycle": 2.0,
+      "colorCycleOffset": 0.0,
+      "colorCycleMirror": true,
+      "hsv": true,
+      "iterationColorBlend": 1.49,
+
+      "color1": [1, 1, 1],
+      "color2": [0.01568627450980392, 0.4745098039215686, 0.7254901960784313],
+      "color3": [0.00784313725490196, 0.00392156862745098, 0],
+      "gamma": 1.0,
+      "rotation": 0.0,
+      "cameraPosition": [-0.009946, 0.201874, -2.275821]
+    }
+  },
+  {
+    "name": "Sierpinski Dodecahedron",
+    "shader": "DodecahedronIFS",
+    "uniforms": {
+      "scale": 2.7,
+      "surfaceDetail": 1.22,
+      "surfaceSmoothness": 0.53,
+      "boundingRadius": 6.09,
+      "offset": [1.0, 1.0, 1.0],
+      "shift": [0, 0, 0],
+
+      "cameraRoll": 0,
+      "cameraPitch": 6.5,
+      "cameraYaw": -17.5,
+      "cameraFocalLength": 0.9,
+      "cameraPosition": [1.093726, 0.628911, -3.908039],
+
+      "colorIterations": 4,
+      "color1": [1, 1, 1],
+      "color1Intensity": 0.45,
+      "color2": [0, 0.53, 0.8],
+      "color2Intensity": 0.3,
+      "color3": [1, 0.53, 0],
+      "color3Intensity": 0.0,
+      "transparent": false,
+      "gamma": 1.0,
+
+      "light": [-66, 162, -30],
+      "ambientColor": [0.5, 0.3],
+      "background1Color": [0, 0.46, 0.8],
+      "background2Color": [0, 0, 0],
+      "innerGlowColor": [0, 0.6, 0.8],
+      "innerGlowIntensity": 0.1,
+      "outerGlowColor": [1, 1, 1],
+      "outerGlowIntensity": 0.02,
+      "fog": 0.01,
+      "fogFalloff": 0.0,
+      "specularity": 0.8,
+      "specularExponent": 4,
+
+      "aoIntensity": 0.16,
+      "aoSpread": 10.6,
+
+      "phi": 1.618,
+      "objectRotation": [0.30901699437494745, 0, 0.9510565162951535, 0, 1, 0, -0.9510565162951535, 0, 0.30901699437494745],
+      "fractalRotation1": [1, 0, 0, 0, 1, 0, 0, 0, 1],
+      "fractalRotation2": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+    }
+  },
+  {
+    "name": "Sierpinski Icosahedron",
+    "shader": "DodecahedronIFS",
+    "uniforms": {
+      "scale": 2.0,
+      "surfaceDetail": 1.22,
+      "surfaceSmoothness": 0.53,
+      "boundingRadius": 6.09,
+      "offset": [0.61, 0, 0.99],
+      "shift": [0, 0, 0],
+
+      "cameraRoll": 0,
+      "cameraPitch": -15.5,
+      "cameraYaw": -16.5,
+      "cameraFocalLength": 0.9,
+      "cameraPosition": [0.678432, 0.696559, -2.590894],
+
+      "colorIterations": 4,
+      "color1": [1, 1, 1],
+      "color1Intensity": 0.45,
+      "color2": [0, 0.53, 0.8],
+      "color2Intensity": 0.3,
+      "color3": [1, 0.53, 0],
+      "color3Intensity": 0.0,
+      "transparent": false,
+      "gamma": 1.0,
+
+      "light": [-66, 162, -30],
+      "ambientColor": [0.5, 0.3],
+      "background1Color": [0, 0.46, 0.8],
+      "background2Color": [0, 0, 0],
+      "innerGlowColor": [0, 0.6, 0.8],
+      "innerGlowIntensity": 0.1,
+      "outerGlowColor": [1, 1, 1],
+      "outerGlowIntensity": 0.02,
+      "fog": 0.01,
+      "fogFalloff": 0.0,
+      "specularity": 0.8,
+      "specularExponent": 4,
+
+      "aoIntensity": 0.16,
+      "aoSpread": 10.6,
+
+      "phi": 1.618,
+      "objectRotation": [0.26723837607825696, 0, 0.963630453208623, 0.48907942272058585, 0.8616291604415258, -0.13563372791503553, -0.8302920983740328, 0.5075383629607041, 0.23026037761806528],
+      "fractalRotation1": [1, 0, 0, 0, 1, 0, 0, 0, 1],
+      "fractalRotation2": [1, 0, 0, 0, 1, 0, 0, 0, 1]
+    }
+  },
+  {
+    "name": "Ornate box",
+    "shader": "Mandelbox",
+    "uniforms": {
+      "scale": -2.81,
+      "surfaceDetail": 0.66,
+      "surfaceSmoothness": 0.79,
+      "boundingRadius": 114.02,
+      "offset": [0, 0, 0],
+
+      "cameraRoll": 0,
+      "cameraPitch": -7,
+      "cameraYaw": -31.5,
+      "cameraFocalLength": 0.9,
+      "cameraPosition": [0.153118, 0.013437, -2.180578],
+
+      "colorIterations": 3,
+      "color1": [0.0315625, 0.0315625, 0.0315625],
+      "color1Intensity": 0.96,
+      "color2": [0.9803921568627451, 0.7843137254901961, 0.0196078431372549],
+      "color2Intensity": 1.26,
+      "color3": [1, 1, 1],
+      "color3Intensity": 0.51,
+      "transparent": false,
+      "gamma": 0.99,
+
+      "light": [48, 191, -198],
+      "ambientColor": [0.41, 0],
+      "background1Color": [0.7450980392156863, 0.9450980392156862, 0.9372549019607843],
+      "background2Color": [0, 0, 0],
+      "innerGlowColor": [0, 0.6, 0.8],
+      "innerGlowIntensity": 0.13,
+      "outerGlowColor": [1, 1, 1],
+      "outerGlowIntensity": 0.0,
+      "fog": 0.0,
+      "fogFalloff": 0.0,
+      "specularity": 0.86,
+      "specularExponent": 7.5,
+
+      "aoIntensity": 0.21,
+      "aoSpread": 11.79,
+
+      "objectRotation": [1, 0, 0, 0, 1, 0, 0, 0, 1],
+      "fractalRotation1": [1, 0, 0, 0, 1, 0, 0, 0, 1],
+      "fractalRotation2": [1, 0, 0, 0, 1, 0, 0, 0, 1],
+
+      "sphereScale": 1.0,
+      "boxScale": 0.5,
+      "boxFold": 1.0,
+      "fudgeFactor": 0.0
+    }
+  },
+  {
+    "name": "Into the Core",
+    "shader": "Mandelbox",
+    "uniforms": {
+      "scale": -2.81,
+      "surfaceDetail": 0.66,
+      "surfaceSmoothness": 0.79,
+      "boundingRadius": 114.02,
+      "offset": [0, 0, 0],
+
+      "cameraRoll": 0,
+      "cameraPitch": 0,
+      "cameraYaw": 42,
+      "cameraFocalLength": 0.9,
+      "cameraPosition": [-0.064575, 0.089261, -1.361713],
+
+      "colorIterations": 3,
+      "color1": [0.0315625, 0.0315625, 0.0315625],
+      "color1Intensity": 0.96,
+      "color2": [0.9803921568627451, 0.7843137254901961, 0.0196078431372549],
+      "color2Intensity": 1.26,
+      "color3": [1, 1, 1],
+      "color3Intensity": 0.51,
+      "transparent": false,
+      "gamma": 0.99,
+
+      "light": [48, 191, -198],
+      "ambientColor": [0.41, 0],
+      "background1Color": [0.7450980392156863, 0.9450980392156862, 0.9372549019607843],
+      "background2Color": [0, 0, 0],
+      "innerGlowColor": [0, 0.6, 0.8],
+      "innerGlowIntensity": 0.24,
+      "outerGlowColor": [1, 1, 1],
+      "outerGlowIntensity": 0.0,
+      "fog": 0.14,
+      "fogFalloff": 2.8,
+      "specularity": 0.86,
+      "specularExponent": 7.0,
+
+      "aoIntensity": 0.21,
+      "aoSpread": 11.79,
+
+      "objectRotation": [1, 0, 0, 0, 1, 0, 0, 0, 1],
+      "fractalRotation1": [1, 0, 0, 0, 1, 0, 0, 0, 1],
+      "fractalRotation2": [1, 0, 0, 0, 1, 0, 0, 0, 1],
+
+      "sphereScale": 1.0,
+      "boxScale": 0.5,
+      "boxFold": 1.0,
+      "fudgeFactor": 0.0
+    }
+  },
+  {
+    "name": "Mandelbulb #2",
+    "shader": "Mandelbulb",
+    "uniforms": {
+      "power": 8.0,
+      "bailout": 11.1,
+
+      "surfaceDetail": 0.6,
+      "surfaceSmoothness": 1.0,
+      "boundingRadius": 5.09,
+      "offset": [0.0, 0.0, 0.0],
+
+      "cameraRoll": 0.0,
+      "cameraPitch": -22,
+      "cameraYaw": -1.0,
+      "cameraFocalLength": 0.9,
+      "cameraPosition": [-0.113937, 0.913814, -2.31178],
+
+      "colorIterations": 6,
+      "color1": [1, 1, 1],
+      "color1Intensity": 0.66,
+      "color2": [0.6666666666666666, 0.792156862745098, 0.8117647058823529],
+      "color2Intensity": 0.3,
+      "color3": [1, 0.53, 0],
+      "color3Intensity": 0.6,
+      "transparent": false,
+      "gamma": 1.0,
+
+      "light": [174, 210, -66],
+      "ambientColor": [0.44, 0.5],
+      "background1Color": [0.8509803921568627, 0.803921568627451, 0.611764705882353],
+      "background2Color": [0.09411764705882353, 0.15294117647058825, 0.1568627450980392],
+      "innerGlowColor": [0, 0.6, 0.8],
+      "innerGlowIntensity": 0.12,
+      "outerGlowColor": [1, 1, 1],
+      "outerGlowIntensity": 0.0,
+      "fog": 0.06,
+      "fogFalloff": 0.0,
+      "specularity": 0.81,
+      "specularExponent": 4.5,
+
+      "aoIntensity": 0.1,
+      "aoSpread": 3.4,
+
+      "objectRotation": [1, 0, 0, 0, -0.19936793441719708, -0.9799247046208296, 0, 0.9799247046208296, -0.19936793441719708],
+
+      "juliaFactor": 0.0,
+      "radiolariaFactor": 0.0,
+      "radiolaria": 1.0
+    }
+  }
+]
