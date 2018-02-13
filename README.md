@@ -26,6 +26,14 @@ a configuration panel will be generated so the user can easily change any settin
 User may also save their shader selections and configurations to a preset, to come back to them later.
 It is also possible to render a high quality image (or a video) of the current set and save it for later use.
 
+## Up-coming features
+
+* [x] Simple presets / pre-made scenes
+* [ ] Randomizable uniforms for all shaders
+* [ ] Finalize react-slider component
+* [ ] Controls: Group and organize the uniform config
+* [ ] Controls: Camera control for 3D shaders
+
 ## Inspiration
 
 This project draws inspiration from [Apophysis](http://www.apophysis.org/) and [Fractal Lab](http://sub.blue/fractal-lab)
