@@ -30,21 +30,19 @@ class ComposingShader extends Component {
   }
 
   async loadShader(shaderKey) {
-    const config = configurations[shaderKey];
-
     // TODO This should be cached. I think we can check it with GL.Shaders, if it's already there
     const hostname = window.location.hostname;
-    const shaderResponse = await superagent.get(`http://${hostname}:3001/compile/${config.shader}`);
+    const shaderResponse = await superagent.get(`http://${hostname}:3001/compile/${shaderKey}`);
     const shaders = await GL.Shaders.create({
-      [config.shader]: {
+      [shaderKey]: {
         frag: shaderResponse.text
       }
     }, (err, res) => this.handleShadersCompiled(err, res));
-    const shaderId = shaders[config.shader];
+    const shaderId = shaders[shaderKey];
     // If whole shader changed, we should reset the URL uniforms
     const resetUniforms = (this.state.shaderKey !== null && this.state.shaderKey !== shaderKey);
     this.setState({ shaderKey, shaderId, resetUniforms });
-  }shaderKey
+  }
 
   // Load either URL defined or default shader on initial load
   async componentWillMount() {
@@ -64,7 +62,7 @@ class ComposingShader extends Component {
                 <Dropdown.Item
                   key={`shader-${key}`}
                   icon={conf.icon}
-                  text={conf.name}
+                  text={key}
                   value={conf.shader}
                   onClick={(e, { value }) => this.loadShader(key)}
                 />

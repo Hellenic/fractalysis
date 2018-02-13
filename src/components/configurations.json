@@ -1,7 +1,5 @@
 {
   "Mandelbrot": {
-    "name": "Mandelbrot",
-    "shader": "Mandelbrot",
     "icon": "cubes",
     "randomizable": ["bailout", "bailoutStyle", "colorMode", "colorScale", "colorCycle", "hsv", "color1", "color2", "color3"],
     "uniforms": {
@@ -30,8 +28,6 @@
     }
   },
   "OrbitTrap": {
-    "name": "OrbitTrap",
-    "shader": "OrbitTrap",
     "icon": "cubes",
     "randomizable": ["power", "color1", "transparent", "iterationColorBlend"],
     "uniforms": {
@@ -57,8 +53,6 @@
     }
   },
   "Ducks": {
-    "name": "Ducks",
-    "shader": "Ducks",
     "icon": "cubes",
     "randomizable": ["colorScale", "colorCycle", "color1", "color2"],
     "uniforms": {
@@ -80,8 +74,6 @@
     }
   },
   "OctahedralIFS": {
-    "name": "Sierpinski Octahedron",
-    "shader": "OctahedralIFS",
     "icon": "linode",
     "randomizable": ["color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
     "uniforms": {
@@ -130,8 +122,6 @@
     }
   },
   "SphereSponge": {
-    "name": "SphereSponge",
-    "shader": "SphereSponge",
     "icon": "linode",
     "randomizable": ["color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
     "uniforms": {
@@ -179,8 +169,6 @@
     }
   },
   "MengerSponge": {
-    "name": "MengerSponge",
-    "shader": "MengerSponge",
     "icon": "linode",
     "randomizable": ["color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
     "uniforms": {
@@ -227,8 +215,6 @@
     }
   },
   "DodecahedronIFS": {
-    "name": "Organism",
-    "shader": "DodecahedronIFS",
     "icon": "linode",
     "randomizable": ["color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
     "uniforms": {
@@ -278,8 +264,6 @@
     }
   },
   "Mandelbox": {
-    "name": "Mandelbox",
-    "shader": "Mandelbox",
     "icon": "linode",
     "randomizable": ["color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
     "uniforms": {
@@ -332,8 +316,6 @@
     }
   },
   "Mandelbulb": {
-    "name": "Mandelbulb",
-    "shader": "Mandelbulb",
     "icon": "linode",
     "randomizable": ["color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
     "uniforms": {
