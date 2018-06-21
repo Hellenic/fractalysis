@@ -54,7 +54,7 @@
   },
   "Ducks": {
     "icon": "cubes",
-    "randomizable": ["colorScale", "colorCycle", "color1", "color2"],
+    "randomizable": ["colorScale", "colorCycle", "color1", "color2", "rotation"],
     "uniforms": {
       "minIterations": { "label": "Min. iterations", "defaultValue": 1, "min": 1, "max": 400, "step": 1 },
       "juliaMode": { "label": "Julia mode", "defaultValue": true },
@@ -75,9 +75,9 @@
   },
   "OctahedralIFS": {
     "icon": "linode",
-    "randomizable": ["color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
+    "randomizable": ["scale", "color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
     "uniforms": {
-      "scale": { "label": "Scale", "defaultValue": 2.0, "min": -10, "max": 10, "step": 0.1 },
+      "scale": { "label": "Scale", "defaultValue": 2.0, "min": 0.1, "max": 10, "step": 0.1 },
       "surfaceDetail": { "label": "Surface detail", "defaultValue": 1.0, "min": 0.1, "max": 2, "step": 0.1 },
       "surfaceSmoothness": { "label": "Surface smoothness", "defaultValue": 0.6, "min": 0.01, "max": 1, "step": 0.1 },
       "boundingRadius": { "label": "Bounding radius", "defaultValue": 5, "min": 0.1, "max": 150, "step": 0.1 },
@@ -123,9 +123,9 @@
   },
   "SphereSponge": {
     "icon": "linode",
-    "randomizable": ["color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
+    "randomizable": ["scale", "color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
     "uniforms": {
-      "scale": { "label": "Scale", "defaultValue": 4.0, "min": -10, "max": 10, "step": 0.1 },
+      "scale": { "label": "Scale", "defaultValue": 4.0, "min": 2, "max": 20, "step": 0.1 },
       "surfaceDetail": { "label": "Surface detail", "defaultValue": 1.0, "min": 0.1, "max": 2, "step": 0.1 },
       "surfaceSmoothness": { "label": "Surface smoothness", "defaultValue": 0.6, "min": 0.01, "max": 1, "step": 0.1 },
       "boundingRadius": { "label": "Bounding radius", "defaultValue": 40, "min": 0.1, "max": 150, "step": 0.1 },
@@ -170,9 +170,9 @@
   },
   "MengerSponge": {
     "icon": "linode",
-    "randomizable": ["color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
+    "randomizable": ["scale", "color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
     "uniforms": {
-      "scale": { "label": "Scale", "defaultValue": 1.0, "min": -10, "max": 10, "step": 0.1 },
+      "scale": { "label": "Scale", "defaultValue": 1.0, "min": 0, "max": 20, "step": 0.1 },
       "surfaceDetail": { "label": "Surface detail", "defaultValue": 0.6, "min": 0.1, "max": 2, "step": 0.1 },
       "surfaceSmoothness": { "label": "Surface smoothness", "defaultValue": 0.6, "min": 0.01, "max": 1, "step": 0.1 },
       "boundingRadius": { "label": "Bounding radius", "defaultValue": 5, "min": 0.1, "max": 150, "step": 0.1 },
@@ -216,9 +216,9 @@
   },
   "DodecahedronIFS": {
     "icon": "linode",
-    "randomizable": ["color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
+    "randomizable": ["scale", "color1", "color2", "color3", "background1Color", "background2Color", "ambientColor", "phi"],
     "uniforms": {
-      "scale": { "label": "Scale", "defaultValue": 2.3, "min": -10, "max": 10, "step": 0.1 },
+      "scale": { "label": "Scale", "defaultValue": 2.3, "min": 1, "max": 9, "step": 0.1 },
       "surfaceDetail": { "label": "Surface detail", "defaultValue": 0.87, "min": 0.1, "max": 2, "step": 0.1 },
       "surfaceSmoothness": { "label": "Surface smoothness", "defaultValue": 1.0, "min": 0.01, "max": 1, "step": 0.1 },
       "boundingRadius": { "label": "Bounding radius", "defaultValue": 16.58, "min": 0.1, "max": 150, "step": 0.1 },
@@ -265,9 +265,9 @@
   },
   "Mandelbox": {
     "icon": "linode",
-    "randomizable": ["color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
+    "randomizable": ["scale", "surfaceDetail", "color1", "color2", "color3", "background1Color", "background2Color", "ambientColor", "sphereScale", "boxScale"],
     "uniforms": {
-      "scale": { "label": "Scale", "defaultValue": 2.0, "min": -10, "max": 10, "step": 0.1 },
+      "scale": { "label": "Scale", "defaultValue": 2.0, "min": 1.0, "max": 7.0, "step": 0.1 },
       "surfaceDetail": { "label": "Surface detail", "defaultValue": 0.4, "min": 0.1, "max": 2, "step": 0.1 },
       "surfaceSmoothness": { "label": "Surface smoothness", "defaultValue": 1.0, "min": 0.01, "max": 1, "step": 0.1 },
       "boundingRadius": { "label": "Bounding radius", "defaultValue": 114.02, "min": 0.1, "max": 150, "step": 0.1 },
@@ -317,9 +317,9 @@
   },
   "Mandelbulb": {
     "icon": "linode",
-    "randomizable": ["color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
+    "randomizable": ["power", "bailout", "color1", "color2", "color3", "background1Color", "background2Color", "ambientColor", "juliaFactor", "radiolariaFactor", "radiolaria"],
     "uniforms": {
-      "power": { "label": "Power", "defaultValue": 8.0, "min": -20, "max": 20, "step": 0.01 },
+      "power": { "label": "Power", "defaultValue": 8.0, "min": 1.1, "max": 30, "step": 0.01 },
       "bailout": { "label": "Bailout", "defaultValue": 11.1, "min": 0.1, "max": 50, "step": 0.01 },
 
       "surfaceDetail": { "label": "Surface detail", "defaultValue": 0.93, "min": 0.1, "max": 2, "step": 0.1 },
@@ -363,7 +363,7 @@
 
       "juliaFactor": { "label": "Juliabulb factor", "defaultValue": 1.0, "min": 0.0, "max": 1.0, "step": 0.01 },
       "radiolariaFactor": { "label": "Radiolaria factor", "defaultValue": 0.8, "min": -2.0, "max": 2.0, "step": 0.1 },
-      "radiolaria": { "label": "Radiolaria", "defaultValue": 1.0, "min": 0.0, "max": 1.0, "step": 0.01 }
+      "radiolaria": { "label": "Radiolaria", "defaultValue": 1.0, "min": 0.0, "max": 2.0, "step": 0.01 }
     }
   }
 }
