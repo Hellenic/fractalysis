@@ -4,7 +4,7 @@ import { Dropdown } from 'semantic-ui-react';
 import TextIcon from '../../components/TextIcon/TextIcon';
 import routes from '../../routes';
 
-const links = [
+const DROPDOWN_MENU = [
   { icon: 'eye', title: 'Editor', to: '/' },
   { icon: 'world', title: 'Scenes', to: '/scenes' },
   { icon: 'image', title: 'Renders', to: '/renders' }
@@ -12,12 +12,12 @@ const links = [
 
 const PageSelector = ({ location, history }) => {
   const currentIndex = routes.findIndex(r => r.path === location.pathname);
-  const link = links[currentIndex];
+  const link = DROPDOWN_MENU[currentIndex];
   return (
     <Dropdown labeled trigger={<TextIcon icon={link.icon} title={link.title} />} icon="dropdown">
       <Dropdown.Menu>
         {
-          links.map(link => (
+          DROPDOWN_MENU.map(link => (
             <Dropdown.Item
               key={`link-${link.to}`}
               icon={link.icon}

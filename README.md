@@ -29,8 +29,8 @@ It is also possible to render a high quality image (or a video) of the current s
 ## Up-coming features
 
 * [x] Simple presets / pre-made scenes
-* [ ] Randomizable uniforms for all shaders
 * [ ] Finalize react-slider component
+      * Also properly handle min / max values
 * [ ] Controls: Group and organize the uniform config
 * [ ] Controls: Camera control for 3D shaders
 
@@ -51,6 +51,8 @@ Parts of this application (like shaders, or algorithms) are based on work other 
  * http://www.fractalforums.com/sierpinski-gasket/kaleidoscopic-(escape-time-ifs)/msg16982/#msg16982
  * http://www.fractalforums.com/3d-fractal-generation/
  * And of course all the open source libraries used
+
+ Big thanks!
 
 # License
 
