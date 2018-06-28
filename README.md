@@ -29,9 +29,8 @@ It is also possible to render a high quality image (or a video) of the current s
 ## Up-coming features
 
 * [x] Simple presets / pre-made scenes
-* [ ] Finalize react-slider component
-      * Also properly handle min / max values
-* [ ] Controls: Group and organize the uniform config
+* [-] Controls: Group and organize the uniform config (partly done)
+* [ ] Finalize react-slider component (Also properly handle min / max values)
 * [ ] Controls: Camera control for 3D shaders
 
 ## Inspiration
@@ -52,7 +51,7 @@ Parts of this application (like shaders, or algorithms) are based on work other 
  * http://www.fractalforums.com/3d-fractal-generation/
  * And of course all the open source libraries used
 
- Big thanks!
+ Big thanks! :pray:
 
 # License
 

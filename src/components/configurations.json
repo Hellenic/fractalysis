@@ -2,6 +2,10 @@
   "Mandelbrot": {
     "icon": "cubes",
     "randomizable": ["bailout", "bailoutStyle", "colorMode", "colorScale", "colorCycle", "hsv", "color1", "color2", "color3"],
+    "tabs": [
+      { "label": "Tab 1", "uniforms": ["power", "bailout", "bailoutStyle", "minIterations", "juliaMode", "offset"] },
+      { "label": "Color", "uniforms": ["colorMode", "colorScale", "colorCycle", "colorCycleOffset", "colorCycleMirror", "hsv", "iterationColorBlend"] }
+    ],
     "uniforms": {
       "power": { "label": "Power", "defaultValue": 2.0, "min": -20, "max": 20, "step": 0.01 },
       "bailout": { "label": "Bailout", "defaultValue": 11.1, "min": 0.1, "max": 50, "step": 0.01 },
