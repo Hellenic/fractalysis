@@ -6,8 +6,8 @@ import routes from '../../routes';
 
 const DROPDOWN_MENU = [
   { icon: 'eye', title: 'Editor', to: '/' },
-  { icon: 'world', title: 'Scenes', to: '/scenes' },
-  { icon: 'image', title: 'Renders', to: '/renders' }
+  { icon: 'world', title: 'Scenes', to: '/scenes' }
+  // { icon: 'image', title: 'Renders', to: '/renders' }
 ];
 
 const PageSelector = ({ location, history }) => {

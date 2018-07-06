@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Card, Image } from 'semantic-ui-react'
+import { Card, Container, Image } from 'semantic-ui-react'
 import { stringify } from 'qs';
 import presets from '../../presets.json';
 
 class Scenes extends Component {
   render() {
     return (
-      <section>
+      <Container>
         <h1>Preset scenes</h1>
         <Card.Group>
         {
@@ -31,7 +31,7 @@ class Scenes extends Component {
           })
         }
         </Card.Group>
-      </section>
+      </Container>
     );
   }
 }

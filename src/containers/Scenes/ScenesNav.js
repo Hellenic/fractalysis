@@ -5,9 +5,13 @@ class ScenesNavbar extends Component {
   render() {
     return (
       <Menu secondary>
-        <Menu.Item>
-          <Icon name="image" />
-          TODO
+        <Menu.Item disabled>
+          <Icon name="save" />
+          Save
+        </Menu.Item>
+        <Menu.Item disabled>
+          <Icon name="delete" />
+          Delete
         </Menu.Item>
       </Menu>
     );
