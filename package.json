@@ -1,6 +1,6 @@
 {
   "name": "fractalysis",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Fractal flame editor",
   "author": "Hannu Kärkkäinen <hannu.karkkainen@gmail.com>",
   "homepage": "http://fractalys.is",
@@ -11,19 +11,19 @@
   },
   "dependencies": {
     "express": "^4.16.1",
-    "gl-react": "^2.2.10",
-    "gl-react-dom": "^2.2.8",
+    "gl-react": "^2.3.1",
+    "gl-react-dom": "^2.2.9",
     "glslify": "^6.1.0",
     "prop-types": "^15.5.10",
     "qs": "^6.5.1",
     "query-types": "^0.1.4",
-    "react": "^15.6.1",
+    "react": "^16.4.1",
     "react-addons-css-transition-group": "^15.6.0",
-    "react-dom": "^15.6.1",
+    "react-dom": "^16.4.1",
     "react-precision-slider": "^0.1.4",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.11",
-    "semantic-ui-react": "^0.73.0",
+    "react-scripts": "^1.1.4",
+    "semantic-ui-react": "^0.82.0",
     "superagent": "^3.6.0"
   },
   "scripts": {

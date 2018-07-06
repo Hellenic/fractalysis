@@ -30,7 +30,10 @@ It is also possible to render a high quality image (or a video) of the current s
 
 * [x] Simple presets / pre-made scenes
 * [-] Controls: Group and organize the uniform config (partly done)
+* [ ] Render to picture
 * [ ] Finalize react-slider component (Also properly handle min / max values)
+* [ ] Controls: Vector control
+* [ ] Controls: Single uniform reset
 * [ ] Controls: Camera control for 3D shaders
 
 ## Inspiration
