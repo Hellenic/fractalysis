@@ -2,9 +2,9 @@
   "Mandelbrot": {
     "icon": "cubes",
     "randomizable": ["bailout", "bailoutStyle", "colorMode", "colorScale", "colorCycle", "hsv", "color1", "color2", "color3"],
-    "tabs": [
-      { "label": "Tab 1", "uniforms": ["power", "bailout", "bailoutStyle", "minIterations", "juliaMode", "offset"] },
-      { "label": "Color", "uniforms": ["colorMode", "colorScale", "colorCycle", "colorCycleOffset", "colorCycleMirror", "hsv", "iterationColorBlend"] }
+    "groups": [
+      { "icon": "cogs", "uniforms": ["power", "bailout", "bailoutStyle", "minIterations", "juliaMode", "offset"] },
+      { "icon": "adjust", "uniforms": ["color1", "color2", "color3", "gamma", "colorMode", "colorScale", "colorCycle", "colorCycleOffset", "colorCycleMirror", "hsv", "iterationColorBlend"] }
     ],
     "uniforms": {
       "power": { "label": "Power", "defaultValue": 2.0, "min": -20, "max": 20, "step": 0.01 },
@@ -34,6 +34,10 @@
   "OrbitTrap": {
     "icon": "cubes",
     "randomizable": ["power", "color1", "transparent", "iterationColorBlend"],
+    "groups": [
+      { "icon": "cogs", "uniforms": ["power", "minIterations", "juliaMode", "offset"] },
+      { "icon": "adjust", "uniforms": ["color1", "transparent", "iterationColorBlend", "gamma", "texture"] }
+    ],
     "uniforms": {
       "power": { "label": "Power", "defaultValue": 2.0, "min": -20, "max": 20, "step": 0.01 },
       "minIterations": { "label": "Min. iterations", "defaultValue": 1, "min": 1, "max": 400, "step": 1 },
@@ -59,6 +63,10 @@
   "Ducks": {
     "icon": "cubes",
     "randomizable": ["colorScale", "colorCycle", "color1", "color2", "rotation"],
+    "groups": [
+      { "icon": "cogs", "uniforms": ["minIterations", "juliaMode", "offset"] },
+      { "icon": "adjust", "uniforms": ["color1", "color2", "gamma", "colorScale", "colorCycle", "colorCycleOffset", "colorCycleMirror", "hsv"] }
+    ],
     "uniforms": {
       "minIterations": { "label": "Min. iterations", "defaultValue": 1, "min": 1, "max": 400, "step": 1 },
       "juliaMode": { "label": "Julia mode", "defaultValue": true },
@@ -80,6 +88,12 @@
   "OctahedralIFS": {
     "icon": "linode",
     "randomizable": ["scale", "color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
+    "groups": [
+      { "icon": "cogs", "uniforms": ["scale", "surfaceDetail", "surfaceSmoothness", "boundingRadius", "offset", "shift"] },
+      { "icon": "camera", "uniforms": ["cameraRoll", "cameraPitch", "cameraYaw", "cameraFocalLength", "cameraPosition"] },
+      { "icon": "adjust", "uniforms": ["color1", "color2", "color3", "color1Intensity", "color2Intensity", "color3Intensity", "colorIterations", "transparent", "gamma"] },
+      { "icon": "adjust", "uniforms": ["background1Color", "background2Color", "light", "ambientColor", "innerGlowColor", "innerGlowIntensity", "outerGlowColor", "outerGlowIntensity"] }
+    ],
     "uniforms": {
       "scale": { "label": "Scale", "defaultValue": 2.0, "min": 0.1, "max": 10, "step": 0.1 },
       "surfaceDetail": { "label": "Surface detail", "defaultValue": 1.0, "min": 0.1, "max": 2, "step": 0.1 },
@@ -128,6 +142,12 @@
   "SphereSponge": {
     "icon": "linode",
     "randomizable": ["scale", "color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
+    "groups": [
+      { "icon": "cogs", "uniforms": ["scale", "surfaceDetail", "surfaceSmoothness", "boundingRadius", "offset"] },
+      { "icon": "camera", "uniforms": ["cameraRoll", "cameraPitch", "cameraYaw", "cameraFocalLength", "cameraPosition"] },
+      { "icon": "adjust", "uniforms": ["color1", "color2", "color3", "color1Intensity", "color2Intensity", "color3Intensity", "colorIterations", "transparent", "gamma"] },
+      { "icon": "adjust", "uniforms": ["background1Color", "background2Color", "light", "ambientColor", "innerGlowColor", "innerGlowIntensity", "outerGlowColor", "outerGlowIntensity"] }
+    ],
     "uniforms": {
       "scale": { "label": "Scale", "defaultValue": 4.0, "min": 2, "max": 20, "step": 0.1 },
       "surfaceDetail": { "label": "Surface detail", "defaultValue": 1.0, "min": 0.1, "max": 2, "step": 0.1 },
@@ -175,6 +195,12 @@
   "MengerSponge": {
     "icon": "linode",
     "randomizable": ["scale", "color1", "color2", "color3", "background1Color", "background2Color", "ambientColor"],
+    "groups": [
+      { "icon": "cogs", "uniforms": ["scale", "surfaceDetail", "surfaceSmoothness", "boundingRadius", "offset"] },
+      { "icon": "camera", "uniforms": ["cameraRoll", "cameraPitch", "cameraYaw", "cameraFocalLength", "cameraPosition"] },
+      { "icon": "adjust", "uniforms": ["color1", "color2", "color3", "color1Intensity", "color2Intensity", "color3Intensity", "colorIterations", "transparent", "gamma"] },
+      { "icon": "adjust", "uniforms": ["background1Color", "background2Color", "light", "ambientColor", "innerGlowColor", "innerGlowIntensity", "outerGlowColor", "outerGlowIntensity"] }
+    ],
     "uniforms": {
       "scale": { "label": "Scale", "defaultValue": 1.0, "min": 0, "max": 20, "step": 0.1 },
       "surfaceDetail": { "label": "Surface detail", "defaultValue": 0.6, "min": 0.1, "max": 2, "step": 0.1 },
@@ -221,6 +247,12 @@
   "DodecahedronIFS": {
     "icon": "linode",
     "randomizable": ["scale", "color1", "color2", "color3", "background1Color", "background2Color", "ambientColor", "phi"],
+    "groups": [
+      { "icon": "cogs", "uniforms": ["scale", "surfaceDetail", "surfaceSmoothness", "boundingRadius", "offset", "shift"] },
+      { "icon": "camera", "uniforms": ["cameraRoll", "cameraPitch", "cameraYaw", "cameraFocalLength", "cameraPosition"] },
+      { "icon": "adjust", "uniforms": ["color1", "color2", "color3", "color1Intensity", "color2Intensity", "color3Intensity", "colorIterations", "transparent", "gamma"] },
+      { "icon": "adjust", "uniforms": ["background1Color", "background2Color", "light", "ambientColor", "innerGlowColor", "innerGlowIntensity", "outerGlowColor", "outerGlowIntensity"] }
+    ],
     "uniforms": {
       "scale": { "label": "Scale", "defaultValue": 2.3, "min": 1, "max": 9, "step": 0.1 },
       "surfaceDetail": { "label": "Surface detail", "defaultValue": 0.87, "min": 0.1, "max": 2, "step": 0.1 },
@@ -270,6 +302,12 @@
   "Mandelbox": {
     "icon": "linode",
     "randomizable": ["scale", "surfaceDetail", "color1", "color2", "color3", "background1Color", "background2Color", "ambientColor", "sphereScale", "boxScale"],
+    "groups": [
+      { "icon": "cogs", "uniforms": ["scale", "surfaceDetail", "surfaceSmoothness", "boundingRadius", "offset"] },
+      { "icon": "camera", "uniforms": ["cameraRoll", "cameraPitch", "cameraYaw", "cameraFocalLength", "cameraPosition"] },
+      { "icon": "adjust", "uniforms": ["color1", "color2", "color3", "color1Intensity", "color2Intensity", "color3Intensity", "colorIterations", "transparent", "gamma"] },
+      { "icon": "adjust", "uniforms": ["background1Color", "background2Color", "light", "ambientColor", "innerGlowColor", "innerGlowIntensity", "outerGlowColor", "outerGlowIntensity"] }
+    ],
     "uniforms": {
       "scale": { "label": "Scale", "defaultValue": 2.0, "min": 1.0, "max": 7.0, "step": 0.1 },
       "surfaceDetail": { "label": "Surface detail", "defaultValue": 0.4, "min": 0.1, "max": 2, "step": 0.1 },
@@ -322,6 +360,12 @@
   "Mandelbulb": {
     "icon": "linode",
     "randomizable": ["power", "bailout", "color1", "color2", "color3", "background1Color", "background2Color", "ambientColor", "juliaFactor", "radiolariaFactor", "radiolaria"],
+    "groups": [
+      { "icon": "cogs", "uniforms": ["power", "bailout", "surfaceDetail", "surfaceSmoothness", "boundingRadius", "offset"] },
+      { "icon": "camera", "uniforms": ["cameraRoll", "cameraPitch", "cameraYaw", "cameraFocalLength", "cameraPosition"] },
+      { "icon": "adjust", "uniforms": ["color1", "color2", "color3", "color1Intensity", "color2Intensity", "color3Intensity", "colorIterations", "transparent", "gamma"] },
+      { "icon": "adjust", "uniforms": ["background1Color", "background2Color", "light", "ambientColor", "innerGlowColor", "innerGlowIntensity", "outerGlowColor", "outerGlowIntensity"] }
+    ],
     "uniforms": {
       "power": { "label": "Power", "defaultValue": 8.0, "min": 1.1, "max": 30, "step": 0.01 },
       "bailout": { "label": "Bailout", "defaultValue": 11.1, "min": 0.1, "max": 50, "step": 0.01 },

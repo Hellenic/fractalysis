@@ -25,16 +25,16 @@ class UniformPanel extends Component {
     return uniformValues;
   }
 
-  createTabPane(tab, uniforms, uniformValues, opts) {
+  createTabPane(group, uniforms, uniformValues, opts, key) {
     const paneUniforms = {};
     const paneUniformValues = {};
-    tab.uniforms.forEach(uniformKey => {
+    group.uniforms.forEach(uniformKey => {
       paneUniforms[uniformKey] = uniforms[uniformKey];
       paneUniformValues[uniformKey] = uniformValues[uniformKey];
     });
 
     return ({
-      menuItem: tab.label || 'Tab',
+      menuItem: { key, icon: group.icon || null, content: group.label },
       render: () => (
         <UniformPane
           uniforms={paneUniforms}
@@ -52,22 +52,22 @@ class UniformPanel extends Component {
       return null;
     }
 
-    const { tabs = [], uniforms = {} } = configurations[shader];
+    const { groups = [], uniforms = {} } = configurations[shader];
     // Read uniforms values from the URL or default from configurations
     const uniformValues = this.getValuesForUniforms(uniforms, urlUniforms);
     // Create uniform object to be used when a value changes
     const opts = { shader, shaderId, ...uniformValues };
 
-    // Divide all uniforms into tabs
-    let tabbedUniforms = [];
-    const panes = tabs.map(tab => {
-      tabbedUniforms = tabbedUniforms.concat(tab.uniforms);
-      return this.createTabPane(tab, uniforms, uniformValues, opts);
+    // Divide all uniforms into groups
+    let groupedUniforms = [];
+    const panes = groups.map((group, index) => {
+      groupedUniforms = groupedUniforms.concat(group.uniforms);
+      return this.createTabPane(group, uniforms, uniformValues, opts, index);
     });
     // Create one more tab for uniforms that didn't have any tab assigned
-    const restUniformsKeys = Object.keys(uniforms).filter(u => !tabbedUniforms.includes(u));
-    const restTab = { label: 'Rest', uniforms: restUniformsKeys };
-    panes.push(this.createTabPane(restTab, uniforms, uniformValues, opts));
+    const restUniformsKeys = Object.keys(uniforms).filter(u => !groupedUniforms.includes(u));
+    const restGroup = { icon: 'ellipsis horizontal', uniforms: restUniformsKeys };
+    panes.push(this.createTabPane(restGroup, uniforms, uniformValues, opts, 99));
 
     return (
       <aside className="panel">
