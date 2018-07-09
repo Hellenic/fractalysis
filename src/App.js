@@ -9,11 +9,14 @@ class App extends Component {
       <Router>
         <div className="app">
           <Navbar />
-          {
-            routes.map((route, index) => (
-              <Route key={index} exact={route.exact} path={route.path} component={route.main} />
-            ))
-          }
+          {routes.map((route, index) => (
+            <Route
+              key={index}
+              exact={route.exact}
+              path={route.path}
+              component={route.main}
+            />
+          ))}
         </div>
       </Router>
     );

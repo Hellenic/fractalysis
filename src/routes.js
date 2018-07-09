@@ -23,6 +23,6 @@ const routes = [
     navbar: () => <RendersNav />,
     main: () => <Renders />
   }
-]
+];
 
 export default routes;
