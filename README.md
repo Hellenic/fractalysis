@@ -28,14 +28,15 @@ It is also possible to render a high quality image (or a video) of the current s
 
 ## Up-coming features
 
-* [x] Simple presets / pre-made scenes
-* [x] Controls: Group and organize the uniform config
-* [ ] Prettier
-* [ ] Render to picture
-* [ ] Finalize react-slider component (Also properly handle min / max values)
-* [ ] Controls: Vector control
-* [ ] Controls: Single uniform reset
-* [ ] Controls: Camera control for 3D shaders
+- [x] Simple presets / pre-made scenes
+- [x] Controls: Group and organize the uniform config
+- [ ] Prettier
+- [ ] Render to picture
+- [ ] Finalize react-slider component (Also properly handle min / max values)
+- [ ] Controls: Vector control
+- [ ] Controls: Single uniform reset
+- [ ] Controls: Camera control for 3D shaders
+- [ ] Preview for preset scenes
 
 ## Inspiration
 
@@ -47,15 +48,15 @@ This project draws inspiration from [Apophysis](http://www.apophysis.org/) and [
 
 Parts of this application (like shaders, or algorithms) are based on work other people have done. Here's a few:
 
- * http://www.algorithmic-worlds.net/blog/blog.php?Post=20110227
- * Fractal Lab, Tom Beddard http://sub.blue/fractal-lab
- * http://www.fractalforums.com/3d-fractal-generation/a-mandelbox-distance-estimate-formula/
- * http://www.fractalforums.com/3d-fractal-generation/revenge-of-the-half-eaten-menger-sponge/msg21700/
- * http://www.fractalforums.com/sierpinski-gasket/kaleidoscopic-(escape-time-ifs)/msg16982/#msg16982
- * http://www.fractalforums.com/3d-fractal-generation/
- * And of course all the open source libraries used
+- http://www.algorithmic-worlds.net/blog/blog.php?Post=20110227
+- Fractal Lab, Tom Beddard http://sub.blue/fractal-lab
+- http://www.fractalforums.com/3d-fractal-generation/a-mandelbox-distance-estimate-formula/
+- http://www.fractalforums.com/3d-fractal-generation/revenge-of-the-half-eaten-menger-sponge/msg21700/
+- http://www.fractalforums.com/sierpinski-gasket/kaleidoscopic-(escape-time-ifs)/msg16982/#msg16982
+- http://www.fractalforums.com/3d-fractal-generation/
+- And of course all the open source libraries used
 
- Big thanks! :pray:
+Big thanks! :pray:
 
 # License
 
