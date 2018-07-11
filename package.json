@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "express": "^4.16.1",
-    "gl-react": "^2.3.1",
-    "gl-react-dom": "^2.2.9",
+    "gl-react": "^3.15.0",
+    "gl-react-dom": "^3.15.0",
     "glslify": "^6.1.0",
     "prop-types": "^15.5.10",
     "qs": "^6.5.1",

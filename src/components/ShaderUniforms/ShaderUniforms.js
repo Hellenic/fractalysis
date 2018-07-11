@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
-import GL from 'gl-react';
+import { Shaders } from 'gl-react';
 import parse from '../../utils/query-parser';
 import configurations from '../configurations.json';
 
@@ -11,7 +11,7 @@ const HEIGHT = window.innerHeight;
 class ShaderUniforms extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired
-  }
+  };
   getUniformValues(shaderName) {
     // Pull default uniform values from the configurations
     const { uniforms } = configurations[shaderName];
@@ -25,15 +25,16 @@ class ShaderUniforms extends Component {
   }
 
   renderLoading() {
-    return (<h1>Loading...</h1>);
+    return <h1>Loading...</h1>;
   }
 
   render() {
     const query = parse(this.props.location.search.substring(1));
-    const { shader, shaderId,...rest } = query;
+    const { shader, shaderId, ...rest } = query;
     // If shaderID is not present yet, shader might still be compiling
     // or if page was refreshed, ID is there but it anyway might not be compiled yet
-    if (!shaderId || !GL.Shaders.exists(shaderId)) {
+    const shaderExists = Shaders.getShortName({ id: shaderId }) !== '???';
+    if (!shaderId || !shaderExists) {
       return this.renderLoading();
     }
 
@@ -48,8 +49,8 @@ class ShaderUniforms extends Component {
     }
     // Append some constants to the uniforms
     uniformValues = Object.assign({}, uniformValues, {
-      size: [ WIDTH, HEIGHT ],
-      outputSize: [ WIDTH, HEIGHT ]
+      size: [WIDTH, HEIGHT],
+      outputSize: [WIDTH, HEIGHT]
     });
 
     // Pass the props to children and render
@@ -57,15 +58,13 @@ class ShaderUniforms extends Component {
     const childProps = {
       width: WIDTH,
       height: HEIGHT,
-      shaderId: parseInt(shaderId, 10),
+      shaderId,
       uniforms: uniformValues
     };
-    const childrenWithProps = React.Children.map(children, child => React.cloneElement(child, childProps));
-    return (
-      <div>
-        {childrenWithProps}
-      </div>
-    )
+    const childrenWithProps = React.Children.map(children, child =>
+      React.cloneElement(child, childProps)
+    );
+    return <div>{childrenWithProps}</div>;
   }
 }
 

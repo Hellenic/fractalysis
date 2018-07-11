@@ -1,15 +1,12 @@
 import React from 'react';
-import GL from 'gl-react';
-import { Surface } from "gl-react-dom";
-
-const Draw = GL.createComponent(props =>
-  <GL.Node {...props} />
-);
+import { Node } from 'gl-react';
+import { Surface } from 'gl-react-dom';
 
 const Fractal = props => {
+  const shaderDef = { id: `${props.shaderId}`, type: 'ShaderID' };
   return (
     <Surface width={props.width} height={props.height}>
-       <Draw shader={props.shaderId} uniforms={props.uniforms} />
+      <Node shader={shaderDef} uniforms={props.uniforms} />
     </Surface>
   );
 };
