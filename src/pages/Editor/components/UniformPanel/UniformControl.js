@@ -1,10 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Slider from 'react-precision-slider';
-import {
-  getUniformType,
-  getInputTypeForUniform
-} from '../../../../utils/uniforms';
+import { getUniformType, getInputTypeForUniform } from '../../utils/uniforms';
 import { floatToHex, hexToFloat } from '../../../../utils/colors';
 
 class UniformControl extends Component {

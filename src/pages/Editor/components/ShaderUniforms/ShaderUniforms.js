@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { Shaders } from 'gl-react';
 import parse from '../../../../utils/query-parser';
-import configurations from '../../configurations.json';
+import { getUniformDefaultValues } from '../../utils/uniforms';
 
 const WIDTH = window.innerWidth;
 const HEIGHT = window.innerHeight;
@@ -12,17 +12,6 @@ class ShaderUniforms extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired
   };
-  getUniformValues(shaderName) {
-    // Pull default uniform values from the configurations
-    const { uniforms } = configurations[shaderName];
-
-    // Collect the default values from the uniforms configs
-    return Object.keys(uniforms).reduce((acc, key) => {
-      const config = uniforms[key];
-      acc[key] = config.defaultValue;
-      return acc;
-    }, {});
-  }
 
   renderLoading() {
     return <h1>Loading...</h1>;
@@ -30,7 +19,7 @@ class ShaderUniforms extends Component {
 
   render() {
     const query = parse(this.props.location.search.substring(1));
-    const { shader, shaderId, ...rest } = query;
+    const { shader, shaderId, download, ...rest } = query;
     // If shaderID is not present yet, shader might still be compiling
     // or if page was refreshed, ID is there but it anyway might not be compiled yet
     const shaderExists = Shaders.getShortName({ id: shaderId }) !== '???';
@@ -41,7 +30,7 @@ class ShaderUniforms extends Component {
     // Use the values from the URL or pull the defaults from storage
     let uniformValues = Object.assign({}, rest);
     if (Object.keys(uniformValues).length === 0) {
-      uniformValues = this.getUniformValues(shader);
+      uniformValues = getUniformDefaultValues(shader);
     }
     // If there are no uniform values, we're still loading
     if (Object.keys(uniformValues).length === 0) {

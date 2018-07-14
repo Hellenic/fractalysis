@@ -11,7 +11,7 @@ of what I want this project to be capable of: [Apophysis on Google Photos @hkark
 > This project is work in progress!
 > While the basic structure is already there, majority of features are still not there.
 
-## How it works / [will work]
+## How it works (will work)
 
 Basically, there's the shaders that do the heavy lifting. Those shaders can take in
 some parameters, that affect the outcome. Combine those, and final product is a fractal flame, rendered on a canvas with WebGL.
@@ -37,6 +37,8 @@ It is also possible to render a high quality image (or a video) of the current s
 - [ ] Controls: Single uniform reset
 - [ ] Controls: Camera control for 3D shaders
 - [ ] Preview for preset scenes
+- [ ] Capability to save presets
+- [ ] Shader composing
 
 ## Inspiration
 

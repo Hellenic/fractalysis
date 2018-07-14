@@ -22,7 +22,11 @@ class Fractal extends Component {
         webglContextAttributes={{ preserveDrawingBuffer: true }}
         ref={this.props.onSurfaceRef}
       >
-        <Node shader={shaderDef} uniforms={uniforms} />
+        <Node
+          shader={shaderDef}
+          uniforms={uniforms}
+          onDraw={this.props.onDraw}
+        />
       </Surface>
     );
   }

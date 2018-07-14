@@ -1,28 +1,44 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
+import { Dimmer, Loader } from 'semantic-ui-react';
 import ShaderUniforms from './components/ShaderUniforms/ShaderUniforms';
 import Fractal from './components/Fractal/Fractal';
 import UniformPanel from './components/UniformPanel/UniformPanel';
+import parse from '../../utils/query-parser';
 
 class Editor extends Component {
-  onDownload = async () => {
-    const capture = await this.surfaceRef.captureAsBlob('image/png');
-    const url = window.URL.createObjectURL(capture);
-    window.open(url, '_blank');
-    // window.URL.revokeObjectURL(url);
+  onDraw = async () => {
+    const query = parse(this.props.location.search.substring(1));
+    const { download = false } = query;
+    // After each draw, initiate a download if appropriate
+    if (download === true) {
+      const capture = await this.surfaceRef.captureAsBlob('image/png');
+      const url = window.URL.createObjectURL(capture);
+      window.location.replace(url);
+      // window.URL.revokeObjectURL(url);
+      // window.close()
+    }
   };
   onSurfaceRef = ref => {
     this.surfaceRef = ref;
   };
   render() {
+    const query = parse(this.props.location.search.substring(1));
+    const { download = false } = query;
     return (
-      <section>
+      <div>
         <UniformPanel />
         <ShaderUniforms>
-          <Fractal onSurfaceRef={this.onSurfaceRef} />
+          <Fractal onSurfaceRef={this.onSurfaceRef} onDraw={this.onDraw} />
         </ShaderUniforms>
-      </section>
+        <Dimmer active={download} page onClickOutside={() => window.close()}>
+          <Loader indeterminate size="big">
+            Rendering image for download...
+          </Loader>
+        </Dimmer>
+      </div>
     );
   }
 }
 
-export default Editor;
+export default withRouter(Editor);
