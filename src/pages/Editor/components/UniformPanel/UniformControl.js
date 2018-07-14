@@ -1,8 +1,11 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Slider from 'react-precision-slider';
-import { getUniformType, getInputTypeForUniform } from '../../utils/uniforms';
-import { floatToHex, hexToFloat } from '../../utils/colors';
+import {
+  getUniformType,
+  getInputTypeForUniform
+} from '../../../../utils/uniforms';
+import { floatToHex, hexToFloat } from '../../../../utils/colors';
 
 class UniformControl extends Component {
   static propTypes = {
@@ -10,9 +13,16 @@ class UniformControl extends Component {
     value: PropTypes.any,
     inputType: PropTypes.string,
     onChange: PropTypes.func.isRequired
-  }
+  };
   render() {
-    const { label, value, defaultValue, onChange, inputType, ...rest } = this.props;
+    const {
+      label,
+      value,
+      defaultValue,
+      onChange,
+      inputType,
+      ...rest
+    } = this.props;
     const uniformType = getUniformType(value);
     let type = inputType;
     if (!type) {
@@ -42,8 +52,7 @@ class UniformControl extends Component {
           />
         </div>
       );
-    }
-    else if (['color'].includes(inputType)) {
+    } else if (['color'].includes(inputType)) {
       return (
         <div>
           <strong>{label}</strong>

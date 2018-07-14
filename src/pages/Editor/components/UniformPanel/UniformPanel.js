@@ -2,15 +2,17 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { Segment, Tab } from 'semantic-ui-react';
 import { stringify } from 'qs';
-import parse from '../../utils/query-parser';
+import parse from '../../../../utils/query-parser';
 import UniformPane from './UniformPane';
-import configurations from '../configurations.json';
+import configurations from '../../configurations.json';
 import './UniformPanel.css';
 
 class UniformPanel extends Component {
   handleChange(value, name, currentQuery) {
     // Push the uniform key-value into the URL
-    const queryString = stringify(Object.assign({}, currentQuery, { [name]: value }));
+    const queryString = stringify(
+      Object.assign({}, currentQuery, { [name]: value })
+    );
     this.props.history.push(`?${queryString}`);
   }
 
@@ -19,7 +21,7 @@ class UniformPanel extends Component {
     // TODO Use reduce
     Object.keys(uniforms).forEach(key => {
       const defaultValue = uniforms[key].defaultValue;
-      const uniformValue = (key in urlUniforms) ? urlUniforms[key] : defaultValue;
+      const uniformValue = key in urlUniforms ? urlUniforms[key] : defaultValue;
       uniformValues[key] = uniformValue;
     });
     return uniformValues;
@@ -33,7 +35,7 @@ class UniformPanel extends Component {
       paneUniformValues[uniformKey] = uniformValues[uniformKey];
     });
 
-    return ({
+    return {
       menuItem: { key, icon: group.icon || null, content: group.label },
       render: () => (
         <UniformPane
@@ -42,12 +44,14 @@ class UniformPanel extends Component {
           onChange={(value, key) => this.handleChange(value, key, opts)}
         />
       )
-    });
+    };
   }
 
   render() {
     const { location } = this.props;
-    const { shader, shaderId, ...urlUniforms } = parse(location.search.substring(1));
+    const { shader, shaderId, ...urlUniforms } = parse(
+      location.search.substring(1)
+    );
     if (!shader || !configurations[shader]) {
       return null;
     }
@@ -65,9 +69,16 @@ class UniformPanel extends Component {
       return this.createTabPane(group, uniforms, uniformValues, opts, index);
     });
     // Create one more tab for uniforms that didn't have any tab assigned
-    const restUniformsKeys = Object.keys(uniforms).filter(u => !groupedUniforms.includes(u));
-    const restGroup = { icon: 'ellipsis horizontal', uniforms: restUniformsKeys };
-    panes.push(this.createTabPane(restGroup, uniforms, uniformValues, opts, 99));
+    const restUniformsKeys = Object.keys(uniforms).filter(
+      u => !groupedUniforms.includes(u)
+    );
+    const restGroup = {
+      icon: 'ellipsis horizontal',
+      uniforms: restUniformsKeys
+    };
+    panes.push(
+      this.createTabPane(restGroup, uniforms, uniformValues, opts, 99)
+    );
 
     return (
       <aside className="panel">

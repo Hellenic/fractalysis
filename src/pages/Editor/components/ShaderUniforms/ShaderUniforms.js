@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { Shaders } from 'gl-react';
-import parse from '../../utils/query-parser';
-import configurations from '../configurations.json';
+import parse from '../../../../utils/query-parser';
+import configurations from '../../configurations.json';
 
 const WIDTH = window.innerWidth;
 const HEIGHT = window.innerHeight;

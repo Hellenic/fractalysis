@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { parse, stringify } from 'qs';
-import TextIcon from '../TextIcon/TextIcon';
-import { getUniformType } from '../../utils/uniforms';
-import configurations from '../configurations.json';
+import TextIcon from '../../../../components/TextIcon/TextIcon';
+import { getUniformType } from '../../../../utils/uniforms';
+import configurations from '../../configurations.json';
 
 class RandomizeUniforms extends Component {
   randomizeUniforms() {

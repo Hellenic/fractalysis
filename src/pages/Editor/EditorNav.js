@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Icon, Menu } from 'semantic-ui-react';
-import ComposingShader from '../../components/ComposingShader/ComposingShader';
-import RandomizeUniforms from '../../components/RandomizeUniforms/RandomizeUniforms';
-import DownloadButton from './components/DownloadButton';
+import ShaderComposer from './components/ShaderComposer/ShaderComposer';
+import RandomizeUniforms from './components/RandomizeUniforms/RandomizeUniforms';
+import DownloadButton from './components/DownloadButton/DownloadButton';
 
 class EditorNavbar extends Component {
   render() {
@@ -14,7 +14,7 @@ class EditorNavbar extends Component {
     return (
       <Menu secondary>
         <Menu.Item>
-          <ComposingShader />
+          <ShaderComposer />
         </Menu.Item>
         <Menu.Item disabled>
           <Icon name="zoom" />

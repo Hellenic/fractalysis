@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ShaderUniforms from '../../components/ShaderUniforms/ShaderUniforms';
-import Fractal from '../../components/Fractal/Fractal';
-import UniformPanel from '../../components/UniformPanel/UniformPanel';
+import ShaderUniforms from './components/ShaderUniforms/ShaderUniforms';
+import Fractal from './components/Fractal/Fractal';
+import UniformPanel from './components/UniformPanel/UniformPanel';
 
 class Editor extends Component {
   onDownload = async () => {

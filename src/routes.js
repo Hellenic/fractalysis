@@ -1,10 +1,10 @@
 import React from 'react';
-import Editor from './containers/Editor/Editor';
-import EditorNav from './containers/Editor/EditorNav';
-import Scenes from './containers/Scenes/Scenes';
-import ScenesNav from './containers/Scenes/ScenesNav';
-import Renders from './containers/Renders/Renders';
-import RendersNav from './containers/Renders/RendersNav';
+import Editor from './pages/Editor/Editor';
+import EditorNav from './pages/Editor/EditorNav';
+import Scenes from './pages/Scenes/Scenes';
+import ScenesNav from './pages/Scenes/ScenesNav';
+import Renders from './pages/Renders/Renders';
+import RendersNav from './pages/Renders/RendersNav';
 
 const routes = [
   {

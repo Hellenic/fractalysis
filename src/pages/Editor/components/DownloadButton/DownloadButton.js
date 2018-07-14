@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TextIcon from '../../../components/TextIcon/TextIcon';
+import TextIcon from '../../../../components/TextIcon/TextIcon';
 
 class DownloadButton extends Component {
   render() {
