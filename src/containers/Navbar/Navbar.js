@@ -9,7 +9,14 @@ class Navbar extends Component {
   state = {
     visible: true
   };
+  onDismiss = () => {
+    this.setState({ visible: false });
+    localStorage.setItem('hideNotif', false);
+  };
   render() {
+    const hideNotif =
+      this.state.visible === false ||
+      localStorage.getItem('hideNotif') === 'false';
     return (
       <nav className="navbar">
         <Menu>
@@ -17,16 +24,20 @@ class Navbar extends Component {
             <PageSelector />
           </Menu.Item>
           <Menu.Item>
-            {
-              routes.map((route, index) => (
-                <Route key={index} exact={route.exact} path={route.path} component={route.navbar} />
-              ))
-            }
+            {routes.map((route, index) => (
+              <Route
+                key={index}
+                exact={route.exact}
+                path={route.path}
+                component={route.navbar}
+              />
+            ))}
           </Menu.Item>
           <Menu.Item>
             <List>
               <List.Item>
-                <small>Early development version</small><br />
+                <small>Early development version</small>
+                <br />
                 <small>2018-07-06</small>
               </List.Item>
               <List.Item>
@@ -38,20 +49,19 @@ class Navbar extends Component {
             </List>
           </Menu.Item>
         </Menu>
-        { this.state.visible && (
-            <Message
-              onDismiss={() => this.setState({ visible: false })}
-              style={{ zIndex: 50 }}
-              color="blue"
-              header="Welcome to Fractalysis!"
-              content={`
+        {!hideNotif && (
+          <Message
+            onDismiss={this.onDismiss}
+            style={{ zIndex: 50 }}
+            color="blue"
+            header="Welcome to Fractalysis!"
+            content={`
                 Fractalysis is a fractal flame editor, which allows you to create fancy generated images.
                 This is still early version and being developed, but you can still already play around with it.
                 Read more on Github.
               `}
-            />
-          )
-        }
+          />
+        )}
       </nav>
     );
   }

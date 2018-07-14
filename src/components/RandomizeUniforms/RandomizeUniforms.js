@@ -22,27 +22,36 @@ class RandomizeUniforms extends Component {
       const uniformType = getUniformType(conf.defaultValue);
       switch (uniformType) {
         case 'int':
-          randomUniforms[key] = Math.round((Math.random() * (conf.max - conf.min - 1)) + conf.min);
+          randomUniforms[key] = Math.round(
+            Math.random() * (conf.max - conf.min - 1) + conf.min
+          );
           return;
         case 'float':
-          randomUniforms[key] = (Math.random() * (conf.max - conf.min - 1)) + conf.min;
+          randomUniforms[key] =
+            Math.random() * (conf.max - conf.min - 1) + conf.min;
           return;
         case 'bool':
-          randomUniforms[key] = (Math.random() >= 0.5);
+          randomUniforms[key] = Math.random() >= 0.5;
           return;
         case 'vec2':
           // TODO Not sure if this would work correctly for all the vec2 uniforms
           randomUniforms[key] = conf.defaultValue.map(v => Math.random());
           return;
         default:
-          console.warn('Unknown uniform, add handling', uniformType, conf.defaultValue);
+          console.warn(
+            'Unknown uniform, add handling',
+            uniformType,
+            conf.defaultValue
+          );
           randomUniforms[key] = conf.defaultValue;
           return;
       }
     });
 
     // Push the new randomized uniforms into the URL
-    const queryString = stringify(Object.assign({}, { shader, shaderId }, randomUniforms));
+    const queryString = stringify(
+      Object.assign({}, { shader, shaderId }, randomUniforms)
+    );
     history.push(`?${queryString}`);
   }
   resetUniforms() {
@@ -56,16 +65,27 @@ class RandomizeUniforms extends Component {
     });
 
     // Push the new randomized uniforms into the URL
-    const queryString = stringify(Object.assign({}, { shader, shaderId }, uniformDefaults));
+    const queryString = stringify(
+      Object.assign({}, { shader, shaderId }, uniformDefaults)
+    );
     history.push(`?${queryString}`);
   }
   render() {
     return (
-      <div>
-        <TextIcon icon="video play" title="Randomize" onClick={() => this.randomizeUniforms()} /><br />
-        <TextIcon icon="refresh" title="Reset" size="small" onClick={() => this.resetUniforms()} />
-      </div>
-    )
+      <React.Fragment>
+        <TextIcon
+          icon="video play"
+          title="Randomize"
+          onClick={() => this.randomizeUniforms()}
+        />
+        <TextIcon
+          icon="refresh"
+          title="Reset"
+          size="small"
+          onClick={() => this.resetUniforms()}
+        />
+      </React.Fragment>
+    );
   }
 }
 
