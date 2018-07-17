@@ -1,0 +1,33 @@
+.react-precision-slider {
+  text-align: left;
+}
+
+.rpc-reset {
+  cursor: pointer;
+}
+
+.rpc-value {
+  float: right;
+}
+
+.rpc-value-bar {
+  width: 100%;
+  height: 5px;
+  background: repeating-linear-gradient(
+    to right,
+    #f6ba52,
+    #f6ba52 10px,
+    #ffd180 10px,
+    #ffd180 20px
+  );
+}
+
+.rpc-precision-slider {
+  font-size: 0.8em;
+  line-height: 0;
+}
+
+.rpc-main-slider {
+  font-size: 1.2em;
+  line-height: 0;
+}

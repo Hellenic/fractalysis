@@ -5,6 +5,7 @@ import { stringify } from 'qs';
 import parse from '../../../../utils/query-parser';
 import UniformPane from './UniformPane';
 import configurations from '../../configurations.json';
+import './react-precision-slider.css';
 import './UniformPanel.css';
 
 class UniformPanel extends Component {

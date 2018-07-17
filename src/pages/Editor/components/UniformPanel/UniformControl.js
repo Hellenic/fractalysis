@@ -28,12 +28,10 @@ class UniformControl extends Component {
 
     if (type === 'range') {
       return (
-        <Slider
-          label={label}
-          value={value}
-          onChange={v => onChange(v)}
-          {...rest}
-        />
+        <div>
+          <span>{label}</span>
+          <Slider value={value} onChange={v => onChange(v)} {...rest} />
+        </div>
       );
     }
     // Default input types
