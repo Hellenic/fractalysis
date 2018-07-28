@@ -12,20 +12,22 @@ const DROPDOWN_MENU = [
 
 const PageSelector = ({ location, history }) => {
   const currentIndex = routes.findIndex(r => r.path === location.pathname);
-  const link = DROPDOWN_MENU[currentIndex];
+  const activeMenu = DROPDOWN_MENU[currentIndex];
   return (
     <Dropdown
       labeled
-      trigger={<TextIcon icon={link.icon} title={link.title} />}
+      trigger={<TextIcon icon={activeMenu.icon} title={activeMenu.title} />}
       icon="dropdown"
     >
       <Dropdown.Menu>
-        {DROPDOWN_MENU.map(link => (
+        {DROPDOWN_MENU.map(item => (
           <Dropdown.Item
-            key={`link-${link.to}`}
-            icon={link.icon}
-            text={link.title}
-            onClick={() => history.push(link.to)}
+            key={`link-${item.to}`}
+            active={item.to === activeMenu.to}
+            disabled={item.to === activeMenu.to}
+            icon={item.icon}
+            text={item.title}
+            onClick={() => history.push(item.to)}
           />
         ))}
       </Dropdown.Menu>
