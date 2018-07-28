@@ -1,6 +1,6 @@
 {
   "name": "fractalysis",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Fractal flame editor",
   "author": "Hannu Kärkkäinen <hannu.karkkainen@gmail.com>",
   "homepage": "http://fractalys.is",
@@ -20,7 +20,7 @@
     "react": "^16.4.1",
     "react-addons-css-transition-group": "^15.6.0",
     "react-dom": "^16.4.1",
-    "react-precision-slider": "^0.1.5",
+    "react-precision-slider": "^0.1.6",
     "react-router-dom": "^4.2.2",
     "react-scripts": "^1.1.4",
     "semantic-ui-react": "^0.82.0",

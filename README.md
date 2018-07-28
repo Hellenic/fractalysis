@@ -28,7 +28,6 @@ It is also possible to render a high quality image (or a video) of the current s
 
 ## Up-coming features
 
-- [ ] Finalize react-slider component (Also properly handle min / max values)
 - [ ] Controls: Vector control
 - [ ] Controls: Single uniform reset
 - [ ] Controls: Camera control for 3D shaders
