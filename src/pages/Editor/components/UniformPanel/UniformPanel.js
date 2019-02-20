@@ -8,6 +8,8 @@ import configurations from '../../configurations.json';
 import './react-precision-slider.css';
 import './UniformPanel.css';
 
+const DEFAULT_SHADER = 'Mandelbrot';
+
 class UniformPanel extends Component {
   handleChange(value, name, currentQuery) {
     // Push the uniform key-value into the URL
@@ -50,7 +52,7 @@ class UniformPanel extends Component {
 
   render() {
     const { location } = this.props;
-    const { shader, shaderId, ...urlUniforms } = parse(
+    const { shader = DEFAULT_SHADER, shaderId, ...urlUniforms } = parse(
       location.search.substring(1)
     );
     if (!shader || !configurations[shader]) {

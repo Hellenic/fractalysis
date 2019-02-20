@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Card, Container, Icon } from 'semantic-ui-react';
+import { Card, Container } from 'semantic-ui-react';
 import { stringify } from 'qs';
+import Fractal from '../Editor/components/Fractal/Fractal';
 import presets from '../../presets.json';
 
 class Scenes extends Component {
@@ -17,14 +18,10 @@ class Scenes extends Component {
             return (
               <Link key={index} to={`/?${params}`}>
                 <Card>
-                  <Icon
-                    name="image"
-                    size="massive"
-                    style={{ margin: '0 auto' }}
-                  />
+                  <Fractal width={200} height={150} {...p} />
                   <Card.Content>
                     <Card.Header>{p.name}</Card.Header>
-                    <Card.Description>Example preset</Card.Description>
+                    <Card.Description>Shader: {p.shader}</Card.Description>
                   </Card.Content>
                 </Card>
               </Link>
