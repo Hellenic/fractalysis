@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Node, Shaders } from 'gl-react';
 import { Surface } from 'gl-react-dom';
 import superagent from 'superagent';
+import Loader from '../Loader/Loader';
 
 class Fractal extends Component {
   static propTypes = {
@@ -56,13 +57,13 @@ class Fractal extends Component {
     // or if page was refreshed, ID is there but it anyway might not be compiled yet
     const shaderExists = Shaders.getShortName({ id: shaderDef.id }) !== '???';
     if (!shaderDef || !shaderExists) {
-      return <span>Loading...</span>;
+      return <Loader />;
     }
 
     // If the shader changes, we shouldn't render anything before new shader has been loaded & compiled
     // Otherwise we could end up briefly rendering previous shader with new uniforms
     if (this.props.shader !== this.state.shader) {
-      return <span>Loading...</span>;
+      return <Loader />;
     }
 
     // Append some constants to the uniforms
