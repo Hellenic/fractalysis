@@ -26,11 +26,6 @@ class ShaderUniforms extends Component {
     if (Object.keys(uniformValues).length === 0) {
       return <h1>Loading...</h1>;
     }
-    // Append some constants to the uniforms
-    uniformValues = Object.assign({}, uniformValues, {
-      size: [WIDTH, HEIGHT],
-      outputSize: [WIDTH, HEIGHT]
-    });
 
     // Pass the props to children and render
     const { children } = this.props;

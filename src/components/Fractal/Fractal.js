@@ -65,6 +65,12 @@ class Fractal extends Component {
       return <span>Loading...</span>;
     }
 
+    // Append some constants to the uniforms
+    const uniformValues = Object.assign({}, uniforms, {
+      size: [width, height],
+      outputSize: [width, height]
+    });
+
     return (
       <Surface
         width={width}
@@ -74,7 +80,7 @@ class Fractal extends Component {
       >
         <Node
           shader={shaderDef}
-          uniforms={uniforms}
+          uniforms={uniformValues}
           onDraw={this.props.onDraw}
         />
       </Surface>
