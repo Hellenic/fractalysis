@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { Dimmer, Loader } from 'semantic-ui-react';
 import ShaderUniforms from './components/ShaderUniforms/ShaderUniforms';
-import Fractal from './components/Fractal/Fractal';
+import Fractal from '../../components/Fractal/Fractal';
 import UniformPanel from './components/UniformPanel/UniformPanel';
 import parse from '../../utils/query-parser';
 

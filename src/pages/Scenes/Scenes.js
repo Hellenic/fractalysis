@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, Container } from 'semantic-ui-react';
 import { stringify } from 'qs';
-import Fractal from '../Editor/components/Fractal/Fractal';
+import Fractal from '../../components/Fractal/Fractal';
 import presets from '../../presets.json';
 
 class Scenes extends Component {
