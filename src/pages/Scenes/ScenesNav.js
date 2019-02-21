@@ -6,10 +6,6 @@ class ScenesNavbar extends Component {
     return (
       <Menu secondary>
         <Menu.Item disabled>
-          <Icon name="save" />
-          Save
-        </Menu.Item>
-        <Menu.Item disabled>
           <Icon name="delete" />
           Delete
         </Menu.Item>
