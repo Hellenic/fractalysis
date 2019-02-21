@@ -1,13 +1,15 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import { withRouter, RouteComponentProps } from 'react-router';
 import { parse } from 'qs';
 import { getUniformDefaultValues } from '../pages/Editor/utils/uniforms';
-import { Uniforms, RouterProps } from '../types/index.tsx';
+import { Uniforms } from '../types/index';
 
 const DEFAULT_SHADER = 'Mandelbrot';
 
-export default function withUniforms(WrappedComponent) {
-  const WithUniforms = (props: RouterProps) => {
+export default function withUniforms(
+  WrappedComponent: React.ComponentType<any>
+) {
+  const WithUniforms = (props: RouteComponentProps) => {
     const query = parse(props.location.search.substring(1));
     const { shader = DEFAULT_SHADER, ...uniforms } = query;
 

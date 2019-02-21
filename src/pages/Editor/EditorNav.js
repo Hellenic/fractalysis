@@ -3,6 +3,7 @@ import { Icon, Menu } from 'semantic-ui-react';
 import ShaderComposer from './components/ShaderComposer/ShaderComposer';
 import RandomizeUniforms from './components/RandomizeUniforms/RandomizeUniforms';
 import DownloadButton from './components/DownloadButton/DownloadButton';
+import SaveButton from './components/SaveButton/SaveButton.tsx';
 
 class EditorNavbar extends Component {
   render() {
@@ -32,6 +33,7 @@ class EditorNavbar extends Component {
           <RandomizeUniforms />
         </Menu.Item>
         <Menu.Item>
+          <SaveButton />
           <DownloadButton />
         </Menu.Item>
       </Menu>
