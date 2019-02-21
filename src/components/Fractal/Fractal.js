@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Node, Shaders } from 'gl-react';
 import { Surface } from 'gl-react-dom';
-import superagent from 'superagent';
 import Loader from '../Loader/Loader';
 
 class Fractal extends Component {
@@ -27,12 +26,15 @@ class Fractal extends Component {
   async loadShader(shaderKey) {
     // TODO Shaders could be cached (no need to load and create if it's already there)
     const hostname = window.location.hostname;
-    const shaderResponse = await superagent.get(
-      `http://${hostname}:3001/compile/${shaderKey}`
+    const response = await fetch(
+      `http://${hostname}:3001/compile/${shaderKey}`,
+      { cache: 'no-cache' }
     );
+    const fragmentShader = await response.text();
+
     const shaders = await Shaders.create({
       [shaderKey]: {
-        frag: shaderResponse.text
+        frag: fragmentShader
       }
     });
     const shaderDef = shaders[shaderKey];
