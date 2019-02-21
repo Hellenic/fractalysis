@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 import TextIcon from '../../../../components/TextIcon/TextIcon';
 import withUniforms from '../../../../hocs/withUniforms';
-import { Uniforms } from '../../../../types/index';
+import { Uniforms, WithUniformsProps } from '../../../../types/index';
 
-interface IProps {
-  uniforms: Uniforms;
-}
-
-class SaveButton extends Component<IProps> {
+class SaveButton extends Component<WithUniformsProps> {
   handleClick = () => {
-    const { uniforms } = this.props;
-    console.log('TODO Save this fractal to a user preset', uniforms);
+    const { uniforms, shader } = this.props;
+    console.log('TODO Save this fractal to a user preset', shader, uniforms);
   };
 
   render() {

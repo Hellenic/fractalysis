@@ -18,7 +18,9 @@ export default function withUniforms(
     const defaultValues = getUniformDefaultValues(shader);
     const uniformValues: Uniforms = Object.assign({}, defaultValues, uniforms);
 
-    return <WrappedComponent {...props} uniforms={uniformValues} />;
+    return (
+      <WrappedComponent {...props} shader={shader} uniforms={uniformValues} />
+    );
   };
 
   return withRouter(WithUniforms);

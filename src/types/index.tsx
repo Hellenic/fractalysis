@@ -2,6 +2,7 @@ export interface Uniforms {
   [key: string]: any;
 }
 
-export interface RouterProps {
-  location: Object;
+export interface WithUniformsProps {
+  uniforms: Uniforms;
+  shader: string;
 }
