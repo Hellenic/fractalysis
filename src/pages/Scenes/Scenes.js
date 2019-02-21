@@ -18,7 +18,7 @@ class Scenes extends Component {
             return (
               <Link key={index} to={`/?${params}`}>
                 <Card>
-                  <Fractal width={200} height={150} {...p} />
+                  <Fractal width={200} height={150} quality={3} {...p} />
                   <Card.Content>
                     <Card.Header>{p.name}</Card.Header>
                     <Card.Description>Shader: {p.shader}</Card.Description>

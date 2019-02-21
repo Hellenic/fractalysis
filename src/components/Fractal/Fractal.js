@@ -11,10 +11,12 @@ class Fractal extends Component {
     height: PropTypes.number,
     uniforms: PropTypes.object,
     shader: PropTypes.string,
+    quality: PropTypes.number,
     onSurfaceRef: PropTypes.func,
     onDraw: PropTypes.func
   };
   static defaultProps = {
+    quality: 1,
     onDraw: () => {}
   };
 
@@ -48,7 +50,7 @@ class Fractal extends Component {
   }
 
   render() {
-    const { width, height, uniforms } = this.props;
+    const { width, height, uniforms, quality } = this.props;
     const { shaderDef } = this.state;
 
     // TODO Would be nice to display different states: Loading, compiling, rendering
@@ -67,9 +69,10 @@ class Fractal extends Component {
     }
 
     // Append some constants to the uniforms
+    const qlty = Math.min(Math.max(quality, 1), 5);
     const uniformValues = Object.assign({}, uniforms, {
       size: [width, height],
-      outputSize: [width, height]
+      outputSize: [width / qlty, height / qlty]
     });
 
     return (
