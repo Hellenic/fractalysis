@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Card, Container } from 'semantic-ui-react';
+import { Button, Card, Container } from 'semantic-ui-react';
 import { stringify } from 'qs';
 import Fractal from '../../components/Fractal/Fractal';
+import { Scene } from '../../types';
 import storage from '../../utils/storage';
 import presets from '../../presets.json';
 
 class Scenes extends Component {
+  handleRemove = (scene: Scene) => () => {
+    const updated = storage.removeScene(scene);
+    if (updated) {
+      this.forceUpdate();
+    }
+  };
   render() {
     const scenes = storage.getScenes();
 
@@ -19,15 +26,27 @@ class Scenes extends Component {
               Object.assign({}, { shader: scene.shader, ...scene.uniforms })
             );
             return (
-              <Link key={index} to={`/?${params}`}>
-                <Card>
-                  <Fractal width={200} height={150} quality={1} {...scene} />
-                  <Card.Content>
-                    <Card.Header>{scene.name}</Card.Header>
-                    <Card.Description>Shader: {scene.shader}</Card.Description>
-                  </Card.Content>
-                </Card>
-              </Link>
+              <Card key={index}>
+                <Fractal width={200} height={150} quality={1} {...scene} />
+                <Card.Content>
+                  <Card.Header>{scene.name}</Card.Header>
+                  <Card.Description>Shader: {scene.shader}</Card.Description>
+                </Card.Content>
+                <Card.Content extra>
+                  <div className="ui two buttons">
+                    <Button color="green" as={Link} to={`/?${params}`}>
+                      Edit
+                    </Button>
+                    <Button
+                      basic
+                      color="red"
+                      onClick={this.handleRemove(scene)}
+                    >
+                      Remove
+                    </Button>
+                  </div>
+                </Card.Content>
+              </Card>
             );
           })}
         </Card.Group>

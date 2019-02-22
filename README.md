@@ -33,9 +33,9 @@ It is also possible to render a high quality image (or a video) of the current s
 
 ## Up-coming features
 
+- [ ] Improve existing controls
 - [ ] Controls: Vector control
 - [ ] Controls: Camera control for 3D shaders
-- [ ] Capability to save presets
 - [ ] Shader composing (e.g. Mandelbrot + Bloom + HDR)
 
 ## Inspiration

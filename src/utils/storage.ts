@@ -14,6 +14,15 @@ export function storeScene(
   localStorage.setItem('presets', JSON.stringify(scenes));
 }
 
+export function removeScene(scene: Scene): boolean {
+  const scenes: Scene[] = getScenes();
+  const newScenes = scenes.filter(sc => sc.name !== scene.name);
+
+  localStorage.setItem('presets', JSON.stringify(newScenes));
+
+  return scenes.length !== newScenes.length;
+}
+
 export function getScenes(): Scene[] {
   const scenes: Scene[] = JSON.parse(localStorage.getItem('presets') || '[]');
   return scenes;
@@ -21,5 +30,6 @@ export function getScenes(): Scene[] {
 
 export default {
   storeScene,
+  removeScene,
   getScenes
 };
