@@ -20,7 +20,6 @@ class UniformPanel extends Component {
 
   getValuesForUniforms(uniforms, urlUniforms) {
     const uniformValues = {};
-    // TODO Use reduce
     Object.keys(uniforms).forEach(key => {
       const defaultValue = uniforms[key].defaultValue;
       const uniformValue = key in urlUniforms ? urlUniforms[key] : defaultValue;
