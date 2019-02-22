@@ -46,9 +46,10 @@ class Fractal extends Component {
     await this.loadShader(shader);
   }
 
-  async componentDidUpdate() {
-    const { shader } = this.props;
-    await this.loadShader(shader);
+  async componentDidUpdate(prevProps) {
+    if (this.props.shader !== prevProps.shader) {
+      await this.loadShader(this.props.shader);
+    }
   }
 
   render() {
