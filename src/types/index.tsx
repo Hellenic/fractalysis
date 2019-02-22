@@ -1,3 +1,9 @@
+export interface Scene {
+  name: string;
+  shader: string;
+  uniforms: Uniforms;
+}
+
 export interface Uniforms {
   [key: string]: any;
 }

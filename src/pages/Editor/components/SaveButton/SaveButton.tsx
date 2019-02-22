@@ -3,26 +3,30 @@ import { Confirm, Modal, Input, InputOnChangeData } from 'semantic-ui-react';
 import TextIcon from '../../../../components/TextIcon/TextIcon';
 import withUniforms from '../../../../hocs/withUniforms';
 import { Uniforms, WithUniformsProps } from '../../../../types/index';
+import storage from '../../../../utils/storage';
 
 interface IState {
   dialogOpen: boolean;
+  inputValue: string;
 }
 
 class SaveButton extends Component<WithUniformsProps, IState> {
   state = {
-    dialogOpen: false
+    dialogOpen: false,
+    inputValue: ''
   };
 
   handleConfirm = () => {
     const { uniforms, shader } = this.props;
-    console.log('TODO Save this fractal to a user preset', shader, uniforms);
+    const { inputValue } = this.state;
 
+    storage.storeScene(inputValue, shader, uniforms);
     this.setState({ dialogOpen: false });
   };
 
   handleInput = (event: React.SyntheticEvent, data: InputOnChangeData) => {
     const { value } = data;
-    console.log('Data', value);
+    this.setState({ inputValue: value });
   };
 
   render() {
