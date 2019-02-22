@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { parse, stringify } from 'qs';
 import TextIcon from '../../../../components/TextIcon/TextIcon';
+import Constants from '../../../../constants';
 import { getUniformType } from '../../utils/uniforms';
 import configurations from '../../configurations.json';
 
 class RandomizeUniforms extends Component {
   randomizeUniforms() {
     const { history, location } = this.props;
-    const { shader, shaderId } = parse(location.search.substring(1));
+    const { shader = Constants.DEFAULT_SHADER } = parse(
+      location.search.substring(1)
+    );
     const { randomizable, uniforms } = configurations[shader];
     const randomUniforms = {};
 
@@ -50,13 +53,15 @@ class RandomizeUniforms extends Component {
 
     // Push the new randomized uniforms into the URL
     const queryString = stringify(
-      Object.assign({}, { shader, shaderId }, randomUniforms)
+      Object.assign({}, { shader }, randomUniforms)
     );
     history.push(`?${queryString}`);
   }
   resetUniforms() {
     const { history, location } = this.props;
-    const { shader, shaderId } = parse(location.search.substring(1));
+    const { shader = Constants.DEFAULT_SHADER, shaderId } = parse(
+      location.search.substring(1)
+    );
     const { uniforms } = configurations[shader];
     const uniformDefaults = {};
     Object.keys(uniforms).forEach(key => {

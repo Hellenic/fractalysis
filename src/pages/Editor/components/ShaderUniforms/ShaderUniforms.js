@@ -2,11 +2,11 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import parse from '../../../../utils/query-parser';
+import Constants from '../../../../constants';
 import { getUniformDefaultValues } from '../../utils/uniforms';
 
 const WIDTH = window.innerWidth;
 const HEIGHT = window.innerHeight;
-const DEFAULT_SHADER = 'Mandelbrot';
 
 class ShaderUniforms extends Component {
   static propTypes = {
@@ -15,7 +15,7 @@ class ShaderUniforms extends Component {
 
   render() {
     const query = parse(this.props.location.search.substring(1));
-    const { shader = DEFAULT_SHADER, download, ...rest } = query;
+    const { shader = Constants.DEFAULT_SHADER, download, ...rest } = query;
 
     // Use the values from the URL or pull the defaults from storage
     let uniformValues = Object.assign({}, rest);

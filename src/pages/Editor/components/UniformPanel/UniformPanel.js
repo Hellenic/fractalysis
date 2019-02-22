@@ -4,11 +4,10 @@ import { Segment, Tab } from 'semantic-ui-react';
 import { stringify } from 'qs';
 import parse from '../../../../utils/query-parser';
 import UniformPane from './UniformPane';
+import Constants from '../../../../constants';
 import configurations from '../../configurations.json';
 import './react-precision-slider.css';
 import './UniformPanel.css';
-
-const DEFAULT_SHADER = 'Mandelbrot';
 
 class UniformPanel extends Component {
   handleChange(value, name, currentQuery) {
@@ -52,9 +51,11 @@ class UniformPanel extends Component {
 
   render() {
     const { location } = this.props;
-    const { shader = DEFAULT_SHADER, shaderId, ...urlUniforms } = parse(
-      location.search.substring(1)
-    );
+    const {
+      shader = Constants.DEFAULT_SHADER,
+      shaderId,
+      ...urlUniforms
+    } = parse(location.search.substring(1));
     if (!shader || !configurations[shader]) {
       return null;
     }
