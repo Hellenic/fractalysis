@@ -1,10 +1,25 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Node, Shaders } from 'gl-react';
+import { Node, Shaders, ShadersSheet } from 'gl-react';
 import { Surface } from 'gl-react-dom';
 import Loader from '../Loader/Loader';
 
-class Fractal extends Component {
+interface IProps {
+  width: number;
+  height: number;
+  uniforms: object;
+  shader: string;
+  quality: number;
+  onSurfaceRef?: () => void;
+  onDraw?: () => void;
+}
+
+interface IState {
+  shader?: string;
+  shaders: ShadersSheet;
+}
+
+class Fractal extends Component<IProps, IState> {
   static propTypes = {
     width: PropTypes.number,
     height: PropTypes.number,
@@ -18,13 +33,21 @@ class Fractal extends Component {
     quality: 1,
     onDraw: () => {}
   };
-
   state = {
-    shaderDef: {}
+    shader: undefined,
+    shaders: {} as ShadersSheet
   };
 
-  async loadShader(shaderKey) {
-    // TODO Shaders could be cached (no need to load and create if it's already there)
+  async loadShader(shaderKey: string) {
+    const { shaders } = this.state;
+    // If shader has been loaded already for the given key,
+    // set the key as current and do not reload
+    if (shaderKey in shaders) {
+      this.setState({ shader: shaderKey });
+      return;
+    }
+
+    // Load the fragment shader, compile it and set it as current
     const hostname = window.location.hostname;
     const response = await fetch(
       `http://${hostname}:3001/compile/${shaderKey}`,
@@ -32,13 +55,13 @@ class Fractal extends Component {
     );
     const fragmentShader = await response.text();
 
-    const shaders = await Shaders.create({
+    const createdShaders = await Shaders.create({
       [shaderKey]: {
         frag: fragmentShader
       }
     });
-    const shaderDef = shaders[shaderKey];
-    this.setState({ shader: shaderKey, shaderDef });
+    const newShaders = Object.assign({}, shaders, createdShaders);
+    this.setState({ shader: shaderKey, shaders: newShaders });
   }
 
   async componentDidMount() {
@@ -46,22 +69,27 @@ class Fractal extends Component {
     await this.loadShader(shader);
   }
 
-  async componentDidUpdate(prevProps) {
+  async componentDidUpdate(prevProps: IProps) {
     if (this.props.shader !== prevProps.shader) {
       await this.loadShader(this.props.shader);
     }
   }
 
   render() {
-    const { width, height, uniforms, quality } = this.props;
-    const { shaderDef } = this.state;
+    const { width, height, uniforms, quality, shader } = this.props;
+    const { shaders } = this.state;
+    const shaderDef = shaders[shader];
+
+    if (!shaderDef) {
+      return <Loader />;
+    }
 
     // TODO Would be nice to display different states: Loading, compiling, rendering
 
     // If shaderID is not present yet, shader might still be compiling
     // or if page was refreshed, ID is there but it anyway might not be compiled yet
-    const shaderExists = Shaders.getShortName({ id: shaderDef.id }) !== '???';
-    if (!shaderDef || !shaderExists) {
+    const shaderExists = Shaders.getShortName(shaderDef) !== '???';
+    if (!shaderExists) {
       return <Loader />;
     }
 
