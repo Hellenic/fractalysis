@@ -7,6 +7,12 @@ import { getUniformType, getInputTypeForUniform } from '../../utils/uniforms';
 import { floatToHex, hexToFloat } from '../../../../utils/colors';
 import './UniformControl.css';
 
+const SLIDER_ICONS = {
+  main: '↑',
+  secondary: '↓',
+  reset: '↺'
+};
+
 class UniformControl extends Component {
   static propTypes = {
     label: PropTypes.string,
@@ -43,9 +49,14 @@ class UniformControl extends Component {
 
     if (type === 'range') {
       return (
-        <div className="uniform-control__slider">
-          <span>{label}</span>
-          <Slider value={value} onChange={onChange} {...rest} />
+        <div>
+          <Slider
+            value={value}
+            label={label}
+            onChange={v => onChange(v)}
+            icons={SLIDER_ICONS}
+            {...rest}
+          />
         </div>
       );
     }
