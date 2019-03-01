@@ -33,7 +33,6 @@ It is also possible to render and download an image of the current set.
 
 ## TODO
 
-- [ ] Merge styling branch
 - [ ] Consider using https://github.com/hugozap/react-rotary-knob
 - [ ] Refactoring: All remaining JS files to TS
 - [ ] Refactoring: Clean all the TODOs
