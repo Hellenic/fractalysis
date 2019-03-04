@@ -1,5 +1,6 @@
 .react-precision-slider {
   text-align: left;
+  border-bottom: 1px solid #efefef;
 }
 .react-precision-slider div:first-child {
   display: grid;

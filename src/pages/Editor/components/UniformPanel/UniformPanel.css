@@ -6,6 +6,15 @@
   top: 140px;
   right: 20px;
 
-  text-align: center;
+  text-align: left;
   width: 300px;
+}
+
+.panel-tab > div {
+  margin: 5px 0;
+}
+
+.uniformcontrol-color input {
+  padding: 0;
+  margin: 4px;
 }

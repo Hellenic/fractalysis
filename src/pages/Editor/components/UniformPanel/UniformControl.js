@@ -65,11 +65,22 @@ class UniformControl extends Component {
       return (
         <div>
           <Checkbox
-            toggle
-            label={{ children: label }}
+            label={label}
             checked={value}
             onChange={(_, data) => onChange(data.checked)}
           />
+        </div>
+      );
+    } else if (['color'].includes(inputType)) {
+      return (
+        <div className="uniformcontrol-color">
+          <input
+            type={type}
+            value={floatToHex(value)}
+            {...rest}
+            onChange={e => onChange(hexToFloat(e.target.value))}
+          />
+          <label>{label}</label>
         </div>
       );
     }

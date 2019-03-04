@@ -8,7 +8,7 @@ class UniformPane extends Component {
 
     return (
       <Tab.Pane>
-        <section>
+        <section className="panel-tab">
           {Object.keys(uniforms).map(key => (
             <UniformControl
               key={`uniform-${key}`}
