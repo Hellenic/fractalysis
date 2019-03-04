@@ -8,8 +8,8 @@ import { floatToHex, hexToFloat } from '../../../../utils/colors';
 import './UniformControl.css';
 
 const SLIDER_ICONS = {
-  main: '↑',
-  secondary: '↓',
+  main: '▲',
+  secondary: '▽',
   reset: '↺'
 };
 
