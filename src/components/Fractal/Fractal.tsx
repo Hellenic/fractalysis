@@ -48,11 +48,9 @@ class Fractal extends Component<IProps, IState> {
     }
 
     // Load the fragment shader, compile it and set it as current
-    const hostname = window.location.hostname;
-    const response = await fetch(
-      `http://${hostname}:3001/compile/${shaderKey}`,
-      { cache: 'no-cache' }
-    );
+    const response = await fetch(`/shaders/${shaderKey}.glsl`, {
+      cache: 'no-cache'
+    });
     const fragmentShader = await response.text();
 
     const createdShaders = await Shaders.create({
