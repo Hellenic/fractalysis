@@ -28,8 +28,6 @@ const compileShader = shader => {
   return shaderSrc;
 };
 
-console.log(':: 💻  Fractalysis shaders compiling...');
-
 const ALL_SHADERS = [
   'DodecahedronIFS',
   'Ducks',
