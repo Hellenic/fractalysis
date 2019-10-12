@@ -8,18 +8,18 @@ import RendersNav from './pages/Renders/RendersNav';
 
 const routes = [
   {
-    path: '/',
+    path: process.env.PUBLIC_URL + '/',
     exact: true,
     navbar: () => <EditorNav />,
     main: () => <Editor />
   },
   {
-    path: '/scenes',
+    path: process.env.PUBLIC_URL + '/scenes',
     navbar: () => <ScenesNav />,
     main: () => <Scenes />
   },
   {
-    path: '/renders',
+    path: process.env.PUBLIC_URL + '/renders',
     navbar: () => <RendersNav />,
     main: () => <Renders />
   }

@@ -57,7 +57,7 @@ class Scenes extends Component {
               Object.assign({}, { shader: p.shader, ...p.uniforms })
             );
             return (
-              <Link key={index} to={`/?${params}`}>
+              <Link key={index} to={`${process.env.PUBLIC_URL}/?${params}`}>
                 <Card>
                   <Fractal width={200} height={150} quality={3} {...p} />
                   <Card.Content>

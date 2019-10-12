@@ -12,7 +12,10 @@ class DownloadButton extends Component<WithUniformsProps> {
       Object.assign({}, { shader }, uniforms, { download: true })
     );
 
-    window.open(`${window.location.origin}/?${queryString}`, '_blank');
+    window.open(
+      `${window.location.origin}${process.env.PUBLIC_URL}/?${queryString}`,
+      '_blank'
+    );
   };
 
   render() {

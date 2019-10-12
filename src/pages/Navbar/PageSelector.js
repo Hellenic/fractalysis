@@ -5,13 +5,13 @@ import TextIcon from '../../components/TextIcon/TextIcon';
 import routes from '../../routes';
 
 const DROPDOWN_MENU = [
-  { icon: 'eye', title: 'Editor', to: '/' },
-  { icon: 'world', title: 'Scenes', to: '/scenes' }
+  { icon: 'eye', title: 'Editor', to: process.env.PUBLIC_URL + '/' },
+  { icon: 'world', title: 'Scenes', to: process.env.PUBLIC_URL + '/scenes' }
   // { icon: 'image', title: 'Renders', to: '/renders' }
 ];
 
 const PageSelector = ({ location, history }) => {
-  const currentIndex = routes.findIndex(r => r.path === location.pathname);
+  const currentIndex = routes.findIndex(r => r.path == location.pathname);
   const activeMenu = DROPDOWN_MENU[currentIndex];
   return (
     <Dropdown
