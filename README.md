@@ -16,7 +16,7 @@ of what I want this project to be capable of: [Apophysis on Google Photos @hkark
 1.  `npm install`
 2.  `npm start`
 
-## How it works (will work)
+## How it works
 
 Basically, there's the shaders that do the heavy lifting. Those shaders can take in
 some parameters, that affect the outcome. Combine those, and final product is a fractal flame, rendered on a canvas with WebGL.
@@ -29,13 +29,12 @@ Each shader has a set of parameters (uniforms), which as well, can affect the ou
 a configuration panel will be generated so the user can easily change any setting, to adjust the final render.
 
 User may also save their shader selections and configurations to a preset, to come back to them later.
-It is also possible to render a high quality image (or a video) of the current set and save it for later use.
+It is also possible to render and download an image of the current set.
 
 ## Up-coming features
 
-- [ ] Improve existing controls
 - [ ] Controls: Vector control
-- [ ] Controls: Camera control for 3D shaders
+- [ ] Controls: Camera control with mouse
 - [ ] Shader composing (e.g. Mandelbrot + Bloom + HDR)
 
 ## Inspiration

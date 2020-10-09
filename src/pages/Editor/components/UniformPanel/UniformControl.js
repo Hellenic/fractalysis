@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Slider from 'react-precision-slider';
 import { getUniformType, getInputTypeForUniform } from '../../utils/uniforms';
 import { floatToHex, hexToFloat } from '../../../../utils/colors';
+import './UniformControl.css';
 
 class UniformControl extends Component {
   static propTypes = {
@@ -28,16 +29,16 @@ class UniformControl extends Component {
 
     if (type === 'range') {
       return (
-        <div>
+        <div className="uniform-control__slider">
           <span>{label}</span>
           <Slider value={value} onChange={v => onChange(v)} {...rest} />
         </div>
       );
     }
-    // Default input types
-    else if (['checkbox'].includes(type)) {
+
+    if (type === 'checkbox') {
       return (
-        <div>
+        <div className="uniform-control__checkbox">
           <strong>{label}</strong>
           <input
             type={type}
@@ -47,9 +48,11 @@ class UniformControl extends Component {
           />
         </div>
       );
-    } else if (['color'].includes(inputType)) {
+    }
+
+    if (['color'].includes(inputType)) {
       return (
-        <div>
+        <div className="uniform-control__color">
           <strong>{label}</strong>
           <input
             type={type}
@@ -62,8 +65,7 @@ class UniformControl extends Component {
     }
 
     // TODO Support for rest of uniform types
-
-    return <span>Unsupported uniform type: {uniformType}</span>;
+    return null;
   }
 }
 

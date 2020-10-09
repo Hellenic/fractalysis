@@ -11,7 +11,7 @@ const DROPDOWN_MENU = [
 ];
 
 const PageSelector = ({ location, history }) => {
-  const currentIndex = routes.findIndex(r => r.path == location.pathname);
+  const currentIndex = routes.findIndex(r => r.path === location.pathname);
   const activeMenu = DROPDOWN_MENU[currentIndex];
   return (
     <Dropdown
