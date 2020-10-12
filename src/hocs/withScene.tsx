@@ -5,10 +5,17 @@ import { getUniformDefaultValues } from '../pages/Editor/utils/uniforms';
 import Constants from '../constants';
 import { Uniforms } from '../types/index';
 
-export default function withUniforms(
-  WrappedComponent: React.ComponentType<any>
-) {
-  const WithUniforms = (props: RouteComponentProps) => {
+/*
+  Higher-order component to pull current scene information together
+  and pass it to the the children.
+  Current scene includes the shader name and the uniforms.
+  These values can be either coming from defaults or from the URL.
+
+  URL is the state for this application. Preferably this should be only component
+  reading and modifying the URL.
+*/
+export default function withScene(WrappedComponent: React.ComponentType<any>) {
+  const WithScene = (props: RouteComponentProps) => {
     const query = parse(props.location.search.substring(1));
     const { shader = Constants.DEFAULT_SHADER, ...uniforms } = query;
 
@@ -22,5 +29,5 @@ export default function withUniforms(
     );
   };
 
-  return withRouter(WithUniforms);
+  return withRouter(WithScene);
 }

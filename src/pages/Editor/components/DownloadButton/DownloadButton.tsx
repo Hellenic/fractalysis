@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { stringify } from 'qs';
 import TextIcon from '../../../../components/TextIcon/TextIcon';
-import withUniforms from '../../../../hocs/withUniforms';
+import withScene from '../../../../hocs/withScene';
 import { WithUniformsProps } from '../../../../types/index';
 
 class DownloadButton extends Component<WithUniformsProps> {
@@ -30,4 +30,4 @@ class DownloadButton extends Component<WithUniformsProps> {
   }
 }
 
-export default withUniforms(DownloadButton);
+export default withScene(DownloadButton);

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Confirm, Modal, Input, InputOnChangeData } from 'semantic-ui-react';
 import TextIcon from '../../../../components/TextIcon/TextIcon';
-import withUniforms from '../../../../hocs/withUniforms';
-import { Uniforms, WithUniformsProps } from '../../../../types/index';
+import withScene from '../../../../hocs/withScene';
+import { WithUniformsProps } from '../../../../types/index';
 import storage from '../../../../utils/storage';
 
 interface IState {
@@ -61,4 +61,4 @@ class SaveButton extends Component<WithUniformsProps, IState> {
   }
 }
 
-export default withUniforms(SaveButton);
+export default withScene(SaveButton);
