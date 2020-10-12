@@ -5,6 +5,7 @@ import { RouteComponentProps, withRouter } from 'react-router';
 
 interface IProps extends RouteComponentProps {
   children: any;
+  shader: string;
   uniforms: any;
 }
 
@@ -25,7 +26,10 @@ class CameraControl extends Component<IProps, IState> {
   handleChange(value: any, name: string, currentQuery: object) {
     // Push the uniform key-value into the URL
     const queryString = stringify(
-      Object.assign({}, currentQuery, { [name]: value })
+      Object.assign({}, currentQuery, {
+        [name]: value,
+        shader: this.props.shader
+      })
     );
     this.props.history.push(`?${queryString}`);
   }
@@ -61,7 +65,6 @@ class CameraControl extends Component<IProps, IState> {
   }
   render() {
     const { children, ...rest } = this.props;
-
     const childrenWithProps = React.Children.map(children, child =>
       React.cloneElement(child, rest)
     );
