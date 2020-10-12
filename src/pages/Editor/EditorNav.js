@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Icon, Menu } from 'semantic-ui-react';
+import { Menu } from 'semantic-ui-react';
 import ShaderComposer from './components/ShaderComposer/ShaderComposer';
 import RandomizeUniforms from './components/RandomizeUniforms/RandomizeUniforms';
 import DownloadButton from './components/DownloadButton/DownloadButton';
-import SaveButton from './components/SaveButton/SaveButton.tsx';
+import SaveButton from './components/SaveButton/SaveButton';
 
 class EditorNavbar extends Component {
   render() {
@@ -17,17 +17,15 @@ class EditorNavbar extends Component {
         <Menu.Item>
           <ShaderComposer />
         </Menu.Item>
-        <Menu.Item disabled>
-          <Icon name="zoom" />
-          Zoom
-        </Menu.Item>
-        <Menu.Item disabled>
-          <Icon name="refresh" />
-          Rotate
-        </Menu.Item>
-        <Menu.Item disabled>
-          <Icon name="expand" />
-          Scale
+        <Menu.Item style={{ maxWidth: '30em' }}>
+          <ul>
+            <li>
+              Use different shaders and randomize to quickly make different
+              scenes
+            </li>
+            <li>Drag the image to move the camera</li>
+            <li>Use the settings on the right to fine tune the scene</li>
+          </ul>
         </Menu.Item>
         <Menu.Item style={dividerStyle}>
           <RandomizeUniforms />

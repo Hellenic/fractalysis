@@ -5,7 +5,7 @@ import TextIcon from '../../components/TextIcon/TextIcon';
 import routes from '../../routes';
 
 const DROPDOWN_MENU = [
-  { icon: 'eye', title: 'Editor', to: process.env.PUBLIC_URL + '/' },
+  { icon: 'edit', title: 'Editor', to: process.env.PUBLIC_URL + '/' },
   { icon: 'world', title: 'Scenes', to: process.env.PUBLIC_URL + '/scenes' }
   // { icon: 'image', title: 'Renders', to: '/renders' }
 ];

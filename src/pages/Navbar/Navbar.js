@@ -17,22 +17,21 @@ class Navbar extends Component {
     const hideNotif =
       this.state.visible === false ||
       localStorage.getItem('hideNotif') === 'false';
+
     return (
       <nav className="navbar">
         <Menu>
           <Menu.Item>
             <PageSelector />
           </Menu.Item>
-          <Menu.Item>
-            {routes.map((route, index) => (
-              <Route
-                key={index}
-                exact={route.exact}
-                path={route.path}
-                component={route.navbar}
-              />
-            ))}
-          </Menu.Item>
+          {routes.map((route, index) => (
+            <Route
+              key={index}
+              exact={route.exact}
+              path={route.path}
+              component={route.navbar}
+            />
+          ))}
           <Menu.Item>
             <List>
               <List.Item>

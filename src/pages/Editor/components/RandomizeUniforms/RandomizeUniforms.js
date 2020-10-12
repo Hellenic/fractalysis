@@ -79,7 +79,7 @@ class RandomizeUniforms extends Component {
     return (
       <React.Fragment>
         <TextIcon
-          icon="video play"
+          icon="random"
           title="Randomize"
           onClick={() => this.randomizeUniforms()}
         />

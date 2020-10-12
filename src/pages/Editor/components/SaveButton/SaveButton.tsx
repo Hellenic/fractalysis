@@ -39,7 +39,10 @@ class SaveButton extends Component<WithUniformsProps, IState> {
           content={
             <Modal.Content>
               <Modal.Description>
-                <p>Give a name for the preset</p>
+                <p>
+                  Preset will be stored to your browser (local storage) and it
+                  will be accessible from "scenes" menu.
+                </p>
                 <Input placeholder="Preset name" onChange={this.handleInput} />
               </Modal.Description>
             </Modal.Content>
