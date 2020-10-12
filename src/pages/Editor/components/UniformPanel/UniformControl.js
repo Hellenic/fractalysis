@@ -23,7 +23,7 @@ class UniformControl extends Component {
       ...rest
     } = this.props;
 
-    if (['color'].includes(inputType)) {
+    if (inputType === 'color') {
       return (
         <div className="uniform-control__color">
           <strong>{label}</strong>
