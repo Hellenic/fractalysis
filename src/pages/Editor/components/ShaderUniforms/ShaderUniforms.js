@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
+import Loader from '../../../../components/Loader/Loader';
 import parse from '../../../../utils/query-parser';
 import Constants from '../../../../constants';
 import { getUniformDefaultValues } from '../../utils/uniforms';
@@ -24,7 +25,7 @@ class ShaderUniforms extends Component {
     }
     // If there are no uniform values, we're still loading
     if (Object.keys(uniformValues).length === 0) {
-      return <h1>Loading...</h1>;
+      return <Loader />;
     }
 
     // Pass the props to children and render
