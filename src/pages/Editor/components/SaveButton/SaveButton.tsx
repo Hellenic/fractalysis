@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Confirm, Modal, Input, InputOnChangeData } from 'semantic-ui-react';
 import TextIcon from '../../../../components/TextIcon/TextIcon';
-import withScene from '../../../../hocs/withScene';
-import { WithUniformsProps } from '../../../../types/index';
+import withScene from '../../hocs/withScene';
+import { WithSceneProps } from '../../../../types/index';
 import storage from '../../../../utils/storage';
 
 interface IState {
@@ -10,7 +10,7 @@ interface IState {
   inputValue: string;
 }
 
-class SaveButton extends Component<WithUniformsProps, IState> {
+class SaveButton extends Component<WithSceneProps, IState> {
   state = {
     dialogOpen: false,
     inputValue: ''

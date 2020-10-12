@@ -8,7 +8,8 @@ export interface Uniforms {
   [key: string]: any;
 }
 
-export interface WithUniformsProps {
-  uniforms: Uniforms;
+export interface WithSceneProps {
   shader: string;
+  download: boolean;
+  uniforms: Uniforms;
 }

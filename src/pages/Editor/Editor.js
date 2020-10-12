@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router';
 import { Dimmer, Loader } from 'semantic-ui-react';
-import ShaderUniforms from './components/ShaderUniforms/ShaderUniforms';
+import Scene from './components/Scene/Scene';
 import CameraControl from './components/Controls/CameraControl';
 import Fractal from '../../components/Fractal/Fractal';
 import UniformPanel from './components/UniformPanel/UniformPanel';
-import parse from '../../utils/query-parser';
+import withScene from './hocs/withScene';
 
 class Editor extends Component {
   onDraw = async () => {
-    const query = parse(this.props.location.search.substring(1));
-    const { download = false } = query;
+    const { download } = this.props;
     // After each draw, initiate a download if appropriate
     if (download === true) {
       const capture = await this.surfaceRef.captureAsBlob('image/png');
@@ -24,16 +22,15 @@ class Editor extends Component {
     this.surfaceRef = ref;
   };
   render() {
-    const query = parse(this.props.location.search.substring(1));
-    const { download = false } = query;
+    const { download } = this.props;
     return (
       <div>
         <UniformPanel />
-        <ShaderUniforms>
+        <Scene>
           <CameraControl>
             <Fractal onSurfaceRef={this.onSurfaceRef} onDraw={this.onDraw} />
           </CameraControl>
-        </ShaderUniforms>
+        </Scene>
         <Dimmer active={download} page onClickOutside={() => window.close()}>
           <Loader indeterminate size="big">
             Rendering image for download...
@@ -44,4 +41,4 @@ class Editor extends Component {
   }
 }
 
-export default withRouter(Editor);
+export default withScene(Editor);

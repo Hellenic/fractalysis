@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { stringify } from 'qs';
 import TextIcon from '../../../../components/TextIcon/TextIcon';
-import withScene from '../../../../hocs/withScene';
-import { WithUniformsProps } from '../../../../types/index';
+import withScene from '../../hocs/withScene';
+import { WithSceneProps } from '../../../../types/index';
 
-class DownloadButton extends Component<WithUniformsProps> {
+class DownloadButton extends Component<WithSceneProps> {
   onDownload = () => {
     const { uniforms, shader } = this.props;
 
