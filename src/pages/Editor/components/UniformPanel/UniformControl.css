@@ -1,6 +1,20 @@
 .uniform-control__slider {
-  padding-bottom: 3px;
+  padding-bottom: 0.5em;
   border-bottom: 1px solid #ddd;
+}
+
+.uniform-control__color {
+  padding: 0.5em 0em;
+}
+.uniform-control__color strong {
+  padding-right: 1em;
+}
+
+.uniform-control__checkbox {
+  padding: 0.5em 0em;
+}
+.uniform-control__checkbox strong {
+  padding-right: 1em;
 }
 
 .uniform-control {
