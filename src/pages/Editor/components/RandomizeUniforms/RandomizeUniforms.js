@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router';
-import { parse, stringify } from 'qs';
+import withScene from '../../hocs/withScene';
 import TextIcon from '../../../../components/TextIcon/TextIcon';
-import Constants from '../../../../constants';
 import { getUniformType } from '../../utils/uniforms';
 import configurations from '../../configurations.json';
 
 class RandomizeUniforms extends Component {
   randomizeUniforms() {
-    const { history, location } = this.props;
-    const { shader = Constants.DEFAULT_SHADER } = parse(
-      location.search.substring(1)
-    );
+    const { shader } = this.props;
     const { randomizable, uniforms } = configurations[shader];
     const randomUniforms = {};
 
@@ -51,17 +46,12 @@ class RandomizeUniforms extends Component {
       }
     });
 
-    // Push the new randomized uniforms into the URL
-    const queryString = stringify(
-      Object.assign({}, { shader }, randomUniforms)
-    );
-    history.push(`?${queryString}`);
+    // Update the scene with new randomized uniforms
+    this.props.updateUniforms(randomUniforms);
   }
+
   resetUniforms() {
-    const { history, location } = this.props;
-    const { shader = Constants.DEFAULT_SHADER, shaderId } = parse(
-      location.search.substring(1)
-    );
+    const { shader } = this.props;
     const { uniforms } = configurations[shader];
     const uniformDefaults = {};
     Object.keys(uniforms).forEach(key => {
@@ -69,11 +59,8 @@ class RandomizeUniforms extends Component {
       uniformDefaults[key] = conf.defaultValue;
     });
 
-    // Push the new randomized uniforms into the URL
-    const queryString = stringify(
-      Object.assign({}, { shader, shaderId }, uniformDefaults)
-    );
-    history.push(`?${queryString}`);
+    // Update the scene with default uniforms to reset
+    this.props.updateUniforms(uniformDefaults);
   }
   render() {
     return (
@@ -94,4 +81,4 @@ class RandomizeUniforms extends Component {
   }
 }
 
-export default withRouter(RandomizeUniforms);
+export default withScene(RandomizeUniforms);

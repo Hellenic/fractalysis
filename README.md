@@ -33,6 +33,8 @@ It is also possible to render and download an image of the current set.
 
 ## Up-coming features
 
+- [ ] Refactoring: All remaining JS files to TS
+- [ ] Refactoring: Clean all the TODOs
 - [ ] Controls: Continue on Camera control with mouse
 - [ ] Shader composing (e.g. Mandelbrot + Bloom + HDR)
 

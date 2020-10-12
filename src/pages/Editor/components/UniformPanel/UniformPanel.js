@@ -1,39 +1,19 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router';
 import { Segment, Tab } from 'semantic-ui-react';
-import { stringify } from 'qs';
-import parse from '../../../../utils/query-parser';
 import UniformPane from './UniformPane';
-import Constants from '../../../../constants';
+import withScene from '../../hocs/withScene';
 import configurations from '../../configurations.json';
 import './react-precision-slider.css';
 import './UniformPanel.css';
 
 class UniformPanel extends Component {
-  handleChange(value, name, currentQuery) {
-    // Push the uniform key-value into the URL
-    const queryString = stringify(
-      Object.assign({}, currentQuery, { [name]: value })
-    );
-    this.props.history.push(`?${queryString}`);
-  }
-
-  getValuesForUniforms(uniforms, urlUniforms) {
-    const uniformValues = {};
-    Object.keys(uniforms).forEach(key => {
-      const defaultValue = uniforms[key].defaultValue;
-      const uniformValue = key in urlUniforms ? urlUniforms[key] : defaultValue;
-      uniformValues[key] = uniformValue;
-    });
-    return uniformValues;
-  }
-
-  createTabPane(group, uniforms, uniformValues, opts, key) {
+  createTabPane(group, uniforms, uniformConfigurations, key) {
+    // TODO This could use a clean up, names are confusing
     const paneUniforms = {};
     const paneUniformValues = {};
     group.uniforms.forEach(uniformKey => {
-      paneUniforms[uniformKey] = uniforms[uniformKey];
-      paneUniformValues[uniformKey] = uniformValues[uniformKey];
+      paneUniforms[uniformKey] = uniformConfigurations[uniformKey];
+      paneUniformValues[uniformKey] = uniforms[uniformKey];
     });
 
     return {
@@ -42,35 +22,30 @@ class UniformPanel extends Component {
         <UniformPane
           uniforms={paneUniforms}
           uniformValues={paneUniformValues}
-          onChange={(value, key) => this.handleChange(value, key, opts)}
+          onChange={(value, key) => this.props.updateUniform(key, value)}
         />
       )
     };
   }
 
   render() {
-    const { location } = this.props;
-    const {
-      shader = Constants.DEFAULT_SHADER,
-      shaderId,
-      ...urlUniforms
-    } = parse(location.search.substring(1));
-    if (!shader || !configurations[shader]) {
+    const { shader, uniforms } = this.props;
+    if (!configurations[shader]) {
       return null;
     }
 
-    const { groups = [], uniforms = {} } = configurations[shader];
-    // Read uniforms values from the URL or default from configurations
-    const uniformValues = this.getValuesForUniforms(uniforms, urlUniforms);
-    // Create uniform object to be used when a value changes
-    const opts = { shader, shaderId, ...uniformValues };
+    // Here we need also the uniform configuration (with labels, defaults, etc.)
+    const { groups = [], uniforms: uniformConfigurations } = configurations[
+      shader
+    ];
 
-    // Divide all uniforms into groups
+    // Divide all uniforms into groups and create tab for each
     let groupedUniforms = [];
     const panes = groups.map((group, index) => {
       groupedUniforms = groupedUniforms.concat(group.uniforms);
-      return this.createTabPane(group, uniforms, uniformValues, opts, index);
+      return this.createTabPane(group, uniforms, uniformConfigurations, index);
     });
+
     // Create one more tab for uniforms that didn't have any tab assigned
     const restUniformsKeys = Object.keys(uniforms).filter(
       u => !groupedUniforms.includes(u)
@@ -80,7 +55,7 @@ class UniformPanel extends Component {
       uniforms: restUniformsKeys
     };
     panes.push(
-      this.createTabPane(restGroup, uniforms, uniformValues, opts, 99)
+      this.createTabPane(restGroup, uniforms, uniformConfigurations, 99)
     );
 
     return (
@@ -94,4 +69,4 @@ class UniformPanel extends Component {
   }
 }
 
-export default withRouter(UniformPanel);
+export default withScene(UniformPanel);
