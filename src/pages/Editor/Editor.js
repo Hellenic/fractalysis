@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { Dimmer, Loader } from 'semantic-ui-react';
 import ShaderUniforms from './components/ShaderUniforms/ShaderUniforms';
+import CameraControl from './components/Controls/CameraControl';
 import Fractal from '../../components/Fractal/Fractal';
 import UniformPanel from './components/UniformPanel/UniformPanel';
 import parse from '../../utils/query-parser';
@@ -29,7 +30,9 @@ class Editor extends Component {
       <div>
         <UniformPanel />
         <ShaderUniforms>
-          <Fractal onSurfaceRef={this.onSurfaceRef} onDraw={this.onDraw} />
+          <CameraControl>
+            <Fractal onSurfaceRef={this.onSurfaceRef} onDraw={this.onDraw} />
+          </CameraControl>
         </ShaderUniforms>
         <Dimmer active={download} page onClickOutside={() => window.close()}>
           <Loader indeterminate size="big">

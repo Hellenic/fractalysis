@@ -33,8 +33,8 @@ It is also possible to render and download an image of the current set.
 
 ## Up-coming features
 
-- [ ] Controls: Vector control
-- [ ] Controls: Camera control with mouse
+- [ ] Controls: Continue on Camera control with mouse
+- [ ] Improvement: Too many components hook into withRouter or withUniforms
 - [ ] Shader composing (e.g. Mandelbrot + Bloom + HDR)
 
 ## Inspiration

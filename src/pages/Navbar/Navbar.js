@@ -38,7 +38,7 @@ class Navbar extends Component {
               <List.Item>
                 <small>Early development version</small>
                 <br />
-                <small>2020-10-10</small>
+                <small>2020-10-12</small>
               </List.Item>
               <List.Item>
                 <span>
