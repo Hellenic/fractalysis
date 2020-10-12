@@ -18,7 +18,6 @@ import parse from '../../../utils/query-parser';
   Note: In the URL the uniforms are spread out, so the URL is not 1:1
   stringification of Scene object
 */
-// TODO Verify that shaderId is no longer needed in the URL
 export default function withScene(WrappedComponent: React.ComponentType<any>) {
   const WithScene = (props: RouteComponentProps) => {
     const query = parse(props.location.search.substring(1));
