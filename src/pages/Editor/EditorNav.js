@@ -23,7 +23,7 @@ class EditorNavbar extends Component {
               Use different shaders and randomize to quickly make different
               scenes
             </li>
-            <li>Drag the image to move the camera</li>
+            {/* <li>Drag the image to move the camera</li> */}
             <li>Use the settings on the right to fine tune the scene</li>
           </ul>
         </Menu.Item>

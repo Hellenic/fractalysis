@@ -30,9 +30,9 @@ class Editor extends Component {
       <div>
         <UniformPanel />
         <ShaderUniforms>
-          <CameraControl>
-            <Fractal onSurfaceRef={this.onSurfaceRef} onDraw={this.onDraw} />
-          </CameraControl>
+          {/* <CameraControl> */}
+          <Fractal onSurfaceRef={this.onSurfaceRef} onDraw={this.onDraw} />
+          {/* </CameraControl> */}
         </ShaderUniforms>
         <Dimmer active={download} page onClickOutside={() => window.close()}>
           <Loader indeterminate size="big">
