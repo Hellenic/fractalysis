@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter, RouteComponentProps } from 'react-router';
+import { stringify } from 'qs';
 import { getUniformDefaultValues } from '../utils/uniforms';
 import Constants from '../../../constants';
 import { Uniforms } from '../../../types/index';
@@ -13,6 +14,9 @@ import parse from '../../../utils/query-parser';
 
   URL is the state for this application. Preferably this should be only component
   reading and modifying the URL (with exception of routing itself)
+
+  Note: In the URL the uniforms are spread out, so the URL is not 1:1
+  stringification of Scene object
 */
 export default function withScene(WrappedComponent: React.ComponentType<any>) {
   const WithScene = (props: RouteComponentProps) => {
@@ -28,12 +32,28 @@ export default function withScene(WrappedComponent: React.ComponentType<any>) {
     const defaultValues = getUniformDefaultValues(shader);
     const uniformValues: Uniforms = Object.assign({}, defaultValues, uniforms);
 
+    const handleUpdateUniform = (name: string, value: any) => {
+      // Merge the given uniform to rest of the current values
+      const updatedScene = Object.assign(
+        {},
+        { shader, ...uniformValues },
+        {
+          [name]: value
+        }
+      );
+
+      // Push the uniform key-value into the URL
+      const queryString = stringify(updatedScene);
+      props.history.push(`?${queryString}`);
+    };
+
     return (
       <WrappedComponent
         {...props}
         shader={shader}
         download={download}
         uniforms={uniformValues}
+        updateUniform={handleUpdateUniform}
       />
     );
   };

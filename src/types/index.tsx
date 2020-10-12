@@ -12,4 +12,5 @@ export interface WithSceneProps {
   shader: string;
   download: boolean;
   uniforms: Uniforms;
+  updateUniform: (uniformName: string, uniformValue: any) => void;
 }

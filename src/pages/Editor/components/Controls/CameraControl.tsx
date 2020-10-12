@@ -1,12 +1,10 @@
 import PropTypes from 'prop-types';
-import { stringify } from 'qs';
 import React, { Component } from 'react';
-import { RouteComponentProps, withRouter } from 'react-router';
+import withScene from '../../hocs/withScene';
+import { WithSceneProps } from '../../../../types/index';
 
-interface IProps extends RouteComponentProps {
+interface IProps extends WithSceneProps {
   children: any;
-  shader: string;
-  uniforms: any;
 }
 
 interface IState {
@@ -22,17 +20,6 @@ class CameraControl extends Component<IProps, IState> {
     prevClientX: 0,
     prevClientY: 0
   };
-
-  handleChange(value: any, name: string, currentQuery: object) {
-    // Push the uniform key-value into the URL
-    const queryString = stringify(
-      Object.assign({}, currentQuery, {
-        [name]: value,
-        shader: this.props.shader
-      })
-    );
-    this.props.history.push(`?${queryString}`);
-  }
 
   handleMouseDown(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     this.setState({
@@ -61,7 +48,8 @@ class CameraControl extends Component<IProps, IState> {
       uniformValue[1] + y,
       uniformValue[2]
     ];
-    this.handleChange(cameraPosition, uniformName, this.props.uniforms);
+
+    this.props.updateUniform(uniformName, cameraPosition);
   }
   render() {
     const { children, ...rest } = this.props;
@@ -79,4 +67,4 @@ class CameraControl extends Component<IProps, IState> {
   }
 }
 
-export default withRouter(CameraControl);
+export default withScene(CameraControl);
