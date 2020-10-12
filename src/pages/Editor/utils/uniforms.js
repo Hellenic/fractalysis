@@ -2,7 +2,6 @@ import configurations from '../configurations.json';
 
 const isInt = v => /^-?[0-9]+$/.test(`${v}`);
 
-// TODO Is there a library already for this?
 export function getUniformType(value) {
   switch (typeof value) {
     case 'boolean':
@@ -10,7 +9,7 @@ export function getUniformType(value) {
     case 'number':
       return isInt(value) ? 'int' : 'float';
     case 'object':
-      return Array.isArray(value) ? 'vec2' : null;
+      return getVectorType(value);
     default:
       console.warn(
         `Unsupported value type for value: ${value}. Add a new type configuration.`
@@ -28,6 +27,16 @@ export function getInputTypeForUniform(type) {
       return 'checkbox';
     default:
       return null;
+  }
+}
+
+export function getVectorType(value) {
+  // TODO Add support for other vectors
+  switch (value.length) {
+    case 2:
+      return 'vec2';
+    default:
+      return 'unknown vec';
   }
 }
 
