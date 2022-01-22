@@ -31,8 +31,10 @@ a configuration panel will be generated so the user can easily change any settin
 User may also save their shader selections and configurations to a preset, to come back to them later.
 It is also possible to render and download an image of the current set.
 
-## Up-coming features
+## TODO
 
+- [ ] Merge styling branch
+- [ ] Consider using https://github.com/hugozap/react-rotary-knob
 - [ ] Refactoring: All remaining JS files to TS
 - [ ] Refactoring: Clean all the TODOs
 - [ ] Controls: Continue on Camera control with mouse
