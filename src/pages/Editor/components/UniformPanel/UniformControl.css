@@ -4,10 +4,11 @@
 }
 
 .uniform-control__color {
-  padding: 0.5em 0em;
+  padding: 0em;
 }
-.uniform-control__color strong {
-  padding-right: 1em;
+.uniform-control__color input {
+  padding: 0;
+  margin: 4px;
 }
 
 .uniform-control__checkbox {

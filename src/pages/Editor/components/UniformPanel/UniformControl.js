@@ -30,20 +30,6 @@ class UniformControl extends Component {
       ...rest
     } = this.props;
 
-    if (inputType === 'color') {
-      return (
-        <div className="uniform-control__color">
-          <strong>{label}</strong>
-          <input
-            type={inputType}
-            value={floatToHex(value)}
-            {...rest}
-            onChange={e => onChange(hexToFloat(e.target.value))}
-          />
-        </div>
-      );
-    }
-
     const uniformType = getUniformType(value);
     let type = inputType || getInputTypeForUniform(uniformType);
 
@@ -60,8 +46,8 @@ class UniformControl extends Component {
         </div>
       );
     }
-
-    if (type === 'checkbox') {
+    // Default input types
+    else if (['checkbox'].includes(type)) {
       return (
         <div>
           <Checkbox
@@ -73,7 +59,7 @@ class UniformControl extends Component {
       );
     } else if (['color'].includes(inputType)) {
       return (
-        <div className="uniformcontrol-color">
+        <div className="uniform-control__color">
           <input
             type={type}
             value={floatToHex(value)}
