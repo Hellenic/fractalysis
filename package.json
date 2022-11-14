@@ -25,7 +25,7 @@
     "react-dom": "^16.8.2",
     "react-precision-slider": "^0.2.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "^2.1.5",
+    "react-scripts": "^5.0.1",
     "semantic-ui-react": "^0.85.0",
     "typescript": "^3.3.3"
   },
